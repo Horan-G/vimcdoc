@@ -20,12 +20,12 @@
 ==============================================================================
 *43.1*	为一类文件编写的插件*filetype-plugin*
 
-如果开始使用文件类型插件已经 |add-filetype-plugin| 在这里讨论过了。不过你很可
-能对缺省的最小设定不满意。假定对于所有 C 文件你希望将 'softtabstop' 选项定为4
-并定义一个插入三行注视的键盘映射。下面的两步可以做到这些:
+如何使用文件类型插件已经在 |add-filetype-plugin| 这里讨论过了。不过你很可能对
+缺省的最基本的设定不满意。假定对于所有 C 文件你希望将 'softtabstop' 选项定为4
+并定义一个插入三行注释的键盘映射。下面的两步可以做到:
 
 							*your-runtime-dir*
-1. 创建你自己的运行是目录。在 Unix 上通常是 "~/.vim". 在这个目录下创建
+1. 创建你自己的运行时目录。在 Unix 上通常是 "~/.vim"。在这个目录下创建
    "ftplugin" 目录: >
 
 	mkdir ~/.vim
@@ -36,8 +36,8 @@
 
 	set runtimepath
 
-<  通常你应该使用该列表中的第一个目录名 (第一个逗号之前的那个). 如果你不喜欢
-   缺省值的话，你也可以自己添加目录名到 'runtimepath' 选项中 |vimrc|.
+<  通常你应该使用该列表中的第一个目录名 (第一个逗号之前的那个)。如果你不喜欢
+   缺省值的话，你也可以自己添加目录名到 'runtimepath' 选项中 |vimrc|。
 
 2. 创建 "~/.vim/ftplugin/c.vim" 文件，并加入以下内容: >
 
@@ -53,7 +53,7 @@
 建立了一个仅对当前缓冲有效的映射。任何的映射命令 ":map!", ":vmap", 等都是如此。
 映射中的 |<LocalLeader>| 被 "maplocalleader" 所替代。
 
-在下面这个目录里你可以找到文件类型插件的例子: >
+在下面这个目录里你可以找到一些文件类型插件的例子: >
 
 	$VIMRUNTIME/ftplugin/
 
@@ -63,8 +63,8 @@
 ==============================================================================
 *43.2*	添加一个文件类型
 
-如果你正在使用一种 Vim 不认识的文件，这一节告诉你怎么讲这种文件介绍给 Vim. 你
-需要一个自己的运行是目录。参阅上面的 |your-runtime-dir|.
+如果你正在使用一种 Vim 不认识的文件，这一节告诉你怎么讲这种文件介绍给 Vim。 你
+需要一个自己的运行时目录。参阅上面的 |your-runtime-dir|.
 
 创建一个文件 "filetype.vim" 并加入一个为你的文件类型编写的自动命令。(关于自动
 命令的阐述在 |40.3|.)  例: >
@@ -81,7 +81,7 @@
 
 你可以使用各种各样的模式来匹配你的文件名。也可以包括目录名。见 
 |autocmd-patterns|. 例如，"/usr/share/scripts/" 目录下的文件都是 "ruby" 文件，
-但没有文件扩展名。假如如下的一行就可以了: >
+但没有文件扩展名。加入如下一行就可以了: >
 
 	augroup filetypedetect
 	au BufNewFile,BufRead *.xyz			setf xyz
@@ -89,8 +89,8 @@
 	augroup END
 
 然而，如果你编辑一个叫做 /usr/share/scripts/README.txt 的文件，那可不是 ruby
-文件。使用以 "*" 结尾的模式的不妥指出就在于它会匹配过多的文件。为了避免这种
-情况，把那个 filetype.vim 文件放到另外一个位于 'runtimepath' 最后的目录。以
+文件。使用以 "*" 结尾的模式的不妥之处就在于它会匹配过多的文件。为了避免这种
+情况，把那个 filetype.vim 文件放到那个位于 'runtimepath' 最后的目录。以
 Unix 为例，你可以用 "~/.vim/after/filetype.vim".
    现在你可以把文本文件的监测加入到 ~/.vim/filetype.vim: >
 
@@ -106,14 +106,14 @@ Unix 为例，你可以用 "~/.vim/after/filetype.vim".
 	augroup END
 
 Vim 会在每一个 'runtimepath' 列出的目录中查找 "filetype.vim" 文件。先是
-~/.vim/filetype.vim。匹配 *.txt 文件的自动命令时在那里定义的。接着 Vim 找到
+~/.vim/filetype.vim。匹配 *.txt 文件的自动命令是在那里定义的。接着 Vim 找到
 $VIMRUNTIME 中的 filetype.vim, 因为该目录在 'runtimepath' 的中部。最后
-~/.vim/after/filetype.vim 才被找到然后其中检测 ruby 文件的自动命令被添加到
+~/.vim/after/filetype.vim 才被找到，然后其中检测 ruby 文件的自动命令才被添加到
 系统中。
    现在你再编辑 /usr/share/scripts/README.txt 时, 自动命令是以其被定义的次序
-检测的。*.txt 模式被匹配了。这样 "setf text" 命令被执行将文件类型设定为
-"text". ruby 文件的模式也匹配了，"setf ruby" 被执行。但是因为 'filetype' 已经
-被设为 "text" 了，就什么也不会发生了。
+检测的。*.txt 模式被匹配了。这样 "setf text" 命令被执行, 将文件类型设定为
+"text"。 之后 ruby 文件的模式也匹配了，"setf ruby" 被执行。但是因为 'filetype' 
+已经被设为 "text" 了，就什么作用也不起了。
    当你编辑文件 /usr/share/scripts/foobar 同样的自动命令被检测。只有 ruby 文
 件的那个匹配，因此 "setf ruby" 命令将 'filetype' 设为 ruby.
 
@@ -125,8 +125,8 @@ $VIMRUNTIME 中的 filetype.vim, 因为该目录在 'runtimepath' 的中部。最后
 
 	#!/bin/xyz ~
 
-为了认出这个脚本，在你的运行是目录 (和你的 filetype.vim 在同一个目录) 下创建
-一个 "scripts.vim" 文件。可能看起来像这样: >
+为了认出这个脚本，在你的运行时目录 (和你的 filetype.vim 在同一个目录) 下创建
+一个 "scripts.vim" 文件。类似这样: >
 
 	if did_filetype()
 	  finish
@@ -135,9 +135,9 @@ $VIMRUNTIME 中的 filetype.vim, 因为该目录在 'runtimepath' 的中部。最后
 	  setf xyz
 	endif
 
-先用 did_filetype() 检查可以避免你无谓的检查已经被检测出文件类型的文件。这样
-就不必浪费时间检查了文件之后 "setf" 什么也做不了。
-   scripts.vim file 文件被缺省的 filetype.vim 文件中的一个自动命令调用。因此，
+先用 did_filetype() 可以避免你无谓的检查已经被检测出文件类型的文件。这样
+就不必浪费时间了: "setf" 一点作用也没有。
+   scripts.vim 文件被缺省的 filetype.vim 文件中的一个自动命令调用。因此，
 检测的次序是:
 
 	1. 'runtimepath' 内 $VIMRUNTIME 之前目录中的 filetype.vim 文件
@@ -146,7 +146,7 @@ $VIMRUNTIME 中的 filetype.vim, 因为该目录在 'runtimepath' 的中部。最后
 	4. $VIMRUNTIME/filetype.vim 余下的部分
 	5. 'runtimepath' 内 $VIMRUNTIME 之后目录中的 filetype.vim 文件
 
-如果这样对你还是不够的话，假如一个匹配所有文件的自动命令然后调用一个脚本或者
+如果这样对你还是不够的话，加入一个匹配所有文件的自动命令然后调用一个脚本或者
 执行一个函数来检查文件的内容。
 
 ==============================================================================

@@ -1,120 +1,110 @@
-*gui_x11.txt*   For Vim version 6.1.  Last change: 2001 Sep 07
+*gui_x11.txt*   For Vim version 6.1.  最后修改: 2001年9月7日
 
 
-		  VIM REFERENCE MANUAL    by Bram Moolenaar
+		  VIM 参考手册    作者：Bram Moolenaar
+		                  翻译：Zimin<cranecai@users.sf.net> 
+		                  VCD主页：http://vimcdoc.sf.net
 
 
-Vim's Graphical User Interface				*gui-x11* *GUI-X11*
+Vim 的图形用户界面					*gui-x11* *GUI-X11*
 							*Athena* *Motif*
-1. Starting the X11 GUI		|gui-x11-start|
-2. GUI Resources		|gui-resources|
-3. Shell Commands		|gui-pty|
-4. Various			|gui-x11-various|
-5. GTK version			|gui-gtk|
-6. GNOME version		|gui-gnome|
-7. Compiling			|gui-x11-compiling|
-8. X11 selection mechanism	|x11-selection|
+1. 启动 X11 GUI			|gui-x11-start|
+2. GUI 资源		|gui-resources|
+3. Shell 命令行		|gui-pty|
+4. 其他			|gui-x11-various|
+5. GTK 版本			|gui-gtk|
+6. GNOME 版本		|gui-gnome|
+7. 编译			|gui-x11-compiling|
+8. X11 选择机制	|x11-selection|
 
-Other relevant documentation:
-|gui.txt|	For generic items of the GUI.
+其他相关文章：
+|gui.txt|	所有的 GUI 版本的通用功能
 
-{Vi does not have any of these commands}
+{Vi 没有 Windows 图形界面}
 
 ==============================================================================
-1. Starting the X11 GUI					*gui-x11-start*
+1. 启动 X11 GUI					*gui-x11-start*
 
-Then you can run the GUI version of Vim in either of these ways:
+你可以通过以下任意一种方式来启动 GUI 界面:
     gvim [options] [files...]
     vim -g [options] [files...]
 
-So if you call the executable "gvim", or make "gvim" a link to the executable,
-then the GUI version will automatically be used.  Additional characters may be
-added after "gvim", for example "gvim-5".
+所以，如果你运行 "gvim"，或者做一个 "gvim" 连接到可执行文件上，你就可以自动运
+行 GUI 界面了。在 "gvim" 后可以添加字符，如 "gvim-5"。
 
-You may also start up the GUI from within the terminal version by using one of
-these commands:
+通过以下任意命令，你可以从终端界面进入 GUI 界面：
 	:gui [++opt] [+cmd] [-f|-b] [files...]			*:gu* *:gui*
 	:gvim [++opt] [+cmd] [-f|-b] [files...]			*:gv* *:gvim*
-The "-f" option runs Vim in the foreground.
-The "-b" option runs Vim in the background (this is the default).
-Also see |++opt| and |+cmd|.
+"-f" 参数在前台运行 Vim
+"-b" 参数在后台运行 Vim (默认).
+参考 |++opt| 和 |+cmd|.
 
 							*gui-fork*
-When the GUI is started, it does a fork() and exits the current process.
-When gvim was started from a shell this makes the shell accept further
-commands.  If you don't want this (e.g. when using gvim for a mail program
-that waits for gvim to exit), start gvim with "gvim -f", "vim -gf" or use
-":gui -f".  Don't use "vim -fg", because "-fg" specifies the foreground
-color.
 
-When using "gvim -f" and then ":gui", Vim will run in the foreground.  The
-"-f" argument will be remembered.  To force running Vim in the background use
-":gui -b".
+当 GUI 启动时，它调用 fork() 并退出当前进程。当 gvim 从 shell 启动时，这将使
+shell 接受其后更多的命令。如果你不想这样 （例如，当一邮件程序要等待运行的 
+gvim 退出时），可以用 "gvim -f" ，"vim -gf" 或 ":gui -f" 来启动。不要用"vim 
+-fg"，因为 "-fg" 表示前台颜色。
 
-If you want the GUI to run in the foreground always, include the 'f'
-flag in 'guioptions'.  |-f|.
+当用 "gvim -f" 启动，然后调用 ":gui" ，Vim 将在前台运行。参数 "-f" 将被记住。
+要强迫 Vim 在后台运行，调用 ":gui -b"。
+
+如果你想一直在前台运行 GUI，在 'guioptions' 加入 'f' 标志。  |-f|.
 
 ==============================================================================
-2. GUI Resources			*gui-resources* *.Xdefaults*
+2. GUI 资源			*gui-resources* *.Xdefaults*
 
-If using the Motif or Athena version of the GUI (not for the GTK+ or Win32
-version), a number of X resources are available.  You should use Vim's class
-"Vim" when setting these.  They are as follows:
+如果使用 Motif 或者 Athena 版本的 GUI （不是 GTK+ 或 Win32 版本），有很多 X
+资源可用。你应该使用 Vim 的分类来设置。它们被列如下：
 
-    Resource name	Meaning		~
+    资源名称	意义		~
 
-    reverseVideo	Boolean: should reverse video be used?
-    background		Color of background.
-    foreground		Color of normal text.
-    scrollBackground	Color of trough portion of scrollbars.
-    scrollForeground	Color of slider and arrow portions of scrollbars.
-    menuBackground	Color of menu backgrounds.
-    menuForeground	Color of menu foregrounds.
-    tooltipForeground	Color of tooltip and balloon foreground.
-    tooltipBackground	Color of tooltip and balloon background.
+    reverseVideo	布尔型: 是不是倒置视频？
+    background		背景色
+    foreground		普通文字颜色
+    scrollBackground	滚动条颜色
+    scrollForeground	滚动条滑块和箭头颜色
+    menuBackground	菜单背景色
+    menuForeground	菜单前景色
+    tooltipForeground	提示语前景色
+    tooltipBackground	提示语背景色
 
-    font		Name of font used for normal text.
-    boldFont		Name of font used for bold text.
-    italicFont		Name of font used for italic text.
-    boldItalicFont	Name of font used for bold, italic text.
-    menuFont		Name of font used for the menus, used when compiled
-			without the |+xfontset| feature
-    menuFontSet		Name of fontset used for the menus, used when compiled
-			with the |+xfontset| feature
-    tooltipFont		Name of the font used for the tooltip and balloons.
-			When compiled with the |+xfontset| feature this is a
-			fontset name.
+    font		普通文字的字体名称
+    boldFont		加粗文字的字体名称
+    italicFont		斜体文字的字体名称
+    boldItalicFont	加粗、斜体文字的字体名称
+    menuFont		菜单字体名称，编译时使用
+			除去 |+xfontset| 功能
+    menuFontSet		菜单字体集名称，编译时使用
+			伴随 |+xfontset| 功能
+    tooltipFont		提示语的字体名称
+			当用 |+xfontset| 功能一起编译时， 这是一个字体名称
 
-    geometry		Initial geometry to use for gvim's window (default
-			is same size as terminal that started it).
-    scrollbarWidth	Thickness of scrollbars.
-    borderWidth		Thickness of border around text area.
-    menuHeight		Height of the menu bar (only for Athena).
+    geometry		启动时的窗口形状（默认和终端窗口一样）
+    scrollbarWidth	滚动条宽度
+    borderWidth		边界宽度
+    menuHeight		菜单栏高度（仅对 Athena ）
 
-A special font for italic, bold, and italic-bold text will only be used if
-the user has specified one via a resource.  No attempt is made to guess what
-fonts should be used for these based on the normal text font at the moment.
+如果用户通过上述资源指定了一种字体，它将被使用。而不考虑它之前应该被使用的基
+本字体。
 
-Note that the colors can also be set with the ":highlight" command, using the
-"Normal", "Menu", "Tooltip", and "Scrollbar" groups.  Example: >
+注意：颜色也被 ":highlight" 命令设置，可以使用这几个组群，"Normal"，"Menu"，
+"Tooltip"，"Scrollbar"。例如： >
 	:highlight Menu guibg=lightblue
 	:highlight Tooltip guibg=yellow
 	:highlight Scrollbar guibg=lightblue guifg=blue
 	:highlight Normal guibg=grey90
 <
 							*font-sizes*
-Note: All fonts (except for the menu and tooltip) must be of the same size!!!
-If you don't do this, text will disappear or mess up the display.  Vim does
-not check the font sizes.  It's the size in screen pixels that must be the
-same.  Note that some fonts that have the same point size don't have the same
-pixel size!  Additionally, the positioning of the fonts must be the same
-(ascent and descent).  You can check this with "xlsfonts -l {fontname}".
+注意：所有的字体（除了菜单和工具按钮提示）必须是同样大小！！！如果你不这样做
+，文字将无法显示或混在一起。Vim 不检查字体大小。在屏幕象素中的尺寸必须一样。
+注意有些字体有同样的点阵尺寸但是象素尺寸却不同！另外，摆放方式也要一致（或升
+或降）。你可以用 "xlsfonts -l {fontname}" 核实。
 
-If any of these things are also set with Vim commands, eg with
-":set guifont=Screen15", then this will override the X resources (currently
-'guifont' is the only option that is supported).
+如果上述任何一个资源被用 Vim 命令设置后，例如用":set guifont=Screen15"，这将
+重置 X 资源。（目前仅支持 'guifont'）
 
-Here is an example of what you might put in your ~/.Xdefaults file: >
+这里有个例子，可以指导你如何设置 ~/.Xdefaults 文件： >
 
 	Vim*useSchemes:			all
 	Vim*sgiMode:			true
@@ -123,150 +113,132 @@ Here is an example of what you might put in your ~/.Xdefaults file: >
 	Vim.background:			Wheat
 	Vim*fontList:			7x13
 
-The first three of these are standard resources on Silicon Graphics machines
-which make Motif applications look even better, highly recommended!
+前三个是 Silicon Graphics 机器的标准资源，这将使 Motif 应用效果更好，推荐！
 
-The "Vim*fontList" is to set the menu font for Motif.  Example: >
+"Vim*fontList" Motif菜单字体设置。例如： >
 	Vim*menuBar*fontList:	     -*-courier-medium-r-*-*-10-*-*-*-*-*-*-*
-With Athena: >
+在Athena下： >
 	Vim*menuBar*SmeBSB*font:     -*-courier-medium-r-*-*-10-*-*-*-*-*-*-*
 	Vim*menuBar*MenuButton*font: -*-courier-medium-r-*-*-10-*-*-*-*-*-*-*
 
-NOTE: A more portable, and indeed more correct, way to specify the menu font
-in either Motif or Athena is through the resource: >
+注意：一个更通用，更完善，可同时在 Motif 和 Athena 使用的设置字体的方法： >
 	Vim.menuFont:	     -*-courier-medium-r-*-*-10-*-*-*-*-*-*-*
-Or, when compiled with the |+xfontset| feature: >
+也可, 在编译后用 |+xfontset| 功能: >
 	Vim.menuFontSet:     -*-courier-medium-r-*-*-10-*-*-*-*-*-*-*
 
-Don't use "Vim*geometry" in the defaults.  This will break the menus.  Use
-"Vim.geometry" instead.
+用 "Vim.geometry" 替代 "Vim*geometry"。不然，将破坏菜单。
 
-If you get an error message "Cannot allocate colormap entry for "gray60",
-try adding this to your Vim resources (change the colors to your liking): >
+如果出现 "Cannot allocate colormap entry for "gray60" 的错误信息，试试在你的
+Vim 资源中加入这些（改变成你喜欢的颜色）： >
 
 	Vim*scrollBackground:		Black
 	Vim*scrollForeground:		Blue
 
-The resources can also be set with arguments to vim:
+资源也可用 Vim 参数来设定：
 
     argument		meaning	~
 							*-gui*
-   -display {display}	Run vim on {display}		*-display*
-   -iconic		Start vim iconified		*-iconic*
-   -background {color}	Use {color} for the background	*-background*
-   -bg {color}		idem				*-bg*
-   -foreground {color}	Use {color} for normal text	*-foreground*
-   -fg {color}		idem				*-fg*
-   -ul {color}		idem				*-ul*
-   -font {font}		Use {font} for normal text	*-font*
-   -fn {font}		idem				*-fn*
-   -boldfont {font}	Use {font} for bold text	*-boldfont*
-   -italicfont {font}	Use {font} for italic text	*-italicfont*
-   -menufont {font}	Use {font} for menu items	*-menufont*
-   -menufontset {fontset} Use {fontset} for menu items	*-menufontset*
-   -mf {font}		idem				*-mf*
-   -geometry {geom}	Use {geom} for initial geometry	*-geometry*
-   -geom {geom}		idem				*-geom*
-   -borderwidth {width}	Use a border width of {width}	*-borderwidth*
-   -bw {width}		idem				*-bw*
+   -display {display}	运行 Vim 在 {display}		*-display*
+   -iconic		图标化运行 Vim		*-iconic*
+   -background {color}	背景使用 {color}	*-background*
+   -bg {color}		同上				*-bg*
+   -foreground {color}	普通文字使用 {color}	*-foreground*
+   -fg {color}		同上				*-fg*
+   -ul {color}		同上				*-ul*
+   -font {font}		普通文字使用 {font}	*-font*
+   -fn {font}		普通文字使用 				*-fn*
+   -boldfont {font}	粗体字使用 {font} 	*-boldfont*
+   -italicfont {font}	斜体字使用 {font}	*-italicfont*
+   -menufont {font}	菜单使用 {font} 	*-menufont*
+   -menufontset {fontset} 菜单项使用 {fontset} 	*-menufontset*
+   -mf {font}		同上				*-mf*
+   -geometry {geom}	 初始时形状使用 {geom} 	*-geometry*
+   -geom {geom}		同上				*-geom*
+   -borderwidth {width}	使用宽度 {width}	*-borderwidth*
+   -bw {width}		同上				*-bw*
 							*-scrollbarwidth*
-   -scrollbarwidth {width}	Use a scrollbar width of {width}
-   -sw {width}		idem				*-sw*
-   -menuheight {height}	Use a menu bar height of {height} *-menuheight*
-   -mh {height}		idem				*-mh*
-			NOTE: On Motif the value is ignored, the menu height
-			is computed to fit the menus.
-   -reverse		Use reverse video		*-reverse*
-   -rv			idem				*-rv*
-   +reverse		Don't use reverse video		*-+reverse*
-   +rv			idem				*-+rv*
-   -xrm {resource}	Set the specified resource	*-xrm*
+   -scrollbarwidth {width}	滚动条宽度使用 {width}
+   -sw {width}		使用				*-sw*
+   -menuheight {height}	菜单栏高度使用 {height} *-menuheight*
+   -mh {height}		同上				*-mh*
+			注意：Motif 忽略此值，自动计算菜单得到
+   -reverse		使用逆视频		*-reverse*
+   -rv			同上				*-rv*
+   +reverse		不使用逆视频		*-+reverse*
+   +rv			同上				*-+rv*
+   -xrm {resource}	设定特指资源	*-xrm*
 
-Note about reverse video: Vim checks that the result is actually a light text
-on a dark background.  The reason is that some X11 versions swap the colors,
-and some don't.  These two examples will both give yellow text on a blue
-background:
+有关逆视频的注意事项：Vim 确定最终效果是在暗的背景配亮文字。这就是有些版本的
+ X11 可以交换颜色，有些不可以。以下两个例子都是设定了黄色字体、蓝色背景：
     gvim -fg Yellow -bg Blue -reverse
     gvim -bg Yellow -fg Blue -reverse
 
 ==============================================================================
-3. Shell Commands					*gui-pty*
+3. Shell 命令行					*gui-pty*
 
-WARNING: Executing an external command from the GUI will not always work.
-"normal" commands like "ls", "grep" and "make" mostly work fine.  Commands
-that require an intelligent terminal like "less" and "ispell" won't work.
-Some may even hang and need to be killed from another terminal.  So be
-careful!
+警告：从 GUI 中执行外部命令并不总是有效。"normal" 命令如，"ls"、"grep"、
+"make"一般是有效的。那些需要智能终端的命令如，"less"、"ispell"就未必了。有些
+甚至可能使 GUI 挂起，以至于要从另外个终端里杀死它。所以要小心。
 
-There are two ways to do the I/O with a shell command: Pipes and a pseudo-tty.
-The default is to use a pseudo-tty.  This should work best on most systems.
+有两种方式同 shell 做 I/O：管道和伪终端。默认是伪终端，它可以很好的工作在许多
+系统上。 
 
-Unfortunately, the implementation of the pseudo-tty is different on every Unix
-system.  And some systems require root permission.  To avoid running into
-problems with a pseudo-tty when you least expect it, test it when not editing
-a file.  Be prepared to "kill" the started command or Vim.  Commands like
-":r !cat" may hang!
+不幸的是，伪终端的实现在每个 Unix系统上是不同的。并且，一些系统上需要管理员权
+限。为了避免这类问题，先尝试一下。准备好“杀死”启动的命令或 Vim。如":r !cat"
 
-If using a pseudo-tty does not work for you, reset the 'guipty' option: >
+如无法使用伪终端，重置 'guipty' 选项： >
 
 	:set noguipty
 
-Using a pipe should work on any Unix system, but there are disadvantages:
-- Some shell commands will notice that a pipe is being used and behave
-  differently.  E.g., ":!ls" will list the files in one column.
-- The ":sh" command won't show a prompt, although it will sort of work.
-- When using ":make" it's not possible to interrupt with a CTRL-C.
+管道可用在任一 Unix 系统上，但也有缺点：
+- 一些 shell 命令会注意到管道正在被使用，而表现不一。如 ":!ls"，将在一栏里列
+  文件。
+- ":sh" 命令将不显示提示符，尽管它应该显示。
+- 当使用 ":make"时，很可能无法用 CTRL-C中断。
 
-Typeahead while the external command is running is often lost.  This happens
-both with a pipe and a pseudo-tty.  This is a known problem, but it seems it
-can't be fixed (or at least, it's very difficult).
+当外部命令运行时，事先键入的内容经常丢失。这在管道和伪终端中，都有发生。这是
+个已知的问题，但看上去无法解决（至少，很困难）。
 
 							*gui-pty-erase*
-When your erase character is wrong for an external command, you should fix
-this in your "~/.cshrc" file, or whatever file your shell uses for
-initializations.  For example, when you want to use backspace to delete
-characters, but hitting backspaces produces "^H" instead, try adding this to
-your "~/.cshrc": >
+当你删除键工作不正常，你应该修改 "~/.cshrc"文件，或无论哪个文件只要是用于你的
+shell 初始化的。如，当你使用退格键来删除字符时，反而产生了 "^H"，添加这些内容
+到 "~/.cshrc"： >
 	stty erase ^H
-The ^H is a real CTRL-H, type it as CTRL-V CTRL-H.
+^H 是 CTRL-H，要键入它，用 CTRL-V CTRL-H.
 
 ==============================================================================
-4. Various						*gui-x11-various*
+4. 其他						*gui-x11-various*
 
 							*gui-x11-printing*
-The "File/Print" menu simply sends the current buffer to "lpr".  No options or
-whatever.  If you want something else, you can define your own print command.
-For example: >
+"File/Print" 仅仅是发送当前的缓冲内容到"lpr"。没有参数或其他东西。如果你需要
+其他效果，可以定义你自己的打印命令。如: >
 
   :10amenu File.Print :w !lpr -Php3
   :10vmenu File.Print :w !lpr -Php3
 <
 							*X11-icon*
-Vim uses a black&white icon by default when compiled with Motif or Athena.  A
-colored Vim icon is included as $VIMRUNTIME/vim32x32.xpm.  For GTK+, this is
-the builtin icon used.  Unfortunately, how you should install it depends on
-your window manager.  When you use this, remove the 'i' flag from
-'guioptions', to remove the black&white icon: >
+在默认的已编译的 Motif 或 Athena 环境下，Vim使用黑白按钮。一个彩色的 Vim 图标
+包含在 $VIMRUNTIME/vim32x32.xpm 。在 GTK+ ，这是内建的图标。不幸的是，你该怎
+样安装它依赖于你的窗口管理器。你可以从 'guioptions' 除去 'i'标志，来除去黑白
+按钮： >
   :set guioptions-=i
 
-If you use one of the fvwm* family of window managers simply add this line to
-your .fvwm2rc configuration file: >
+如果你使用 fvwm* 系列窗口管理器，只要在 .fvwm2rc 配置文件中加入： >
 
   Style "vim"		Icon vim32x32.xpm
 
-Make sure the icon file's location is consistent with the window manager's
-IconPath statement.  Either modify the IconPath from within your .fvwm2rc or
-drop the icon into one the pre-defined directories:
+确定图标文件的位置在窗口管理器图标路径的声明中。或在 .fvwm2rc 修改图标路径，或
+将图标放入以下已定义的任一目录中：
 
   IconPath /usr/X11R6/include/X11/pixmaps:/usr/X11R6/include/X11/bitmaps >
 
-For CDE "dtwm" (a derivative of Motif) add this line in the .Xdefaults: >
+在 CDE "dtwm" （Motif 的延伸版）的 .Xdefaults 中加入这一行： >
    Dtwm*Vim*iconImage: /usr/local/share/vim/vim32x32.xpm
 
-For "mwm" (Motif window manager) the line would be: >
+在 "mwm" (Motif 窗口管理器) 用: >
    Mwm*Vim*iconImage: /usr/local/share/vim/vim32x32.xpm
 
-Mouse Pointers Available in X11				*X11_mouse_shapes*
+X11 中可用鼠标指针				*X11_mouse_shapes*
 
 By using the |'mouseshape'| option, the mouse pointer can be automatically
 changed whenever vim enters one of its various modes (e.g., Insert or
@@ -292,7 +264,7 @@ If a name is used that exists on other systems, but not in X11, the default
 "arrow" pointer is used.
 
 ==============================================================================
-5. GTK version						*gui-gtk* *GTK+* *GTK*
+5. GTK 版本						*gui-gtk* *GTK+* *GTK*
 
 The GTK version of the GUI works a little bit different.
 
@@ -368,7 +340,7 @@ Note that this feature requires the latest GTK version.  GTK 1.2.10 still has
 a small problem.
 
 ==============================================================================
-6. GNOME version				*gui-gnome* *Gnome* *GNOME*
+6. GNOME 版本				*gui-gnome* *Gnome* *GNOME*
 
 The Gnome GUI works just like the GTK version.  It only looks a bit different.
 See |GTK| above for how it works.
@@ -386,7 +358,7 @@ These are the different looks:
 Gnome is automatically compiled with if it was found by configure.
 
 ==============================================================================
-7. Compiling						*gui-x11-compiling*
+7. 编译						*gui-x11-compiling*
 
 If using X11, Vim's Makefile will by default first try to find the necessary
 GTK+ files on your system.  If the GTK+ files cannot be found, then the Motif
@@ -435,7 +407,7 @@ X11R5 with a library for X11R6 probably doesn't work (although the linking
 won't give an error message, Vim will crash later).
 
 ==============================================================================
-8. X11 selection mechanism				*x11-selection*
+8. X11 选择机制				*x11-selection*
 
 If using X11, in either the GUI or an xterm with an X11-aware Vim, then Vim
 provides varied access to the X11 selection and clipboard.  These are accessed
