@@ -1,4 +1,4 @@
-*usr_24.txt*	For Vim version 6.1.		×îºóÐÞ¸ÄÊ±¼ä: 2001Äê9ÔÂ27ÈÕ
+*usr_24.txt*	For Vim version 6.2.		×îºóÐÞ¸ÄÊ±¼ä: 2001Äê9ÔÂ27ÈÕ
 
 		     VIM ÓÃ»§ÊÖ²á - Bram Moolenaar Öø
                                     Chimin Yen Òë
@@ -6,9 +6,9 @@
 			      ¿ìËÙ²åÈë 
 
 
-ÊäÈëÎÄ±¾Ê±, Vim Ìá¹©Äã¸÷ÖÖ¸÷ÑùµÄ·½·¨À´¼õÉÙ¼ü»÷´ÎÊýºÍ±ÜÃâ´ò×Ö´íÎó. Äã¿ÉÒÔÀûÓÃ
-²åÈëÄ£Ê½ÏÂµÄ²¹È«¹¦ÄÜÀ´ÖØ¸´ÏÈÇ°´ò¹ýµÄµ¥´Ê. Ò²¿ÉÒÔ°Ñ³¤´ÊËõÐ´³É¶Ì´Ê. ÉõÖÁ¿ÉÒÔ´ò
-³öÄã¼üÅÌÉÏÃ»ÓÐµÄ×Ö·û.
+ÊäÈëÎÄ±¾Ê±£¬Vim Ìá¹©Äã¸÷ÖÖ¸÷ÑùµÄ·½·¨À´¼õÉÙ¼ü»÷´ÎÊýºÍ±ÜÃâ´ò×Ö´íÎó¡£Äã¿ÉÒÔÀûÓÃ
+²åÈëÄ£Ê½ÏÂµÄ²¹È«¹¦ÄÜÀ´ÖØ¸´ÏÈÇ°´ò¹ýµÄµ¥´Ê¡£Ò²¿ÉÒÔ°Ñ³¤´ÊËõÐ´³É¶Ì´Ê¡£ÉõÖÁ¿ÉÒÔ´ò
+³öÄã¼üÅÌÉÏÃ»ÓÐµÄ×Ö·û¡£
 
 |24.1|	¸üÕý
 |24.2|	ÏÔÊ¾Æ¥Åä
@@ -28,31 +28,31 @@
 ==============================================================================
 *24.1*	¸üÕý
 
-ÍË¸ñ¼ü <BS> ÒÑ¾­ÔÚÇ°ÃæÌá¹ýÁË. ËüÉ¾³ýÄÇ¸öÎ»ÓÚ¹â±êÇ°Ò»¸ñµÄ×Ö·û. ¶øÉ¾³ý¼ü <Del> 
-ÔòÉ¾³ý¹â±êÏÂ(»òÕßËµ¹â±êºóÒ²¿ÉÒÔ)µÄÄÇ¸ö×Ö·û.
-   µ±Äã°ÑÕû¸ö´Ê¶¼´ò´íÁËµÄÊ±ºò, ÓÃ CTRL-W À´¸üÕý:
+ÍË¸ñ¼ü <BS> ÒÑ¾­ÔÚÇ°ÃæÌá¹ýÁË¡£ËüÉ¾³ýÎ»ÓÚ¹â±êÇ°Ò»¸ñµÄ×Ö·û¡£¶øÉ¾³ý¼ü <Del> 
+ÔòÉ¾³ý¹â±êÏÂ(»òÕßËµ¹â±êºóÒ²¿ÉÒÔ)µÄÄÇ¸ö×Ö·û¡£
+   µ±Äã°ÑÕû¸ö´Ê¶¼´ò´íÁËµÄÊ±ºò£¬ÓÃ CTRL-W À´¸üÕý:
 
 	The horse had fallen to the sky ~
 				       CTRL-W
 	The horse had fallen to the ~
 
-Èç¹ûÄã°ÑÒ»ÐÐ×ÖÅªµÃ²»¿ÉÊÕÊ°, ¶øÒª´ÓÍ·À´¹ýµÄ»°, ÓÃ CTRL-U À´É¾³ý. Õâ¸öÃüÁî±£ÁôÁË
-¹â±êÖ®ºóµÄÎÄ±¾, Ò²±£ÁôÁËÐÐÊ×µÄËõ½ø. ËüÖ»É¾³ýÁË×ÔµÚÒ»¸ö·Ç¿Õ×Ö·ûÖÁ¹â±êÎ»ÖÃÖ®¼äµÄ
-ÎÄ±¾. ÈÃ¹â±êÎ»ÓÚÏÂÒ»ÐÐÖÐ "fallen" µÄ "f" ÉÏ, °´ CTRL-U, ÎÄ±¾¾Í³ÉÁËÕâÑù:
+Èç¹ûÄã°ÑÒ»ÐÐ×ÖÅªµÃ²»¿ÉÊÕÊ°£¬¶øÒª´ÓÍ·À´¹ýµÄ»°£¬ÓÃ CTRL-U À´É¾³ý¡£Õâ¸öÃüÁî±£ÁôÁË
+¹â±êÖ®ºóµÄÎÄ±¾£¬Ò²±£ÁôÁËÐÐÊ×µÄËõ½ø¡£ËüÖ»É¾³ýÁË×ÔµÚÒ»¸ö·Ç¿Õ×Ö·ûÖÁ¹â±êÎ»ÖÃÖ®¼äµÄ
+ÎÄ±¾¡£ÈÃ¹â±êÎ»ÓÚÏÂÒ»ÐÐÖÐ "fallen" µÄ "f" ÉÏ£¬°´ CTRL-U, ÎÄ±¾¾Í³ÉÁËÕâÑù:
 
 	The horse had fallen to the ~
 		      CTRL-U
 	fallen to the ~
 
-µ±Äã·¢ÏÖ¼¸¸ö´ÊÖ®Ç°ÓÐ¸ö´íÎó, ÄãÐèÒª°Ñ¹â±êÒÆµ½ÄÇ¶ù×÷¸üÕýËü. ÀýÈç, Äã´òÁËÕâÑùÒ»ÐÐ:
+µ±Äã·¢ÏÖ¼¸¸ö´ÊÖ®Ç°ÓÐ¸ö´íÎó£¬ÄãÐèÒª°Ñ¹â±êÒÆµ½ÄÇ¶ù×÷¸üÕý¡£ÀýÈç, Äã´òÁËÕâÑùÒ»ÐÐ:
 
 	The horse had follen to the ground ~
 
-ÄãÒª°Ñ "follen" ¸Ä³É "fallen". ÈÃ¹â±êÁôÔÚÐÐÎ², ÄãÊäÈëÕâ¸ö×Ö·û´®¾ÍÄÜ¸üÕýÄÇ´íÎó: >
+ÄãÒª°Ñ "follen" ¸Ä³É "fallen"¡£ÈÃ¹â±êÁôÔÚÐÐÎ²£¬ÄãÊäÈëÕâ¸ö×Ö·û´®¾ÍÄÜ¸üÕýÄÇ´íÎó: >
 
 					<Esc>4blraA
 
-<	ÍÑÀë²åÈëÄ£Ê½      		<Esc>
+<	ÍÑÀë²åÈëÄ£Ê½			<Esc>
 	ÍË»Ø4¸öµ¥´Ê			     4b
 	ÒÆµ½×ÖÄ¸ "o" ÉÏ 		       l
 	ÒÔ×ÖÄ¸ "a" Ìæ´ú 			ra
@@ -68,53 +68,53 @@
 	²åÈë×ÖÄ¸ "a"					    a
 	ÒÆµ½ÐÐÎ²        				     <End>
 
-Õâ·½·¨ÈÃÄãÁôÔÚ²åÈëÄ£Ê½ÏÂ, ÀûÓÃÌØÊâ¼üÀ´ÒÆ¶¯¹â±ê. ÕâÀàËÆÓÚÄãÔÚÒ»¸ö²»·ÖÄ£Ê½µÄ±à¼­
-Æ÷ÀïËù²ÉÓÃµÄ²Ù×÷·½·¨. Ëü±È½ÏÈÝÒ×¼Ç×¡, µ«±È½Ï·ÑÊÂ (Äã±ØÐë°ÑÄãµÄÊÖ´Ó×ÖÄ¸¼üÒÆ¶¯µ½
-¹â±ê·½Ïò¼ü, ¶øÇÒ, ²»¿´¼üÅÌÄÑÒÔ°´×¼ <End> ¼ü). 
-   ÕâÐ©ÌØÊâ¼üÔÚÊéÐ´Ò»¸ö²åÈëÄ£Ê½ÏÂµÄÓ³ÉäÊ±·Ç³£ÓÐÓÃ. ¶îÍâµÄÌØÊâ¼ü¼ÐÔÚÖÐ¼ä²¢²»Ó°Ïì
-Ó³Éä. (ÒëÕß×¢: ´Ë´¦ÒëÕßÒ²²»ÖªºÎÖ¸, µ«Ô­ÎÄÈç´Ë, ÒëÕßÒÑ¾­¾¡Á¦ÖÒÊµÁË.).
+ÕâÖÖ·½·¨ÈÃÄãÁôÔÚ²åÈëÄ£Ê½ÏÂ£¬ÀûÓÃÌØÊâ¼üÀ´ÒÆ¶¯¹â±ê¡£ÕâÀàËÆÓÚÄãÔÚÒ»¸ö²»·ÖÄ£Ê½µÄ±à¼­
+Æ÷ÀïËù²ÉÓÃµÄ²Ù×÷·½·¨¡£Ëü±È½ÏÈÝÒ×¼ÇÒä£¬µ«±È½Ï·ÑÊÂ (Äã±ØÐë°ÑÄãµÄÊÖ´Ó×ÖÄ¸¼üÒÆ¶¯µ½
+¹â±ê·½Ïò¼ü£¬¶øÇÒ, ²»¿´¼üÅÌÄÑÒÔ°´×¼ <End> ¼ü)¡£
+   ÕâÐ©ÌØÊâ¼üÔÚÊéÐ´Ò»¸öÍ£ÁôÔÚ²åÈëÄ£Ê½ÏÂµÄÓ³ÉäÊ±·Ç³£ÓÐÓÃ¡£¶îÍâËùÐèµÄ¼üÅÌÂ¼ÈëÒ²ÊÇ
+ÖµµÃµÄ¡£
    ÄãÔÚ²åÈëÄ£Ê½ÏÂ¿ÉÒÔÀûÓÃµÄÌØÊâ¼üÓÐÒÔÏÂÕâÐ©:
 
-	<C-Home>	ÒÆµ½ÎÄ¼þ¿ªÍ·
-	<PageUp>	ÉÏÒÆÒ»ÆÁ
+	<C-Home>	ÒÆµ½ÎÄ¼þÊ×
+	<PageUp>	ÉÏ¾íÒ»ÆÁ
 	<Home>		ÒÆµ½ÐÐÊ×
 	<S-Left>	×óÒÆÒ»¸öµ¥´Ê
 	<C-Left>	×óÒÆÒ»¸öµ¥´Ê
 	<S-Right>	ÓÒÒÆÒ»¸öµ¥´Ê
 	<C-Right>	ÓÒÒÆÒ»¸öµ¥´Ê
 	<End>		ÒÆµ½ÐÐÎ²
-	<PageDown>	ÏÂÒÆÒ»ÆÁ
-	<C-End>		ÒÆµ½ÎÄ¼þ½áÎ²
+	<PageDown>	ÏÂ¾íÒ»ÆÁ
+	<C-End>		ÒÆµ½ÎÄ¼þÎ²
 
-»¹ÓÐºÜ¶à¼ü, ²Î¼û |ins-special-special|.
+»¹ÓÐºÜ¶à¼ü£¬²Î¼û |ins-special-special|¡£
 
 ==============================================================================
 *24.2*	ÏÔÊ¾Æ¥Åä
 
-Äã¼üÈëÒ»¸öÓÒÀ¨ºÅ ) Ê±, ºÜÏ£ÍûÖªµÀËüÆ¥ÅäÄÄ¸ö×óÀ¨ºÅ (. ÒªÈÃ Vim ÕâÃ´×ö, ÓÃÏÂÃæÕâ
-¸öÃüÁî:
+Äã¼üÈëÒ»¸öÓÒÀ¨ºÅ ) Ê±£¬Èç¹ûÄÜÖªµÀËüÆ¥ÅäÄÄ¸ö×óÀ¨ºÅ ( »áºÜ·½±ã¡£ÒªÈÃ Vim
+×öµ½Õâµã£¬ÓÃÏÂÃæÕâ¸öÃüÁî: >
 
 	:set showmatch
 
-ÏÖÔÚÄã¼üÈë±ÈÈç "(example)" ÕâÑù¼¸¸ö×Ö, Äã¸Õ¼üÈëÓÒÀ¨ºÅ ), Vim ¾Í°Ñ¹â±êÉÁµ½Æ¥ÅäµÄ
-×óÀ¨ºÅ ( ÉÏ, ÔÚÄÇ¶ùµÈ´ý°ëÃëÖÓ, È»ºó·µ»ØÔ­´¦.
-   ¼Ù¶¨Æ¥ÅäµÄ×óÀ¨ºÅ²»´æÔÚ, Vim ¾ÍÃùÆðÏìÁå. ÕâÑùÄã¾ÍÒâÊ¶µ½Äã¿ÉÄÜÔÚÄÄ¶ùÍüÁËÒ»¸ö×ó
-À¨ºÅ, »ò¼üÈëÁËÌ«¶à´ÎµÄÓÒÀ¨ºÅ.
-   Vim Ò²»áÎª [] ºÍ {} ÕâÑùµÄÀ¨ºÅÏÔÊ¾Æ¥Åä. Äã²»±ØµÈ´ý¹â±ê·µ»ØÔ­´¦²Å¼üÈëÏÂÒ»¸ö×Ö
-·û, Ö»ÒªÏÂÒ»¸ö×Ö·ûÒ»¼üÈë, ¹â±ê¾Í»á·µ»Ø, ¶ø²åÈë¾Í»á¸úÒÔÇ°Ò»Ñù¼ÌÐø.
-   Äã¿ÉÒÔÓÃ 'matchtime' Ñ¡Ïî¸Ä±ä Vim ÔÚÆ¥ÅäÀ¨ºÅÉÏµÈ´ýµÄÊ±¼ä. ÀýÈç, ÒªÈÃ Vim µÈ´ý 
+ÏÖÔÚÄã¼üÈë±ÈÈç "(example)" ÕâÑù¼¸¸ö×Ö£¬µ±Äã¼üÈëÓÒÀ¨ºÅ ) Ê±, Vim ¾Í°Ñ¹â±êÉÁµ½Æ¥ÅäµÄ
+×óÀ¨ºÅ ( ÉÏ£¬ÔÚÄÇ¶ùÍ£Áô°ëÃëÖÓ, È»ºó·µ»ØÔ­´¦¡£
+   Èç¹ûÆ¥ÅäµÄ×óÀ¨ºÅ²»´æÔÚ£¬Vim ¾ÍÃùÆðÏìÁå¡£ÕâÑùÄã¾Í»áÏëÆðÀ´Äã¿ÉÄÜÔÚÄÄ¶ùÍüÁËÒ»¸ö×ó
+À¨ºÅ£¬»ò¼üÈëÁËÌ«¶à´ÎµÄÓÒÀ¨ºÅ¡£
+   Vim Ò²»áÎª [] ºÍ {} ÕâÑùµÄÀ¨ºÅÏÔÊ¾Æ¥Åä¡£Äã²»±ØµÈ´ý¹â±ê·µ»ØÔ­´¦²Å¼üÈëÏÂÒ»¸ö×Ö
+·û£¬Ö»ÒªÏÂÒ»¸ö×Ö·ûÒ»¼üÈë, ¹â±ê¾Í»á·µ»Ø, ¶ø²åÈë¾Í»á¸úÒÔÇ°Ò»Ñù¼ÌÐø¡£
+   Äã¿ÉÒÔÓÃ 'matchtime' Ñ¡Ïî¸Ä±ä Vim ÔÚÆ¥ÅäÀ¨ºÅÉÏÍ£ÁôµÄÊ±¼ä¡£ÀýÈç£¬ÒªÈÃ Vim µÈ´ý 
 1.5Ãë: >
 
 	:set matchtime=15
 
-Ö¸¶¨µÄÊ±¼äÒÔ10ÃëÎªµ¥Î».
+Ö¸¶¨µÄÊ±¼äÒÔ 1/10 ÃëÎªµ¥Î»¡£
 
 ==============================================================================
 *24.3*	²¹È«
 
-Vim ÄÜ×Ô¶¯²¹È«²åÈëµÄµ¥´Ê. Äã¼üÈëÒ»¸öµ¥´ÊµÄ¿ªÍ·²¿·Ö, °´ CTRL-P, È»ºó Vim ¾Í²Â²â
-ÓàÏÂµÄ²¿·Ö.
-   ÀýÈç, ¼Ù¶¨Äã´´½¨ÁËÒ»¸ö C ³ÌÐò, ²¢Òª¼üÈëÒÔÏÂÓï¾ä:
+Vim ÄÜ×Ô¶¯²¹È«²åÈëµÄµ¥´Ê¡£Äã¼üÈëÒ»¸öµ¥´ÊµÄ¿ªÍ·²¿·Ö£¬°´ CTRL-P, Vim ¾Í»áÎªÄã²Â²â
+ÓàÏÂµÄ²¿·Ö¡£
+   ÀýÈç£¬¼Ù¶¨ÄãÕýÔÚ½¨Á¢Ò»¸ö C ³ÌÐò, ²¢Òª¼üÈëÒÔÏÂÓï¾ä:
 
 	total = ch_array[0] + ch_array[1] + ch_array[2]; ~
 
@@ -122,68 +122,69 @@ Vim ÄÜ×Ô¶¯²¹È«²åÈëµÄµ¥´Ê. Äã¼üÈëÒ»¸öµ¥´ÊµÄ¿ªÍ·²¿·Ö, °´ CTRL-P, È»ºó Vim ¾Í²Â²â
 
 	total = ch_array[0] + ch_ ~
 
-´ËÊ±, ÄãÓÃÃüÁî CTRL-P ¸æËß Vim ²¹È«Õâ¸ö´Ê. Vim ¾Í»áËÑË÷ÒÔ¹â±êÇ°×Ö·û´®¿ªÍ·µÄ´Ê.
-ÔÚÕâ¸öÀý×ÓÖÐ, ¾ÍÊÇ "ch_", Óë´Ê ch_array Æ¥Åä.  ËùÒÔ, ¼üÈë CTRL-P ¾Í¸øÁËÄãÏÂÃæµÄ
+´ËÊ±£¬ÄãÓÃÃüÁî CTRL-P ¸æËß Vim À´²¹È«Õâ¸ö´Ê¡£Vim ¾Í»áËÑË÷ÒÔ¹â±êÇ°×Ö·û´®¿ªÍ·µÄ´Ê¡£
+ÔÚÕâ¸öÀý×ÓÖÐ£¬¾ÍÊÇ "ch_"£¬Óë´Ê ch_array Æ¥Åä¡£ËùÒÔ£¬¼üÈë CTRL-P ¾Í»áµÃµ½¸øÏÂÃæµÄ
 ½á¹û:
 
 	total = ch_array[0] + ch_array ~
 
-ÔÙ¼üÈë¼¸¸ö×Ö·ûºó, ÄãµÄÓï¾ä¾Í³ÉÁËÕâÑù(½áÎ²ÊÇ¿Õ¸ñ):
+ÔÙ¼üÈë¼¸¸ö×Ö·ûÊ¹Õâ¸öÓï¾ä±ä³ÉÕâÑù(½áÎ²ÊÇ¿Õ¸ñ):
 
 	total = ch_array[0] + ch_array[1] +  ~
 
-Èç¹ûÄãÏÖÔÚ¼üÈë CTRL-P, Vim ½«ÔÙ´ÎËÑË÷ÒÔ²¹È«¹â±êÇ°µÄ´Ê. ÓÉÓÚ¹â±êÇ°ÊÇ¿Õ¸ñ, ËüÕÒµ½
-µÄÊÇµ¹ÊýµÚÒ»¸ö´Ê, ¼´ "ch_array".  ÔÙ¼üÈë CTRL-P ¸øÄãÏÂÒ»¸öÆ¥ÅäµÄ´Ê, ÔÚ±¾ÀýÖÐ¾Í
-ÊÇ "total".  µÚÈý´Î CTRL-P ËÑÑ°¸üÇ°ÃæµÄ. Èç¹ûÄÇ¶ùÃ»ÆäËüµÄÁË, ±à¼­Æ÷¾Í»áÏÝÈëÎÞ´Ê
-¿ÉÅä, ËùÒÔËÑË÷¾Í·µ»ØÔ­´¦, ¼´ÄÇ¸ö¿Õ¸ñ. µÚËÄ´Î CTRL-P µ¼ÖÂ±à¼­Æ÷ÖÜ¶ø¸´Ê¼, ÓÖÕÒµ½
-"ch_array".
+Èç¹ûÄãÏÖÔÚ¼üÈë CTRL-P£¬Vim ½«ÔÙ´ÎËÑË÷ÒÔ²¹È«¹â±êÇ°µÄ´Ê¡£ÓÉÓÚ¹â±êÇ°ÊÇ¿Õ¸ñ, ËüÕÒµ½
+µÄÊÇÖ®Ç°µÄµÚÒ»¸ö´Ê£¬¼´ "ch_array"¡£ ÔÙ¼üÈë CTRL-P ¸øÄãÏÂÒ»¸öÆ¥ÅäµÄ´Ê£¬ÔÚ±¾ÀýÖÐ¾Í
+ÊÇ "total"¡£µÚÈý´Î CTRL-P ËÑÑ°¸üÇ°ÃæµÄ¡£Èç¹ûÄÇ¶ùÃ»ÆäËüµÄÁË£¬±à¼­Æ÷¾Í»áÏÝÈëÎÞ´Ê
+¿ÉÅä×´Ì¬£¬ËùÒÔËÑË÷¾Í·µ»ØÔ­´¦£¬¼´ÄÇ¸ö¿Õ¸ñ¡£µÚËÄ´Î CTRL-P µ¼ÖÂ±à¼­Æ÷ÖÜ¶ø¸´Ê¼£¬ÓÖÕÒ
+µ½ "ch_array"¡£
 
-ÍùÇ°ËÑË÷, ÓÃ CTRL-N. ¼ÈÈ»ÔÚÎÄ¼þ½áÎ²ËÑË÷ÓÖÈÆ»Ø¿ªÍ·, CTRL-N ºÍ CTRL-P ½«ÕÒµ½ÏàÍ¬
-µÄÆ¥Åä, µ«ÒÔ²»Í¬µÄË³Ðò. ÌáÊ¾: CTRL-N ÒâÎªÏÂÒ»¸öÆ¥Åä, ¶ø CTRL-P ÒâÎªÇ°Ò»¸öÆ¥Åä.
+ÍùÇ°ËÑË÷£¬ÓÃ CTRL-N¡£ÓÉÓÚÔÚÎÄ¼þ½áÎ²ËÑË÷ÓÖÈÆ»Ø¿ªÍ·£¬CTRL-N ºÍ CTRL-P ½«ÕÒµ½ÏàÍ¬
+µÄÆ¥Åä£¬µ«Ë³Ðò²»Í¬¡£ÌáÊ¾: CTRL-N ÒâÎªÏÂÒ»¸öÆ¥Åä, ¶ø CTRL-P ÒâÎªÇ°Ò»¸öÆ¥Åä¡£
+£¨ÒëÕß£ºÓ¢ÎÄ Next ÒâÎªÏÂÒ»¸ö£¬Previous ÒâÎªÇ°Ò»¸ö£©
 
-Vim ±à¼­Æ÷¾­ÀúÖÖÖÖÅ¬Á¦À´²¹È«²»ÍêÕûµÄ´Ê. Ä¬ÈÏÇé¿öÏÂ, ËüËÑË÷ÈçÏÂÒ»Ð©µØ·½:
+Vim ±à¼­Æ÷»á·Ç³£Å¬Á¦µÄÀ´²¹È«²»ÍêÕûµÄ´Ê¡£Ä¬ÈÏÇé¿öÏÂ£¬ËüËÑË÷ÈçÏÂÒ»Ð©µØ·½:
 
-	1. µ±Ç°ÎÄ¼þ
-	2. ÆäËü´°¿ÚÄÚµÄÎÄ¼þ
-	3. ÆäËüÔØÈëÎÄ¼þ (ÒþÐÔ»º³å)
-	4. Î´ÔØÈëÎÄ¼þ (¶èÐÔ»º³å)
-	5. ±ê¼ÇÎÄ¼þ
-	6. ±»µ±Ç°ÎÄ¼þÒÔ #include Óï¾ä°üº¬µÄËùÓÐÎÄ¼þ
-
-
-Ñ¡Ïî
-
-Äã¿ÉÒÔÀûÓÃ 'complete' Ñ¡Ïî¶¨ÖÆËÑË÷Ë³Ðò.
-
-'ignorecase' Ñ¡ÏîÒ²¿ÉÀûÓÃ. Éè¶¨Õâ¸öÑ¡Ïîºó, ËÑÑ°Æ¥ÅäÊ±´óÐ¡Ð´µÄÇø±ð¾ÍÎÞ¹Ø½ôÒªÁË.
-
-Ò»¸öÌØÊâµÄ²¹È«Ñ¡ÏîÊÇ 'infercase'. ËüµÄÓÃ´¦ÊÇÔÚÑ°ÕÒÆ¥ÅäÊ±²»¼Æ´óÐ¡Ð´ ('ignorecase'
-±ØÐëÏÈÉè¶¨), µ«ÕÒµ½Æ¥ÅäºóÈÔÈ»²ÉÓÃÒÑ¼üÈë²¿·ÖµÄ´óÐ¡Ð´. ÕâÑù, Èç¹ûÄã¼üÈë "For" ¶ø 
-Vim ÕÒµ½ÁËÆ¥Åä "fortunately", Ëù²úÉúµÄ½á¹û½«ÊÇ "Fortunately".
+	1.µ±Ç°ÎÄ¼þ
+	2.ÆäËü´°¿ÚÄÚµÄÎÄ¼þ
+	3.ÆäËüÔØÈëÎÄ¼þ (ÒþÐÔ»º³å)
+	4.Î´ÔØÈëÎÄ¼þ (¶èÐÔ»º³å)
+	5.±ê¼ÇÎÄ¼þ
+	6.±»µ±Ç°ÎÄ¼þÒÔ #include Óï¾ä°üº¬µÄËùÓÐÎÄ¼þ
 
 
-²¹È«ÌØ¶¨ÏîÄ¿
+Ñ¡ Ïî
 
-Èç¹ûÄãÃ÷°×ÄãÒªÕÒÊ²Ã´, ÄÇÃ´Äã¿ÉÒÔÓÃÕâÐ©ÃüÁîÀ´²¹È«Ä³ÖÖÀàÐÍµÄÏîÄ¿:
+Äã¿ÉÒÔÀûÓÃ 'complete' Ñ¡Ïî¶¨ÖÆËÑË÷Ë³Ðò¡£
+
+»¹¿ÉÒÔÊ¹ÓÃ 'ignorecase' Ñ¡Ïî¡£Éè¶¨Õâ¸öÑ¡Ïîºó£¬ËÑÑ°Æ¥ÅäÊ±´óÐ¡Ð´µÄÇø±ð¾Í»á±»ºöÂÔ¡£
+
+Ò»¸öÌØÊâµÄ²¹È«Ñ¡ÏîÊÇ 'infercase'¡£ËüµÄÓÃ´¦ÊÇÔÚÑ°ÕÒÆ¥ÅäÊ±²»¼Æ´óÐ¡Ð´ ('ignorecase'
+±ØÐëÏÈ±»Éè¶¨)£¬µ«ÈÔÈ»²ÉÓÃÒÑ¼üÈë²¿·ÖµÄ´óÐ¡Ð´×÷¡£ÕâÑù, Èç¹ûÄã¼üÈë "For" ¶øVim ÕÒµ½
+ÁËÆ¥Åä "fortunately"£¬Ëù²úÉúµÄ½á¹û½«ÊÇ "Fortunately"¡£
+
+
+²¹ È« ÌØ ¶¨ ÎÄ ±¾
+
+Èç¹ûÄãÖªµÀÄãÒªÕÒÊ²Ã´£¬ÄÇÃ´Äã¿ÉÒÔÓÃÕâÐ©ÃüÁîÀ´²¹È«Ä³ÖÖÀàÐÍµÄÎÄ±¾:
 
 	CTRL-X CTRL-F		ÎÄ¼þÃû
 	CTRL-X CTRL-L		ÕûÐÐ
 	CTRL-X CTRL-D		ºê¶¨Òå (²¢ËÑË÷Ëù°üº¬µÄÎÄ¼þ)
 	CTRL-X CTRL-I		µ±Ç°ÎÄ¼þÒÔ¼°Ëù°üº¬µÄÎÄ¼þ
-	CTRL-X CTRL-K		´ÊµäµÄµ¥´Ê
-	CTRL-X CTRL-T		½üÒå´Ê´ÊµäµÄµ¥´Ê
+	CTRL-X CTRL-K		´ÊµäÎÄ¼þÄÚµÄµ¥´Ê
+	CTRL-X CTRL-T		½üÒå´Ê´ÊµäÎÄ¼þÄÚµÄµ¥´Ê
 	CTRL-X CTRL-]		±ê¼Ç
 	CTRL-X CTRL-V		Vim ÃüÁîÐÐ
 
-Ã¿¸öÃüÁîÖ®ºó, CTRL-N ¿ÉÒÔÓÃÀ´ËÑË÷ÏÂÒ»¸öÆ¥Åä, ¶ø CTRL-P ÔòÓÃÓÚËÑË÷Ç°Ò»¸öÆ¥Åä.
-   ¹ØÓÚÃ¿¸öÃüÁîµÄÏêÏ¸ÓÃ·¨, ²Î¼û: |ins-completion|.
+Ã¿¸öÃüÁîÖ®ºó£¬CTRL-N ¿ÉÒÔÓÃÀ´ËÑË÷ÏÂÒ»¸öÆ¥Åä£¬¶ø CTRL-P ÔòÓÃÓÚËÑË÷Ç°Ò»¸öÆ¥Åä¡£
+   ¹ØÓÚÃ¿¸öÃüÁîµÄÏêÏ¸ÓÃ·¨£¬²Î¼û: |ins-completion|¡£
 
 
-²¹È«ÎÄ¼þÃû
+²¹ È« ÎÄ ¼þ Ãû
 
-ÈÃÎÒÃÇÒÔ CTRL-X CTRL-F ÎªÀý. Õâ¸öÃüÁî½«ÕÒÑ°ÎÄ¼þÃû. ËüÔÚµ±Ç°Ä¿Â¼ÀïËÑË÷ÎÄ¼þ, ²¢ÏÔ
-Ê¾Ã¿Ò»¸öÓë¹â±êÇ°µ¥´ÊÆ¥ÅäµÄÎÄ¼þÃû.
-   ÀýÈç, ¼Ù¶¨ÄãÔÚµ±Ç°Ä¿Â¼ÀïÓÐÏÂÃæÕâÐ©ÎÄ¼þ:
+ÎÒÃÇÒÔ CTRL-X CTRL-F ÎªÀý¡£Õâ¸öÃüÁî½«ÕÒÑ°ÎÄ¼þÃû¡£ËüÔÚµ±Ç°Ä¿Â¼ÀïËÑË÷ÎÄ¼þ£¬²¢ÏÔ
+Ê¾Ã¿Ò»¸öÓë¹â±êÇ°µ¥´ÊÆ¥ÅäµÄÎÄ¼þÃû¡£
+   ÀýÈç£¬¼Ù¶¨ÄãÔÚµ±Ç°Ä¿Â¼ÀïÓÐÏÂÃæÕâÐ©ÎÄ¼þ:
 
 	main.c  sub_count.c  sub_done.c  sub_exit.c
 
@@ -191,39 +192,39 @@ Vim ÕÒµ½ÁËÆ¥Åä "fortunately", Ëù²úÉúµÄ½á¹û½«ÊÇ "Fortunately".
 
 	The exit code is in the file sub ~
 
-¾ÍÔÚÕâµãÉÏ, ÄãÊäÈë CTRL-X CTRL-F. ÏÖÔÚ, Vim Í¨¹ý²é¿´µ±Ç°Ä¿Â¼ÀïµÄÎÄ¼þÀ´²¹È«µ±Ç°
-´Ê "sub". ×î³õµÄÆ¥ÅäÊÇ sub_count.c. Õâ²»ÊÇÄãÒªµÄ, ËùÒÔÄã°´ CTRL-N ÒÔÆ¥ÅäÏÂÒ»¸ö
-ÎÄ¼þ. Õâ´ÎÆ¥ÅäµÄÊÇ sub_done.c. ÔÙ¼üÈë CTRL-N ¸øÁËÄã sub_exit.c.  ½á¹û:
+¾ÍÔÚÕâµãÉÏ£¬ÄãÊäÈë CTRL-X CTRL-F¡£ÏÖÔÚ, Vim Í¨¹ý²é¿´µ±Ç°Ä¿Â¼ÀïµÄÎÄ¼þÀ´²¹È«µ±Ç°
+´Ê "sub"¡£×î³õµÄÆ¥ÅäÊÇ sub_count.c¡£Õâ²»ÊÇÄãÏëÒªµÄ£¬ËùÒÔÄã°´ CTRL-N ÒÔÆ¥ÅäÏÂÒ»
+¸öÎÄ¼þ¡£Õâ´ÎÆ¥ÅäµÄÊÇ sub_done.c¡£ÔÙ¼üÈë CTRL-N ¸øÁËÄã sub_exit.c¡£½á¹û:
 
 	The exit code is in the file sub_exit.c ~
 
-Èç¹ûÎÄ¼þÃûÒÔ / (Unix) »ò C:\ (MS-Windows) ¿ªÍ·, ÄÇÃ´Äã¾ÍÄÜËÑË÷ÎÄ¼þÏµÍ³ÏÂËùÓÐµÄ
-ÎÄ¼þ. ÀýÈç, ¼üÈë "/u" È»ºó CTRL-X CTRL-F, Õâ½«Æ¥Åä "/usr" (ÕâÊÇÔÚ Unix ÉÏ):
+Èç¹ûÎÄ¼þÃûÒÔ / (Unix) »ò C:\ (MS-Windows) ¿ªÍ·£¬ÄÇÃ´Äã¾ÍÄÜËÑË÷ÎÄ¼þÏµÍ³ÏÂËùÓÐµÄ
+ÎÄ¼þ¡£ÀýÈç£¬¼üÈë "/u" È»ºó CTRL-X CTRL-F, Õâ½«Æ¥Åä "/usr" (ÕâÊÇÔÚ Unix ÉÏ):
 
 	the file is found in /usr/ ~
 
-Èç¹ûÄãÏÖÔÚ°´ CTRL-N, Äã¾ÍÓÖ»Øµ½ "/u". ½ÓÊÜ "/usr/" ²¢½øÈëÏÂÒ»²ãÄ¿Â¼, ÔÙÀ´Ò»´Î 
+Èç¹ûÄãÏÖÔÚ°´ CTRL-N£¬Äã¾ÍÓÖ»Øµ½ "/u"¡£½ÓÊÜ "/usr/" ²¢½øÈëÏÂÒ»²ãÄ¿Â¼, ÔÙÀ´Ò»´Î 
 CTRL-X CTRL-F:
 
 	the file is found in /usr/X11R6/ ~
 
-µ±È», Æ¥Åä½á¹ûÈ¡¾öÓÚÄãµÄÎÄ¼þÏµÍ³ÉÏÓÐÊ²Ã´ÎÄ¼þ. Æ¥Åä½á¹ûÒÔ×ÖÄ¸Ë³ÐòÀ´ÅÅÁÐ.
+µ±È»£¬Æ¥Åä½á¹ûÈ¡¾öÓÚÄãµÄÎÄ¼þÏµÍ³ÉÏÓÐÊ²Ã´ÎÄ¼þ¡£Æ¥Åä½á¹ûÒÔ×ÖÄ¸Ë³ÐòÀ´ÅÅÁÐ¡£
 
 ==============================================================================
 *24.4*	ÖØ¸´Ò»´Î²åÈë
 
-Èç¹ûÄã°´ CTRL-A, ±à¼­Æ÷¾Í°ÑÄãÉÏ´ÎÔÚ²åÈëÄ£Ê½ÏÂÊäÈëµÄÎÄ±¾ÔÙÊäÈëÒ»´Î. 
-   ±ÈÈç, ¼Ù¶¨ÄãÓÐ¸öÎÄ¼þ, ¿ªÍ·ÊÇÕâÑùµÄ:
+Èç¹ûÄã°´ CTRL-A£¬±à¼­Æ÷¾Í°ÑÄãÉÏ´ÎÔÚ²åÈëÄ£Ê½ÏÂÊäÈëµÄÎÄ±¾ÔÙÊäÈëÒ»´Î¡£
+   ±ÈÈç£¬¼Ù¶¨ÄãÓÐ¸öÎÄ¼þ£¬¿ªÍ·ÊÇÕâÑùµÄ:
 
 	"file.h" ~
 	/* Main program begins */ ~
 
-Äã±à¼­Õâ¸öÎÄ¼þ, ÔÚµÚÒ»ÐÐ¿ªÊ¼´¦²åÈë "#include ":
+ÄãÔÚµÚÒ»ÐÐ¿ªÊ¼´¦²åÈë "#include ":
 
 	#include "file.h" ~
 	/* Main program begins */ ~
 
-ÄãÔÙÓÃÃüÁî "j^" ÍùÏÂÀ´µ½ÏÂÒ»ÐÐµÄ¿ªÊ¼´¦. ÏÖÔÚÄã¿ªÊ¼²åÈëÒ»¸öÐÂµÄ "#include" ÐÐ. 
+ÄãÔÙÓÃÃüÁî "j^" ÍùÏÂÀ´µ½ÏÂÒ»ÐÐµÄ¿ªÊ¼´¦¡£ÏÖÔÚÄã¿ªÊ¼²åÈëÒ»¸öÐÂµÄ "#include" ÐÐ¡£
 ËùÒÔÄã¼üÈë: >
 
 	i CTRL-A
@@ -233,27 +234,27 @@ CTRL-X CTRL-F:
 	#include "file.h" ~
 	#include /* Main program begins */ ~
 
-"#include " ±»²åÈëÊÇÒòÎª CTRL-A ²åÈëÉÏ´Î²åÈë¹ýµÄÎÄ±¾. ÏÖÔÚÄã¼üÈë "main.h"<Enter>
-ÒÔ½áÊøÕâÒ»ÐÐ:
+"#include " ±»²åÈëÊÇÒòÎª CTRL-A »á²åÈëÉÏ´Î²åÈë¹ýµÄÎÄ±¾¡£ÏÖÔÚÄã¼üÈë "main.h"
+<Enter> ÒÔ½áÊøÕâÒ»ÐÐ:
 
 
 	#include "file.h" ~
 	#include "main.h" ~
 	/* Main program begins */ ~
 
-CTRL-@ ÃüÁî×öÁË CTRL-A Ëù×öµÄ¹¤×÷ÒÔºóÍË³ö²åÈëÄ£Ê½. ÄÇÊÇÖØ¸´²åÈëÒ»Ä£Ò»ÑùµÄÎÄ±¾µÄ
-¿ì½Ý·½·¨.
+CTRL-@ ÃüÁî»áÍê³É CTRL-A µÃ²Ù×÷ºóÍË³ö²åÈëÄ£Ê½¡£ÕâÊÇÒ»¸ö¿ìËÙÖØ¸´²åÈëÒ»Ä£Ò»ÑùµÄ
+ÎÄ±¾µÄÒ»¸ö·½·¨¡£
 
 ==============================================================================
 *24.5*	´ÓÁíÒ»ÐÐ¿½±´
 
-CTRL-Y ÃüÁî²åÈë¹â±êÉÏ·½µÄ×Ö·û. µ±Äã¸´ÖÆÇ°Ò»ÐÐÎÄ±¾µÄÊ±ºò, Õâ¸öÃüÁîºÜÓÐÓÃ. ÀýÈç, 
+CTRL-Y ÃüÁî²åÈë¹â±êÉÏ·½µÄ×Ö·û¡£µ±Äã¸´ÖÆÇ°Ò»ÐÐÎÄ±¾µÄÊ±ºò£¬Õâ¸öÃüÁîºÜÓÐÓÃ¡£ÀýÈç£¬
 ÄãÓÐÕâÃ´Ò»ÐÐ C ´úÂë:
 
 	b_array[i]->s_next = a_array[i]->s_next; ~
 
-ÏÖÔÚÄãÐèÒª°ÑÕâÒ»ÐÐÔÙ¼üÈëÒ»´Î, ²¢ÒÔ "s_prev" È¡´ú "s_next". »»ÐÐÒÔºó, °´14´Î 
-CTRL-Y, Ö±µ½¹â±êÎ»ÓÚ "next" µÄ "n" ÉÏ: 
+ÏÖÔÚÄãÐèÒª°ÑÕâÒ»ÐÐÔÙ¼üÈëÒ»´Î£¬²¢ÒÔ "s_prev" È¡´ú "s_next"¡£»»ÐÐÒÔºó, °´14´Î 
+CTRL-Y£¬Ö±µ½¹â±êÎ»ÓÚ "next" µÄ "n" ÉÏ: 
 
 	b_array[i]->s_next = a_array[i]->s_next;~
 	b_array[i]->s_ ~
@@ -268,25 +269,25 @@ CTRL-Y, Ö±µ½¹â±êÎ»ÓÚ "next" µÄ "n" ÉÏ:
 	b_array[i]->s_next = a_array[i]->s_next;~
 	b_array[i]->s_prev = a_array[i]->s_ ~
 
-ÏÖÔÚ¼üÈë "prev;" ÒÔ½áÊøÕâÒ»ÐÐ.
+ÏÖÔÚ¼üÈë "prev;" ÒÔ½áÊøÕâÒ»ÐÐ¡£
 
-CTRL-E ÃüÁî²Ù×÷ÆðÀ´¸ú CTRL-Y Ò»Ñù, Ö»²»¹ýËü²åÈë¹â±êÏÂ·½µÄ×Ö·û.
+CTRL-E ÃüÁî²Ù×÷ÆðÀ´¸ú CTRL-Y Ò»Ñù£¬Ö»²»¹ýËü²åÈë¹â±êÏÂ·½µÄ×Ö·û¡£
 
 ==============================================================================
 *24.6*	²åÈëÒ»¸ö¼Ä´æÆ÷ÄÚÈÝ
 
-ÃüÁî CTRL-R {register} ²åÈë¼Ä´æÆ÷ÀïµÄÄÚÈÝ. ËüµÄÓÃ´¦ÊÇÈÃÄã²»±Ø¼üÈë³¤´Ê. ÀýÈç, 
+ÃüÁî CTRL-R {register} ²åÈë¼Ä´æÆ÷ÀïµÄÄÚÈÝ¡£ËüµÄÓÃ´¦ÊÇÈÃÄã²»±Ø¼üÈë³¤´Ê¡£ÀýÈç£¬
 ÄãÒªÊäÈëÏÂÃæÕâÐ©:
 
 	r = VeryLongFunction(a) + VeryLongFunction(b) + VeryLongFunction(c) ~
 
-Õâ¸öº¯ÊýµÄ¶¨Òå¼ûÓÚÁíÒ»¸öÎÄ¼þ. ±à¼­ÄÇ¸öÎÄ¼þ²¢°Ñ¹â±êÒÆµ½¸Ãº¯ÊýÃûÉÏ, È»ºó°ÑÎÄ¼þÃû
+Õâ¸öº¯ÊýµÄ¶¨Òå¼ûÓÚÁíÒ»¸öÎÄ¼þ¡£±à¼­ÄÇ¸öÎÄ¼þ²¢°Ñ¹â±êÒÆµ½¸Ãº¯ÊýÃûÉÏ£¬È»ºó°ÑÎÄ¼þÃû
 ÉãÈë¼Ä´æÆ÷ v: >
 
 	"vyiw
 
-"v Ö¸¶¨¼Ä´æÆ÷, "yiw" ÒâË¼ÊÇÉãÈëÒ»¸ö´Ê, ²»º¬¿Õ¸ñ (yank-inner-word). ÏÖÔÚ±à¼­ÄÇ¸ö
-Òª²åÈëÒ»ÐÐ´úÂëµÄÎÄ¼þ, ÏÈ¼üÈë¿ªÍ·¼¸¸ö×Ö·û:
+"v Ö¸¶¨¼Ä´æÆ÷£¬"yiw" ÒâË¼ÊÇ¿½±´Ò»¸ö´Ê£¬²»º¬¿Õ¸ñ (yank-inner-word)¡£ÏÖÔÚ±à¼­ÄÇ¸ö
+Òª²åÈëÒ»ÐÐ´úÂëµÄÎÄ¼þ£¬ÏÈ¼üÈë¿ªÍ·¼¸¸ö×Ö·û:
 
 	r = ~
 
@@ -294,70 +295,70 @@ CTRL-E ÃüÁî²Ù×÷ÆðÀ´¸ú CTRL-Y Ò»Ñù, Ö»²»¹ýËü²åÈë¹â±êÏÂ·½µÄ×Ö·û.
 
 	r = VeryLongFunction ~
 
-Äã½ÓÏÂÀ´ÔÚº¯ÊýÃûºóÃæ¼üÈëÆäËü±ØÒª×Ö·û, È»ºóÔÙÓÃÁ½´Î CTRL-R v.
-   Äã±¾À´¿ÉÒÔÓÃ²¹È«¹¦ÄÜÀ´Íê³ÉÍ¬ÑùµÄ¹¤×÷. µ«µ±ÄãÓÐºÃ¼¸¸ö´Ê, Æä¿ªÍ·¼¸¸ö×Ö·û¶¼Ò»Ñù
-µÄÊ±ºò, ¼Ä´æÆ÷¾ÍÓÐÓÃ¶àÁË.
+Äã½ÓÏÂÀ´ÔÚº¯ÊýÃûºóÃæ¼üÈëÆäËü±ØÒª×Ö·û£¬È»ºóÔÙÓÃÁ½´Î CTRL-R v¡£
+   ÄãÒ²¿ÉÒÔÓÃ²¹È«¹¦ÄÜÀ´Íê³ÉÍ¬ÑùµÄ¹¤×÷¡£µ«µ±ÄãÓÐºÃ¼¸¸ö´Ê£¬Æä¿ªÍ·¼¸¸ö×Ö·û¶¼Ò»Ñù
+µÄÊ±ºò£¬¼Ä´æÆ÷¾ÍÓÐÓÃ¶àÁË¡£
 
-Èç¹û¼Ä´æÆ÷´æ·Å×ÅÖîÈç <BS> »òÆäËüÌØÊâ×Ö·û, ÕâÐ©×Ö·û¾Í±»½âÊÍ³ÉºÃÏñËüÃÇ±¾À´ÊÇ´Ó¼ü
-ÅÌ¼üÈëµÄ. Èç¹ûÄã²»ÒªÕâÑù½âÊÍ (ÄãÈ·ÊµÒªÔÚÎÄ±¾ÖÐ²åÈë <BS>), ÄÇÃ´¾ÍÓÃÃüÁî CTRL-R
-CTRL-R {register}.
+Èç¹û¼Ä´æÆ÷´æ·Å×ÅÖîÈç <BS> »òÆäËüÌØÊâ×Ö·û£¬ÕâÐ©×Ö·û¾Í±»½âÊÍ³ÉºÃÏñËüÃÇ±¾À´ÊÇ´Ó¼ü
+ÅÌ¼üÈëµÄ¡£Èç¹ûÄã²»ÒªÕâÑù½âÊÍ (ÄãÈ·ÊµÒªÔÚÎÄ±¾ÖÐ²åÈë <BS>)£¬ÄÇÃ´ÒªÃüÁî CTRL-R
+CTRL-R {register}¡£
 
 ==============================================================================
 *24.7*	ËõÐ´
 
-ËõÐ´ÊÇÈ¡´úÒ»¸ö³¤´ÊµÄ¶Ì´Ê. ÀýÈç, "ad" Ö¸´ú "advertisement".  Vim ÈÃÄã¼üÈëËõÐ´, 
-È»ºóÎªÄã×Ô¶¯À©Õ¹.
-   ÓÃÒÔÏÂÃüÁî¸æËß Vim, Ã¿µ±ÄãÊäÈë "ad" ¾Í°ÑËüÀ©Õ¹³É "advertisement": >
+ËõÐ´ÊÇÈ¡´úÒ»¸ö³¤´ÊµÄ¶Ì´Ê¡£ÀýÈç£¬"ad" Ö¸´ú "advertisement"¡£ Vim ÈÃÄã¼üÈëËõÐ´£¬
+È»ºóÎªÄã×Ô¶¯À©Õ¹¡£
+   ÓÃÒÔÏÂÃüÁî¸æËß Vim£¬Ã¿µ±ÄãÊäÈë "ad" ¾Í°ÑËüÀ©Õ¹³É "advertisement": >
 
 	:iabbrev ad advertisement
 
-ÏÖÔÚ, µ±Äã¼üÈë "ad", ÍêÕûµÄµ¥´Ê 'advertisement" ¾Í±»²åÈëÎÄ±¾. ¼üÈëÒ»¸ö²»¿ÉÄÜ
-³ÉÎªµ¥´ÊÒ»²¿·ÖµÄ×Ö·û, ÀýÈçÒ»¸ö¿Õ¸ñ, ¾Í»á´¥·¢ËõÐ´¹¦ÄÜ:
+ÏÖÔÚ£¬µ±Äã¼üÈë "ad"£¬ÍêÕûµÄµ¥´Ê 'advertisement" ¾Í±»²åÈëÎÄ±¾¡£¼üÈëÒ»¸ö²»¿ÉÄÜ
+³ÉÎªµ¥´ÊÒ»²¿·ÖµÄ×Ö·û£¬ÀýÈçÒ»¸ö¿Õ¸ñ, ¾Í»á´¥·¢ËõÐ´¹¦ÄÜ:
 
 	ÊäÈëµÄÎÄ±¾		¿´µ½µÄÎÄ±¾
 	I saw the a		I saw the a ~
 	I saw the ad		I saw the ad ~
 	I saw the ad<Space>	I saw the advertisement<Space> ~
 
-µ±Äã½ö½ö¼üÈë "ad" Ê±, À©Õ¹²¢Ã»·¢Éú. Ëü¿ÉÒÔ±»ÄãÊäÈë³ÉÒ»¸ö²»¿ÉÀ©Õ¹µÄ´ÊÈç "add".
-Vim Ö»ÈÏ¿ÉÍêÕûµÄËõÐ´´Ê.
+µ±Äã½ö½ö¼üÈë "ad" Ê±£¬À©Õ¹²¢Ã»·¢Éú¡£Ëü¿ÉÒÔ±»ÄãÊäÈë³ÉÒ»¸ö²»¿ÉÀ©Õ¹µÄ´ÊÈç "add"¡£
+Vim Ö»¶ÔÄÇÐ©ÍêÕûµÃ´Ê¼ì²éËõÐ´¡£
 
 
-¶à´ÊËõÐ´
+¶à ´Ê Ëõ Ð´
 
-Îª¼¸¸ö´Ê¶¨ÒåÒ»¸öËõÐ´Ò²ÊÇ¿ÉÄÜµÄ. ÀýÈç, ÓÃÏÂÃæÕâ¸öÃüÁî, °Ñ "JB" ¶¨Òå³É "Jack 
+Îª¼¸¸ö´Ê¶¨ÒåÒ»¸öËõÐ´Ò²ÊÇ¿ÉÄÜµÄ¡£ÀýÈç£¬ÓÃÏÂÃæÕâ¸öÃüÁî, °Ñ "JB" ¶¨Òå³É "Jack 
 Benny": >
 
 	:iabbrev JB Jack Benny
 
-×÷Îª³ÌÐòÔ±, ÎÒÊ¹ÓÃÁ½¸öÏàµ±²»Ñ°³£µÄËõÐ´: >
+×÷Îª³ÌÐòÔ±£¬ÎÒÊ¹ÓÃÁ½¸öÏàµ±²»Ñ°³£µÄËõÐ´: >
 
 	:iabbrev #b /****************************************
 	:iabbrev #e <Space>****************************************/
 
-ËüÃÇÓÃÓÚÉú³É´ó¶Î×¢ÊÍ. ×¢ÊÍÒÔËõÐ´ #b ¿ªÊ¼, »®³ö¶¥Ïß. ½Ó×Å, ÎÒ¼üÈë×¢ÊÍÎÄ×Ö, ×îºó
-ÒÔËõÐ´ #e »®³öµ×Ïß.
-   ×¢ÒâËõÐ´ #e ÒÔÒ»¸ö¿Õ¸ñ¿ªÍ·. »»ÑÔÖ®, ¿ªÍ·Á½¸ö×Ö·ûÊÇ¿Õ¸ñºÍÐÇºÅ(*). Í¨³£ Vim
-ºöÂÔ²»¼ÆÎ»ÓÚËõÐ´¼°ÆäÀ©Õ¹Ö®¼äµÄ¿Õ¸ñ. ÎªÁË±ÜÃâ¿Õ¸ñ±»ºöÂÔ, ÎÒ°Ñ¿Õ¸ñÒÔÆß¸ö×Ö·û±íÊ¾:
-<, S, p, a, c, e, >.
+ËüÃÇÓÃÓÚÉú³É´ó¶Î×¢ÊÍ¡£×¢ÊÍÒÔËõÐ´ #b ¿ªÊ¼£¬»®³ö¶¥Ïß¡£½Ó×Å£¬ÎÒ¼üÈë×¢ÊÍÎÄ×Ö£¬×îºó
+ÒÔËõÐ´ #e »®³öµ×Ïß¡£
+   ×¢ÒâËõÐ´ #e ÒÔÒ»¸ö¿Õ¸ñ¿ªÍ·¡£»»ÑÔÖ®£¬¿ªÍ·Á½¸ö×Ö·ûÊÇ¿Õ¸ñºÍÐÇºÅ(*)¡£Í¨³£ Vim
+ºöÂÔ²»¼ÆÎ»ÓÚËõÐ´¼°ÆäÀ©Õ¹Ö®¼äµÄ¿Õ¸ñ¡£ÎªÁË±ÜÃâ¿Õ¸ñ±»ºöÂÔ£¬ÎÒ°Ñ¿Õ¸ñÒÔÆß¸ö×Ö·û±íÊ¾:
+<, S, p, a, c, e, >¡£
 
-	×¢Òâ:
-	":iabbrev" ÓÐµãÏÓ³¤. ":iab" ×÷ÓÃÒ²Ò»Ñù. ÄÇÊÇ°ÑËõÐ´ÃüÁîËõÐ´ÁË!
+	Note:
+	":iabbrev" ÓÐµãÏÓ³¤¡£":iab" ×÷ÓÃÒ²Ò»Ñù¡£ËõÐ´ÃüÁî±»ËõÐ´ÁË!
 
 
-¶©Õý´ò×Ö´íÎó
+¸ü Õý ´ò ×Ö ´í Îó
 
-Ã¿´Î´ò×Ö¶¼´ò´íÍ¬Ò»¸ö´ÊµÄÇé¿öÕæÊÇÌ«Ñ°³£ÁË. ÀýÈç, °Ñ "the" ´ò³É "teh". Äã¿ÉÒÔÀûÓÃ
-ËõÐ´À´¶©ÕýÕâÑùµÄ´íÎó: >
+ÎÒÃÇ¾­³£»á·¸Í¬Ò»¸ö´ó×Ö´íÎó¡£ÀýÈç£¬°Ñ "the" ´ò³É "teh"¡£Äã¿ÉÒÔÀûÓÃËõÐ´¹¦ÄÜÀ´¸üÕý
+ÕâÑùµÄ´íÎó: >
 
 	:abbreviate teh the
 
-Äã¿ÉÒÔ¼ÓÉÏÒ»ÏµÁÐÕâÑùµÄËõÐ´. Ã¿´Î·¢ÏÖÒ»¸ö³£¼û´íÎó¾Í¼ÓÒ»¸ö.
+Äã¿ÉÒÔ¼ÓÉÏÒ»ÏµÁÐÕâÑùµÄËõÐ´¡£Ã¿´Î·¢ÏÖÒ»¸ö³£¼û´íÎó¾Í¼ÓÒ»¸ö¡£
 
 
-±íÁÐËõÐ´
+Ëõ Ð´ ÁÐ ±í
 
-":abbreviate" ÃüÁî±íÁÐËõÐ´:
+":abbreviate" ÃüÁîÁÐ³öËùÓÐËõÐ´:
 
 	:abbreviate
 	i  #e		  ****************************************/
@@ -366,20 +367,20 @@ Benny": >
 	i  ad		 advertisement
 	!  teh		 the
 
-µÚÒ»À¸µÄ "i" ±íÃ÷²åÈëÄ£Ê½. ÕâÐ©ËõÐ´½ö½öÔÚ²åÈëÄ£Ê½ÏÂÓÐ×÷ÓÃ. ÆäËü¿ÉÄÜµÄ×Ö·û:
+µÚÒ»À¸µÄ "i" ±íÃ÷²åÈëÄ£Ê½¡£ÕâÐ©ËõÐ´½ö½öÔÚ²åÈëÄ£Ê½ÏÂÓÐ×÷ÓÃ¡£ÆäËü¿ÉÄÜµÄ×Ö·û:
 
 	c	ÃüÁîÐÐÄ£Ê½      			:cabbrev
 	!	²åÈëÄ£Ê½ºÍÃüÁîÐÐÄ£Ê½            	:abbreviate
 
-¼ÈÈ»ÔÚÃüÁîÐÐÄ£Ê½ÏÂ, Äã²»³£ÓÃµ½ËõÐ´, Äã½«Ö÷ÒªÔÚ²åÈëÄ£Ê½ÏÂÓÃ ":iabbrev" ÃüÁî. ÄÇ
-Ñù¾Í±ÜÃâÁË²»±ØÒªµÄÀ©Õ¹, ÀýÈç, µ±Äã¼üÈëÕâÑùÒ»ÌõÃüÁîÊ±, "ad" ¾Í²»»á±»À©Õ¹ÁË: >
+ÔÚÃüÁîÐÐÄ£Ê½ÏÂÊ¹ÓÃËõÐ´Ê¹²»³£¼ûµÄ¡£Äã»áÖ÷ÒªÔÚ²åÈëÄ£Ê½ÏÂÓÃ ":iabbrev" ÃüÁî¡£Õâ
+Ñù¾Í±ÜÃâÁË²»±ØÒªµÄÀ©Õ¹£¬ÀýÈç£¬µ±Äã¼üÈëÕâÑùÒ»ÌõÃüÁîÊ±£¬"ad" ¾Í²»»á±»À©Õ¹ÁË: >
 
 	:edit ad
 
 
-É¾³ýËõÐ´
+É¾ ³ý Ëõ Ð´
 
-É¾³ýÒ»¸öËõÐ´, ÓÃ ":unabbreviate" ÃüÁî. ¼Ù¶¨ÄãÓÐÒÔÏÂËõÐ´: >
+É¾³ýÒ»¸öËõÐ´£¬ÓÃ ":unabbreviate" ÃüÁî¡£¼Ù¶¨ÄãÓÐÒÔÏÂËõÐ´: >
 
 	:abbreviate @f fresh
 
@@ -387,67 +388,67 @@ Benny": >
 
 	:unabbreviate @f
 
-µ±Äã¼üÈëÕâ¸öÃüÁîµÄÊ±ºò, Äã½«×¢Òâµ½ @f ±»À©Õ¹³É "fresh". ±ðµ£ÐÄ, Vim Ã÷°×µÃºÜÄØ
-(³ý·Çµ±ÄãÁíÓÐËõÐ´ "fresh", µ«ÄÇÊÇºÜÅ¼È»µÄ).
+µ±Äã¼üÈëÕâ¸öÃüÁîµÄÊ±ºò£¬Äã½«×¢Òâµ½ @f ±»À©Õ¹³É "fresh"¡£±ðµ£ÐÄ, Vim Ã÷°×µÃºÜÄØ
+(³ý·Çµ±ÄãÁíÓÐËõÐ´ "fresh"£¬µ«ÄÇÊÇºÜÅ¼È»µÄ)¡£
    ÒªÉ¾³ýÈ«²¿ËõÐ´: >
 
 	:abclear
 
-":unabbreviate" ºÍ ":abclear" ÁíÓÐ±äÖÖ,ÔÚ²åÈëÄ£Ê½ÏÂÊÇ "iunabbeviate ºÍ 
-":iabclear", ÔÚÃüÁîÐÐÄ£Ê½ÏÂÊÇ ":cunabbreviate" ºÍ "cabclear".
+":unabbreviate" ºÍ ":abclear" ÁíÓÐ±äÐÎ£¬ÔÚ²åÈëÄ£Ê½ÏÂÊÇ "iunabbeviate ºÍ 
+":iabclear"£¬ÔÚÃüÁîÐÐÄ£Ê½ÏÂÊÇ ":cunabbreviate" ºÍ "cabclear"¡£
 
 
-ËõÐ´ÔÙÓ³Éä
+Ëõ Ð´ ÔÙ Ó³ Éä
 
-¶¨ÒåËõÐ´Ê±, ÓÐÒ»µãÒª×¢ÒâµÄ: À©Õ¹²úÉúµÄ×Ö·û´®²»Ó¦µ±±»Ó³Éä³É±ðµÄÊ²Ã´. ÀýÈç: >
+¶¨ÒåËõÐ´Ê±£¬ÓÐÒ»µãÒª×¢ÒâµÄ: À©Õ¹²úÉúµÄ×Ö·û´®²»Ó¦µ±±»Ó³Éä³É±ðµÄÊ²Ã´¡£ÀýÈç: >
 
 	:abbreviate @a adder
 	:imap dd disk-door
 
-ÏÖÔÚ, Äã¼üÈë @a, ÄãµÃµ½ "adisk-doorer". ÄÇ²»ÊÇÄãÒªµÄ½á¹û. ÎªÁË±ÜÃâÕâÖÖÊÂ·¢Éú, 
-ÓÃ ":noreabbrev" ÃüÁî. ËüµÄ×÷ÓÃ¸ú ":abbreviate" Ò»Ñù, µ«È´±ÜÃâÁËÀ©Õ¹²úÉúµÄ×Ö·û
+ÏÖÔÚ£¬Äã¼üÈë @a, ÄãµÃµ½ "adisk-doorer"¡£ÄÇ²»ÊÇÄãÒªµÄ½á¹û¡£ÎªÁË±ÜÃâÕâÖÖÊÂ·¢Éú, 
+ÓÃ ":noreabbrev" ÃüÁî¡£ËüµÄ×÷ÓÃ¸ú ":abbreviate" Ò»Ñù£¬µ«È´±ÜÃâÁËÀ©Õ¹²úÉúµÄ×Ö·û
 ´®±»ÓÃÓÚÓ³Éä: >
 
 	:noreabbrev @a adder
 
-ÏÖÔÚºÃÁË, ËõÐ´À©Õ¹ºóµÄ½á¹û²»¿ÉÄÜ±»Ó³ÉäÁË.
+ÏÖÔÚºÃÁË£¬ËõÐ´À©Õ¹ºóµÄ½á¹û²»¿ÉÄÜ±»Ó³ÉäÁË¡£
 
 ==============================================================================
 *24.8*	²åÈëÌØÊâ×Ö·û
 
-CTRL-V ÃüÁîÓÃÀ´²åÈëÏÂÒ»¸ö×ÖÃæÒâÒåÉÏµÄ×Ö·û. »»ÑÔÖ®, ÎÞÂÛ¸Ã×Ö·û¶àÌØÊâ, ÆäÌØÊâº¬
-Òå¶¼±»ºöÂÔ²»¼Æ. ÀýÈç: >
+CTRL-V ÃüÁîÓÃÀ´²åÈëÏÂÒ»¸ö×ÖÃæÒâÒåÉÏµÄ×Ö·û¡£»»ÑÔÖ®£¬ÎÞÂÛ¸Ã×Ö·û¶àÌØÊâ, ÆäÌØÊâº¬
+Òå¶¼±»ºöÂÔ²»¼Æ¡£ÀýÈç: >
 
 	CTRL-V <Esc>
 
-²åÈëÒ»¸ö×ªÒå×Ö·û. ¶øÄã²¢Î´ÍÑÀë²åÈëÄ£Ê½.(²»ÒªÔÚ CTRL-V ºóÃæ¼üÈë¿Õ¸ñ, ÄÇ¸ö¿Õ¸ñ
-½ö½öÎªÁË·½±ãÔÄ¶Á).
+²åÈëÒ»¸ö <Esc> ×Ö·û¡£¶øÄã²¢Î´ÍÑÀë²åÈëÄ£Ê½¡£(²»ÒªÔÚ CTRL-V ºóÃæ¼üÈë¿Õ¸ñ£¬ÄÇ¸ö¿Õ¸ñ
+½ö½öÎªÁË·½±ãÔÄ¶Á)¡£
 
-	×¢Òâ:
-	ÔÚ MS-Windows »·¾³ÏÂ, CTRL-V ÓÃÀ´Õ³ÌùÎÄ±¾. ÓÃ CTRL-Q ´úÌæ CTRL-V. Áí
-	Ò»·½Ãæ, ÔÚ Unix »·¾³ÏÂ, CTRL-Q ÔÚÄ³Ð©ÖÕ¶ËÉÏ²»Æð×÷ÓÃ, ÒòÆäÁíÓÐÌØÊâÒâÒå.
+	Note:
+	ÔÚ MS-Windows »·¾³ÏÂ£¬CTRL-V ÓÃÀ´Õ³ÌùÎÄ±¾¡£ÓÃ CTRL-Q ´úÌæ CTRL-V¡£Áí
+	Ò»·½Ãæ£¬ÔÚ Unix »·¾³ÏÂ£¬CTRL-Q ÔÚÄ³Ð©ÖÕ¶ËÉÏ²»Æð×÷ÓÃ£¬ÒòÆäÁíÓÐÌØÊâÒâÒå¡£
 	
-ÄãÒ²¿ÉÒÔÓÃÃüÁî CTRL-V {digits} À´²åÈëÒ»¸öÒÔÊ®½øÎ»Êý×Ö {digits} ±íÊ¾µÄ×Ö·û. Àý
-Èç, ×Ö·û±àÂë 127 ÊÇ×Ö·û <Del> (µ«²¢²»Ò»¶¨ÊÇ <Del> ¼ü!). Òª²åÈë <Del>, ¼üÈë: >
+ÄãÒ²¿ÉÒÔÓÃÃüÁî CTRL-V {digits} À´²åÈëÒ»¸öÒÔÊ®½øÎ»Êý×Ö {digits} ±íÊ¾µÄ×Ö·û¡£Àý
+Èç£¬×Ö·û±àÂë 127 ÊÇ×Ö·û <Del> (µ«²¢²»Ò»¶¨ÊÇ <Del> ¼ü!)¡£Òª²åÈë <Del>, ¼üÈë: >
 
 	CTRL-V 127
 
-Äã¿ÉÒÔÓÃÕâÑùµÄ·½·¨ÊäÈëÊýÖµ²»³¬¹ý255µÄ×Ö·û. µ±Äã¼üÈëÒ»¸ö²»×ãÁ½Î»µÄÊý×ÖÊ±, ¾ÍÒª
-Ìí¼ÓÒ»¸ö·ÇÊý×ÖµÄ×Ö·ûÀ´½áÊøÃüÁî. ÎªÁË»Ø±ÜÕâ¸ö·ÇÊý×Ö×Ö·ûµÄÒªÇó, ÔÚËüÇ°Ãæ¼ÓÒ»»ò
-Á½¸öÁãÒÔÂú×ãÈýÎ»ÊýµÄÒªÇó.
-   ÒÔÏÂÃüÁî¶¼²åÈëÒ»¸ö <Tab> ×Ö·û, È»ºóÒ»¸öµã×Ö·û:
+Äã¿ÉÒÔÓÃÕâÑùµÄ·½·¨ÊäÈëÊýÖµ²»³¬¹ý 255 µÄ×Ö·û¡£µ±Äã¼üÈëÒ»¸ö²»×ãÁ½Î»µÄÊý×ÖÊ±£¬¾ÍÒª
+Ìí¼ÓÒ»¸ö·ÇÊý×ÖµÄ×Ö·ûÀ´½áÊøÃüÁî¡£ÎªÁË»Ø±ÜÕâ¸ö·ÇÊý×Ö×Ö·ûµÄÒªÇó£¬ÔÚËüÇ°Ãæ¼ÓÒ»»ò
+Á½¸öÁãÒÔÂú×ãÈýÎ»ÊýµÄÒªÇó¡£
+   ÒÔÏÂÃüÁî¶¼²åÈëÒ»¸ö <Tab> ×Ö·û£¬È»ºóÒ»¸öµã×Ö·û:
 
 	CTRL-V 9.
 	CTRL-V 09.
 	CTRL-V 009.
 
-ÊäÈëÒ»¸ö16½øÎ»Êý×Ö, ÔÚ CTRL-V ºóÃæ, ÓÃ "x" ¿ªÍ·: >
+ÊäÈëÒ»¸ö 16 ½øÖÆÊý×Ö£¬ÔÚ CTRL-V ºóÃæ, ÓÃ "x" ¿ªÍ·: >
 
 	CTRL-V x7f
 
-Õâ·½·¨Ò²¿ÉÒÔÓÃÀ´ÊäÈëÊýÖµ²»³¬¹ý255 (CTRL-V xff) µÄ×Ö·û. Äã¿ÉÒÔÓÃ "o" ¿ªÍ·ÊäÈë
-Ò»¸öÒÔ8½øÎ»Êý×Ö±íÊ¾µÄ×Ö·û, ÒÔ¼°ÁíÍâÁ½ÖÖ·½·¨, ÈÃÄãÊäÈë¶àÖÁ¶þ½øÖÆ16Î»ºÍ32Î»µÄÊý
-×Ö±íÊ¾µÄ×Ö·û (ÀýÈç, Unicode ×Ö·û): >
+Õâ·½·¨Ò²¿ÉÒÔÓÃÀ´ÊäÈëÊýÖµ²»³¬¹ý 255 (CTRL-V xff) µÄ×Ö·û¡£Äã¿ÉÒÔÓÃ "o" ¿ªÍ·ÊäÈë
+Ò»¸öÒÔ 8 ½øÖÆÊý±íÊ¾µÄ×Ö·û£¬ÒÔ¼°ÁíÍâÁ½ÖÖ·½·¨£¬ÈÃÄãÊäÈë¶àÖÁ¶þ½øÖÆ 16 Î»ºÍ 32 Î»
+µÄÊý×Ö±íÊ¾µÄ×Ö·û (ÀýÈç£¬Unicode ×Ö·û): >
 
 	CTRL-V o123
 	CTRL-V u1234
@@ -456,8 +457,8 @@ CTRL-V ÃüÁîÓÃÀ´²åÈëÏÂÒ»¸ö×ÖÃæÒâÒåÉÏµÄ×Ö·û. »»ÑÔÖ®, ÎÞÂÛ¸Ã×Ö·û¶àÌØÊâ, ÆäÌØÊâº¬
 ==============================================================================
 *24.9*	¶þÔª×ÖÄ¸
 
-ÓÐÐ©×Ö·ûÔÚ¼üÅÌÉÏÕÒ²»µ½. ÀýÈç, ±íÊ¾°æÈ¨µÄ×Ö·û (©).  ÒªÔÚ Vim Àï¼üÈëÕâÑùµÄ×Ö·û, 
-ÄãµÃÓÃ¶þÔª×Ö·û, ¼´ÒÔÁ½¸ö×Ö·ûÀ´±íÊ¾Ò»¸ö. ÀýÈç, Òª¼üÈë ©,,  Äã¾ÍµÃ°´Èý¸ö¼ü: >
+ÓÐÐ©×Ö·ûÔÚ¼üÅÌÉÏÕÒ²»µ½¡£ÀýÈç£¬±íÊ¾°æÈ¨µÄ×Ö·û (©)¡£ ÒªÔÚ Vim Àï¼üÈëÕâÑùµÄ×Ö·û, 
+ÄãµÃÓÃ¶þÔª×Ö·û£¬¼´ÒÔÁ½¸ö×Ö·ûÀ´±íÊ¾Ò»¸ö¡£ÀýÈç, Òª¼üÈë ©,,  Äã¾ÍµÃ°´Èý¸ö¼ü: >
 
 	CTRL-K Co
 
@@ -465,53 +466,53 @@ CTRL-V ÃüÁîÓÃÀ´²åÈëÏÂÒ»¸ö×ÖÃæÒâÒåÉÏµÄ×Ö·û. »»ÑÔÖ®, ÎÞÂÛ¸Ã×Ö·û¶àÌØÊâ, ÆäÌØÊâº¬
 
 	:digraphs
 
-Vim ½«°Ñ¶þÔª×Ö·û±íÏÔÊ¾ÔÚÆÁÄ»ÉÏ. ÒÔÏÂ¾ÍÊÇÆäÖÐµÄÈýÐÐ:
+Vim ½«°Ñ¶þÔª×Ö·û±íÏÔÊ¾ÔÚÆÁÄ»ÉÏ¡£ÒÔÏÂ¾ÍÊÇÆäÖÐµÄÈýÐÐ:
 
   AC ~_ 159  NS |  160  !I ¡  161  Ct ¢  162  Pd £  163  Cu ¤  164  Ye ¥  165 ~
   BB ¦  166  SE §  167  ': ¨  168  Co ©  169  -a ª  170  << «  171  NO ¬  172 ~
   -- ­  173  Rg ®  174  'm ¯  175  DG °  176  +- ±  177  2S ²  178  3S ³  179 ~
 
-ÕâÕÅ±í¸æËßÄã, ±ÈÈç, Äã¼üÈë CTRL-K Pd ËùµÃµ½µÄ¶þÔª×Ö·ûÊÇ×Ö·û (£). ¸Ã×Ö·û±àÂëÎª 
-163(Ê®½øÎ»).
-   Pd ÊÇ Pound (Ó¢°÷)µÄ¼òÐ´. ´ó¶àÊý¶þÔª×Ö·ûÈÃÄãÒ»¿´¾Í²Âµ½Á½¸ö×Ö·ûÉú³ÉÊ²Ã´×Ö·û. 
-Èç¹ûÄãÒ»¸ö¸ö¶ÁÏÂÀ´, ±ã²»ÄÑÀí½âÆäÖÐµÄÂß¼­.
-   Äã¿ÉÒÔ½»»»Á½¸ö×Ö·ûµÄË³Ðò, Ö»ÒªÄÇÑù×éºÏ²»´ú±íÁíÒ»¸ö¶þÔª×Ö·û.  Òò´Ë CTRL-K dP 
-Ò²Ã»ÎÊÌâ. ÓÉÓÚ "dP" ²»ÊÇ¶þÔª×Ö·û, Vim »á×ª¶øËÑË÷±íÊ¾³É "Pd" µÄ¶þÔª×Ö·û.
+ÕâÕÅ±í¸æËßÄã£¬±ÈÈç, Äã¼üÈë CTRL-K Pd ËùµÃµ½µÄ¶þÔª×Ö·ûÊÇ×Ö·û (£)¡£¸Ã×Ö·û±àÂëÎª 
+163(Ê®½øÖÆ)¡£
+   Pd ÊÇ Pound (Ó¢°÷)µÄ¼òÐ´¡£´ó¶àÊý¶þÔª×Ö·ûÈÃÄãÒ»¿´¾Í²Âµ½Á½¸ö×Ö·ûÉú³ÉÊ²Ã´×Ö·û¡£
+Èç¹ûÄãÒ»¸ö¸ö¶ÁÏÂÀ´£¬±ã²»ÄÑÀí½âÆäÖÐµÄÂß¼­¡£
+   Äã¿ÉÒÔ½»»»Á½¸ö×Ö·ûµÄË³Ðò£¬Ö»ÒªÄÇÑù×éºÏ²»´ú±íÁíÒ»¸ö¶þÔª×Ö·û¡£ Òò´Ë CTRL-K dP 
+Ò²Ã»ÎÊÌâ¡£ÓÉÓÚ "dP" ²»ÊÇ¶þÔª×Ö·û£¬Vim »á×ª¶øËÑË÷±íÊ¾³É "Pd" µÄ¶þÔª×Ö·û¡£
 
-	×¢Òâ:
-	¶þÔª×Ö·û±íÈ¡¾öÓÚ Vim ¼Ù¶¨ÄãËùÊ¹ÓÃµÄ×Ö·û¼¯. ÔÚ MS-DOS ÏµÍ³ÉÏ²ÉÓÃµÄ¶þÔª
-	×Ö·û¼¯²»Í¬ÓÚ MS-Windows ÏµÍ³ÉÏµÄ. Îñ±ØÓÃ ":digraphs" ÃüÁîÀ´²éÕÒµ±Ç°
-	¿É¹©ÀûÓÃµÄ¶þÔª×Ö·û.
+	Note:
+	¶þÔª×Ö·û±íÈ¡¾öÓÚ Vim ¼Ù¶¨ÄãËùÊ¹ÓÃµÄ×Ö·û¼¯¡£ÔÚ MS-DOS ÏµÍ³ÉÏ²ÉÓÃµÄ¶þÔª
+	×Ö·û¼¯²»Í¬ÓÚ MS-Windows ÏµÍ³ÉÏµÄ¡£Îñ±ØÓÃ ":digraphs" ÃüÁîÀ´²éÕÒµ±Ç°
+	¿É¹©ÀûÓÃµÄ¶þÔª×Ö·û¡£
 
-Äã¿ÉÒÔ¶¨ÒåÄã×Ô¼ºµÄ¶þÔª×Ö·û. ÀýÈç: >
+Äã¿ÉÒÔ¶¨ÒåÄã×Ô¼ºµÄ¶þÔª×Ö·û¡£ÀýÈç: >
 
 	:digraph a" ä
 
-ÒÔÉÏÃüÁî¶¨ÒåÁË CTRL-K a" ²åÈëÒ»¸ö ä  ×Ö·û. ÄãÒ²¿ÉÒÔÓÃÊ®½øÎ»Êý×ÖÖ¸¶¨Õâ¸ö×Ö·. ÏÂ
+ÒÔÉÏÃüÁî¶¨ÒåÁË CTRL-K a" ²åÈëÒ»¸ö ä  ×Ö·û¡£ÄãÒ²¿ÉÒÔÓÃÊ®½øÖµÊýÖ¸¶¨Õâ¸ö×Ö·. ÏÂ
 ÃæÕâ¸öÃüÁî¶¨ÒåÁËÍ¬Ò»¸ö¶þÔª×Ö·û: >
 
 	:digraph a" 228
 
 ¸ü¶à¹ØÓÚ¶þÔª×Ö·ûÐÅÏ¢²Î¼û: |digraphs|
-   ÁíÒ»ÖÖ²åÈëÌØÊâ×Ö·ûµÄ·½·¨ÊÇÀûÓÃ¼üÅÌÓ³Éä. ÏêÇé²Î¼û: |45.5|
+   ÁíÒ»ÖÖ²åÈëÌØÊâ×Ö·ûµÄ·½·¨ÊÇÀûÓÃ¼üÅÌÓ³Éä¡£ÏêÇé²Î¼û: |45.5|
 
 ==============================================================================
 *24.10*	ÆÕÍ¨Ä£Ê½ÃüÁî
 
-²åÈëÄ£Ê½Ìá¹©µÄÃüÁîÊýÁ¿ÓÐÏÞ. ÔÚÆÕÍ¨Ä£Ê½ÏÂ, Äã¿ÉÓÃµÄÃüÁî¾Í¶àµÃ¶àÁË. µ±ÄãÒªÓÃÒ»¸ö
-ÆÕÍ¨Ä£Ê½ÃüÁîÊ±, ÄãÍ¨³£ÓÃ <Esc> ¼üÀ´ÍÑÀë²åÈëÄ£Ê½, Ö´ÐÐÕâ¸öÆÕÍ¨Ä£Ê½ÃüÁî, È»ºóÔÙ
-ÓÃ "i" »ò "a" ÃüÁîÖØÐÂ½øÈë²åÈëÄ£Ê½.
-   ÓÐÒ»¸ö¿ì½ÝµÄ·½·¨.  ÓÃ CTRL-O {command} Äã¿ÉÒÔÔÚ²åÈëÄ£Ê½ÏÂÖ´ÐÐÈÎºÎÆÕÍ¨Ä£Ê½Ãü
-Áî. ÀýÈç, °Ñ¹â±êºóÃæÖ±ÖÁÐÐÎ²µÄÎÄ±¾É¾³ý: >
+²åÈëÄ£Ê½Ìá¹©µÄÃüÁîÊýÁ¿ÓÐÏÞ¡£ÔÚÆÕÍ¨Ä£Ê½ÏÂ£¬Äã¿ÉÓÃµÄÃüÁî¾Í¶àµÃ¶àÁË¡£µ±ÄãÒªÓÃÒ»¸ö
+ÆÕÍ¨Ä£Ê½ÃüÁîÊ±£¬ÄãÍ¨³£ÓÃ <Esc> ¼üÀ´ÍÑÀë²åÈëÄ£Ê½, Ö´ÐÐÕâ¸öÆÕÍ¨Ä£Ê½ÃüÁî, È»ºóÔÙ
+ÓÃ "i" »ò "a" ÃüÁîÖØÐÂ½øÈë²åÈëÄ£Ê½¡£
+   ÓÐÒ»¸ö¿ì½ÝµÄ·½·¨¡£ ÓÃ CTRL-O {command} Äã¿ÉÒÔÔÚ²åÈëÄ£Ê½ÏÂÖ´ÐÐÈÎºÎÆÕÍ¨Ä£Ê½Ãü
+Áî¡£ÀýÈç£¬°Ñ¹â±êºóÃæÖ±ÖÁÐÐÎ²µÄÎÄ±¾É¾³ý: >
 
 	CTRL-O D
 
-ÓÃÕâ¸ö·½·¨, ÄãÖ»ÄÜÖ´ÐÐÒ»¸öÆÕÍ¨Ä£Ê½ÃüÁî. µ«ÊÇ, Äã¿ÉÒÔÖ¸¶¨Ò»¸ö¼Ä´æÆ÷»òÒ»¸ö´ÎÊý. 
+ÓÃÕâ¸ö·½·¨£¬ÄãÖ»ÄÜÖ´ÐÐÒ»¸öÆÕÍ¨Ä£Ê½ÃüÁî¡£µ«ÊÇ, Äã¿ÉÒÔÖ¸¶¨Ò»¸ö¼Ä´æÆ÷»òÒ»¸ö´ÎÊý¡£
 Çë¿´ÏÂÃæÕâ¸ö¸ü¸´ÔÓµÄÃüÁî: >
 
 	CTRL-O "g3dw
 
-Õâ¸öÃüÁî°Ñ¹â±êºóÃæÈý¸öµ¥´ÊÒ»ÆðÉ¾³ý, ´æ½øÁË¼Ä´æÆ÷.
+Õâ¸öÃüÁî°Ñ¹â±êºóÃæÈý¸öµ¥´ÊÒ»ÆðÉ¾³ý£¬´æ½øÁË¼Ä´æÆ÷ g¡£
 
 ==============================================================================
 
