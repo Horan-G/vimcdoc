@@ -569,4 +569,4 @@ expand() 函数的参数是 "<afile>"，用来代表自动命令执行所关联的文件。":r" 指定仅
 
 下一章: |usr_41.txt|  编写 Vim 脚本
 
-Copyright: see |manual-copyright|  vim:enc=euc-cn:tw=78:ts=8:ft=help:norl:
+Copyright: see |manual-copyright|  vim:tw=78:ts=8:ft=help:norl:

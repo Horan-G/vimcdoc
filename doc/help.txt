@@ -1,4 +1,4 @@
-*help.txt*	For Vim version 6.1.  最近更新:  2001年9月14日
+*help.txt*	For Vim version 6.2.  最近更新:  2003年5月11日
 
 			VIM - 主帮助文件
 									 k
@@ -14,11 +14,11 @@
 
    获取指定的帮助:  在 ":help" 命令后给出一个参数可以直接跳转到任何的帮助
 		    主题. |:help|.
-		    还可以进一步指定 context:
+		    还可以进一步指定上下文:
 							*help-context*
 			  类别			 前缀	   例子	~
 		      普通模式命令               (无)      :help x
-		      Visual 模式命令    	  v_	   :help v_u
+		      可视模式命令    		  v_	   :help v_u
 		      插入模式命令        	  i_	   :help i_<Esc>
 		      命令行模式命令       	  :	   :help :quit
 		      命令行编辑          	  c_	   :help c_<Del>
@@ -27,8 +27,8 @@
          查找帮助:  键入 ":help word", 接着键入 CTRL-D 可以看到匹配
 		    "word" 的帮助主题.
 
-VIM 代表 Vi IMproved. VIM 主要是由 Bram Moolenaar 编写的, 但没有许多其他
-人的帮助是不可能的.  参阅 |credits|.
+VIM 代表 Vi IMproved。VIM 主要是由 Bram Moolenaar 编写的，但没有许多其他
+人的帮助是不可能的。参阅 |credits|.
 ------------------------------------------------------------------------------
 						*doc-file-list* *Q_ct*
 基础:
@@ -37,9 +37,9 @@ VIM 代表 Vi IMproved. VIM 主要是由 Bram Moolenaar 编写的, 但没有许多其他
 |copying|	版权信息
 |iccf|		资助乌干达贫困儿童
 |www|		互联网上的 Vim 
-|bugs|		如何提交bug报告
+|bugs|		如何提交 bug 报告
 
-用户手册: 这些文件解释了如何完成某项编辑任务.
+用户手册：这些文件解释了如何完成某项编辑任务.
 
 |usr_toc.txt|	目录
 
@@ -69,7 +69,7 @@ VIM 代表 Vi IMproved. VIM 主要是由 Bram Moolenaar 编写的, 但没有许多其他
 |usr_28.txt|  折叠
 |usr_29.txt|  在代码间移动
 |usr_30.txt|  编辑程序
-|usr_31.txt|  使用 GUI
+|usr_31.txt|  利用 GUI
 
 调节 Vim ~
 |usr_40.txt|  创建新的命令
@@ -83,14 +83,14 @@ VIM 代表 Vi IMproved. VIM 主要是由 Bram Moolenaar 编写的, 但没有许多其他
 |usr_90.txt|  安装 Vim
 
 
-参考手册: 这些文件详细的解释了 Vim 的每个细节.
+参考手册：这些文件详细的解释了 Vim 的每个细节。
 
 一般主题 ~
-|intro.txt|	对 Vim 的一般介绍; 帮助文件中所使用的符号
+|intro.txt|	对 Vim 的一般介绍；帮助文件中所使用的符号
 |help.txt|	总览及快速参考 (本文件)
-|index.txt|	字母顺序排列的命令索引
+|index.txt|	以字母顺序排列的命令索引
 |help-tags|	可跳转标记 (标记索引)
-|howto.txt|	如何完成最常见的编辑
+|howto.txt|	如何完成最常见的编辑任务
 |tips.txt|	Vim 的各种窍门
 |message.txt|	(错误) 信息及解释
 |quotes.txt|	用户评价
@@ -106,28 +106,28 @@ VIM 代表 Vi IMproved. VIM 主要是由 Bram Moolenaar 编写的, 但没有许多其他
 |insert.txt|	插入模式和替换模式
 |change.txt|	删除和替换文本
 |indent.txt|	C 及其它语言的自动缩进
-|undo.txt|	Undo and Redo
+|undo.txt|	撤消和重做
 |repeat.txt|	重复命令, Vim 脚本及调试
-|visual.txt|	使用 Visual 模式 (选择一个文本区域)
+|visual.txt|	使用可视模式 (选择一个文本区域)
 |various.txt|	各种其它命令
 |recover.txt|	恢复
 
 高级编辑 ~
 |cmdline.txt|	编辑命令行
 |options.txt|	所有选项的描述
-|pattern.txt|	regexp 模式及查找命令
-|map.txt|	key mapping 及缩写
+|pattern.txt|	正则表达式及查找命令
+|map.txt|	键盘映射及缩写
 |tagsrch.txt|	标签及特殊查找
-|quickfix.txt|	快速 edit-compile-fix 循环的命令
+|quickfix.txt|	快速 编辑-编译-修正 循环的命令
 |windows.txt|	使用多窗口,多缓冲的命令
 |syntax.txt|	语法加亮
 |diff.txt|	编辑同一文本的不同版本
 |autocmd.txt|	当事件发生时自动执行命令
 |filetype.txt|	对某一类型文件的专有设定
 |eval.txt|	表达式求值, 条件执行命令
-|fold.txt|	将几行文本隐藏(折叠)起来
+|fold.txt|	将几行文本隐藏 (折叠) 起来
 
-Special issues ~
+特殊问题 ~
 |remote.txt|	将 Vim 用做服务器/客户端
 |term.txt|	使用不同终端和鼠标
 |digraph.txt|	可用的二元字母清单
@@ -151,7 +151,7 @@ GUI ~
 |if_tcl.txt|	Tcl 界面
 |if_ole.txt|	Win32 下的 OLE 界面
 |if_ruby.txt|	Ruby 界面
-|debugger.txt|	与 debugger 的界面
+|debugger.txt|	与调试程序的界面
 |workshop.txt|	Sun Visual Workshop 界面
 |sign.txt|	debugging signs
 
@@ -176,12 +176,13 @@ GUI ~
 |os_vms.txt|	VMS
 |os_win32.txt|	MS-Windows 95/98/NT
 
-标准 plugins	*standard-plugin-list* ~
+标准插件	*standard-plugin-list* ~
 |pi_netrw.txt|	通过网络读写文件
 |pi_gzip.txt|	读写压缩过的文件
 |pi_expl.txt|	文件浏览器
 
-本地附加文档:
+本地附加文档				*local-additions*
+
 
 ------------------------------------------------------------------------------
 *bars*		Bars 举例

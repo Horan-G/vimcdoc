@@ -18,7 +18,7 @@ Note: This is is meant to be used with Vim!
  + Vi                                 Vi
  + Vim                                Vim
  + abbreviations                      缩写
- + alternative file					  alternative file
+ + alternative file					  备选文件
  + autocommand                        自动命令
  + backslash                          反斜杠
  + block                              块
@@ -28,6 +28,7 @@ Note: This is is meant to be used with Vim!
  + comment                            注释
  + digraph							  二合子母
  + event                              事件
+ + expression                         表达式
  + folding                            折叠
  + identifier						  标识符
  + indent                             缩进

@@ -235,55 +235,50 @@ shell 初始化的。如，当你使用退格键来删除字符时，反而产生了 "^H"，添加这些内容
 在 CDE "dtwm" （Motif 的延伸版）的 .Xdefaults 中加入这一行： >
    Dtwm*Vim*iconImage: /usr/local/share/vim/vim32x32.xpm
 
-在 "mwm" (Motif 窗口管理器) 用: >
+在 "mwm" （Motif 窗口管理器）用: >
    Mwm*Vim*iconImage: /usr/local/share/vim/vim32x32.xpm
 
 X11 中可用鼠标指针				*X11_mouse_shapes*
 
-By using the |'mouseshape'| option, the mouse pointer can be automatically
-changed whenever vim enters one of its various modes (e.g., Insert or
-Command).  Currently, the available pointers are:
+当使用 |'mouseshape'| 选项时，vim 进入各种模式时鼠标指针都会自动改变（例如，
+在插入，或命令模式中）。当前，可用的指针是：
 
-	arrow			an arrow pointing northwest
-	beam			a I-like vertical bar
-	size			an arrow pointing up and down
-	busy			a wristwatch
-	blank			an invisible pointer
-	crosshair		a thin "+" sign
-	hand1			a dark hand pointing northeast
-	hand2			a light hand pointing northwest
-	pencil			a pencil pointing southeast
-	question		question_arrow
-	right_arrow		an arrow pointing northeast
-	up_arrow		an arrow pointing upwards
+	箭头			一个箭头指向西北
+	片状			象I的竖直条
+	型号			一个箭头指着上下
+	忙时			一个时间漏斗
+	空白			一个不可见的指针
+	十字			一个瘦 "+" 符号
+	手1			一个暗手指向西北
+	手2			一个亮手指向西北
+	笔形			一支笔指向东南
+	疑问			带问号的箭头
+	右箭头			一个箭头指向东南
+	上箭头			一个箭头指向上面
 
-Additionally, any of the mouse pointers that are built into X11 may be
-used by specifying an integer from the X11/cursorfont.h include file.
+另外，任何一个 X11 内建的鼠标指针都可以使用，通过在 X11/cursorfont.h 指定一个
+整数来实现。
 
-If a name is used that exists on other systems, but not in X11, the default
-"arrow" pointer is used.
+如果那个名字被用在其他系统中，而不是在 X11 中，那就调用默认的 "arrow"。
 
 ==============================================================================
 5. GTK 版本						*gui-gtk* *GTK+* *GTK*
 
-The GTK version of the GUI works a little bit different.
+GUI 的 GTK 版本的使用略有不同。
 
-GTK does _not_ use the traditional X resource settings.  Thus items in your
-~/.Xdefaults or app-defaults files are not used.
-Many of the traditional X command line arguments are not supported.  (e.g.,
-stuff like -bg, -fg, etc).  The ones that are supported are:
+GTK 不使用传统的 X 资源设置。所以，你的~/.Xdefaults 或 应用程序设置文件就没被
+调用。
+许多传统的 X 命令行参数就不被支持。（例如，-bg，-fg，等等）。支持的有：
 
-    command line argument   resource name	meaning ~
-    -fn  or  -font	    .font		font name for the text
-    -geom  or  -geometry    .geometry		size of the gvim window
-    -rv  or  -reverse	    *reverseVideo	white text on black background
-    -display					display to be used
+    命令行参数   资源名称	意义 ~
+    -fn  或  -font	    .font		文字字体名称
+    -geom  或  -geometry    .geometry		gvim 窗口尺寸
+    -rv  或  -reverse	    *reverseVideo	白字黑底
+    -display					使用显示
 
-To set the font, see |'guifont'|.  For GTK, there's also a menu option that
-does this.
+要设置字体看|'guifont'|。对 GTK，也有相应的菜单选项设置。
 
-Additionally, there are these command line arguments, which are handled by GTK
-internally.  Look in the GTK documentation for how they are used:
+另外，在 GTK 内部也有命令行参数。要知道如何使用以下的参数，请查看 GTK 文档：
 	--sync
 	--gdk-debug
 	--gdk-no-debug
@@ -294,18 +289,16 @@ internally.  Look in the GTK documentation for how they are used:
 	--gtk-no-debug
 	--g-fatal-warnings
 	--gtk-module
-	--display	(GTK+ counterpart of -display; works the same way.)
+	--display	（GTK+ 对应的是 -display；作用相同）
 
-As for colors, vim's color settings (for syntax highlighting) is still
-done the traditional vim way.  See |:highlight| for more help.
+vim 的颜色设置（语法加亮）仍然一致。参考 |:highlight| 
 
-If you want to set the colors of remaining gui components (e.g., the
-menubar, scrollbar, whatever), those are GTK specific settings and you
-need to set those up in some sort of gtkrc file.  you'll have to refer
-to the GTK documentation, however little there is, on how to do this.
+如果你想设置其他的 gui 组件（如，菜单栏，滚动条，其他等等），那些是 GTK 的特
+别设置，你需要改动 gtkrc 文件。至于如何改动，虽然文档很少，但可参考 GTK 文档
+。
 
 						*gtk-tooltip-colors*
-Example, which sets the tooltip colors to black on light-yellow: >
+如， 设定工具提示条为黑字亮黄色背景： >
 
 	style "tooltips"
 	{
@@ -315,170 +308,131 @@ Example, which sets the tooltip colors to black on light-yellow: >
 
 	widget "gtk-tooltips*"		style "tooltips"
 
-Write this in the file ~/.gtkrc and it will be used by GTK.  Don't forget to
-remove the ">" characters from the first column.
+将这些写如文件 ~/.gtkrc 并是自生效于 GTK。不要忘了去掉第一栏中的 ">" 字符。
 
+使用 Vim 作为 GTK+ 的插件				*gui-gtk-socketid*
 
-Using Vim as a GTK+ plugin				*gui-gtk-socketid*
+当 GTK+ 版本的 Vim 启动时，它创建了它自己的顶层窗口（就是'GtkWindow'）。GTK+ 
+提供了用 GtkSocket 和 GtkPlug 容器嵌入的便利手段。如果一 GTK+ 应用程序在它的
+一个窗口里创建了 GtkSocket 容器，通过使用 GtkSocket ID 来创建一个 GtkPlug 容
+器，一个完全不同的 GTK+ 应用程序就可以把自己嵌入上一个应用程序中。
 
-When the GTK+ version of Vim starts up normally, it creates its own top level
-window (technically, a 'GtkWindow').  GTK+ provides an embedding facility with
-its GtkSocket and GtkPlug widgets.  If one GTK+ application creates a
-GtkSocket widget in one of its windows, an entirely different GTK+ application
-may embed itself into the first application by creating a top-level GtkPlug
-widget using the socket's ID.
+如果你通过命令行参数 '--socketid' 传给 Vim 一个十进制或十六进制的值，Vim将使
+用那个值，而不是普通的 GtkWindow 的值来创建一个 GtkPlug 容器。这使 Vim 作为
+GTK 的插件来运行。
 
-If you pass Vim the command-line option '--socketid' with a decimal or
-hexadecimal value, Vim will create a GtkPlug widget using that value instead
-of the normal GtkWindow.  This enables Vim to act as a GTK+ plugin.
+这是一个真正的编程接口，专为了支持在应用程序中正确启动 Vim 而设。有关更多的 
+GTK+ socket 信息，参考http://www.gtk.org/api/
 
-This really is a programmer's interface, and is of no use without a supporting
-application to spawn the Vim correctly.  For more details on GTK+ sockets, see
-http://www.gtk.org/api/
-
-Note that this feature requires the latest GTK version.  GTK 1.2.10 still has
-a small problem.
+注意：这个功能需要最新的 GTK 版本。GTK 1.2.10 仍然有小问题。
 
 ==============================================================================
 6. GNOME 版本				*gui-gnome* *Gnome* *GNOME*
 
-The Gnome GUI works just like the GTK version.  It only looks a bit different.
-See |GTK| above for how it works.
+Gnome GUI 就想 GTK 一样工作，只是看上去有一点不同。有关细节参考 |GTK|
 
-These are the different looks:
-- Uses GNOME dialogs.
-- Uses the GNOME dock, so that the toolbar and menubar can be moved to
-  different locations other than the top (e.g., the toolbar can be placed on
-  the left, right, top, or bottom).  The positioning of the menubar and
-  toolbar isn't saved right now; I think that's for GNOME session management
-  which isn't supported (yet).
-- That means the menubar and toolbar handles are back!  Yeah!  And the
-  resizing grid still works too.
+以下是不同之处：
+- 使用 Gnome 对话框。
+- 使用 Gnome 浮动框，这使得工具栏、菜单栏可以移至不同的地方（如，工具栏可以放
+  在上下左右任何一处）。但目前他们的位置不能被保存，我认为这是 GNOME 回话管理
+  器（还）不支持的原因。
+- 那意味着菜单栏和工具栏的句柄回来了！Yeah！并且重设网格尺寸仍然可以工作。
 
-Gnome is automatically compiled with if it was found by configure.
+在配置时发现 GNOME时，它将被自动编译进来。
 
 ==============================================================================
 7. 编译						*gui-x11-compiling*
 
-If using X11, Vim's Makefile will by default first try to find the necessary
-GTK+ files on your system.  If the GTK+ files cannot be found, then the Motif
-files will be searched for.  Finally, if this fails, the Athena files will be
-searched for.  If all three fail, the GUI will be disabled.
+如果使用 X11，Vim 的Makefile将首先试着在你的系统里找到需要的 GTK+ 的文件。如
+果找不到，就试着找 Motif 文件。最后，还是找不到，就找 Athena 文件。如果全失败
+，GUI 将无法使用。
 
-For GTK+, Vim's configuration process requires that GTK+ be properly
-installed.  That is, the shell script 'gtk-config' must be in your PATH, and
-you can already successful compile, build, and execute a GTK+ program.  The
-reason for this is because the compiler flags (CFLAGS) and link flags
-(LDFLAGS) are obtained through the 'gtk-config' shell script.
+对于 GTK+，Vim的配置过程需要 GTK+ 被正确安装。就是说，shell 脚本 'gtk-config'
+必须在你的 PATH 中， 并且你已可以成功的编译，安装，执行 GTK+ 程序了。这样做的
+原因是，编译、连接选项是通过 'gtk-config' shell 脚本中包含的。
 
-Otherwise, if you are using Motif or Athena, when you have the Motif or Athena
-files in a directory where configure doesn't look, edit the Makefile to enter
-the names of the directories.  Search for "GUI_INC_LOC" for an example to set
-the Motif directories, "CONF_OPT_X" for Athena.
+如果你使用 Motif 或 Athena，且配置程序无法找到它们所在的目录时，更改 Makefile
+，使之含有它们所在的目录名称。如，查找 "GUI_INC_LOC" 来设置 Motif 的目录，或
+"GUI_OPT_X"来设置 Athena 的目录。
 
 							*gui-x11-gtk*
-At the time of this writing, you may use either GTK+ version 1.0.6 or 1.2.  It
-is suggested that you use v1.2 since not all of Vim's GUI features are present
-if using v1.0.6.  For instance, there are no tearoff menus present in v1.0.6.
-Using a version from GTK+'s CVS tree may or may not work, and is therefore not
-supported and not recommended.
+在写这篇文档时，你或许在 GTK+ 1.0.6 或 1.2 版本。建议使用v1.2，因为在另外的版
+本中，不是所有的 GUI 功能都支持的。如，它没有 tearoff 菜单。使用 CVS 树中的
+GTK+ 可能不能工作，这是不推荐的。
 
-Lastly, although GTK+ has supposedly been ported to the Win32 platform, this
-has not been tested with Vim and is also unsupported.
+最后，尽管 GTK+ 已被移植到 Win32 平台上，这还没有连同 Vim 测试过，所以也不支
+持。
 
 							*gui-x11-motif*
-For Motif, you need at least Motif version 1.2 and/or X11R5.  Motif 2.0 and
-X11R6 are OK.  Motif 1.1 and X11R4 might work, no guarantee (there may be a
-few problems, but you might make it compile and run with a bit of work, please
-send me the patches if you do).  The newest releases of LessTif have been
-reported to work fine too.
+对于 Motif，你需要至少 1.2 或 X11R5 版本。Motif 2.0 和 X11R6 也可以。Motif 
+1.1 和 X11R4 可能可以工作，但没有保证（可能有些问题，但稍作改动你可以使之编译
+、运行成功。如果你这样做了，请将补丁发给我 ）。最新版的 LessTif 支持的。
 
 							*gui-x11-athena*
-The Athena version uses the Xaw widget set by default.  If you have the 3D
-version, you might want to link with Xaw3d instead.  This will make the
-menus look a bit better.  Edit the Makefile and look for "XAW_LIB".  The
-scrollbars will remain the same, because Vim has its own, which are already
-3D (in fact, they look more like Motif).
+Athena 版本默认使用 Xaw 容器。如果你有 3D 版本的，有可能要用 Xaw3d 来连接。这
+使菜单看上去好看些。更改 Makefile 文件，查找 "XAW_LIB"。滚动条仍然一样，因为 
+Vim 使用它自己的。它已经有 3D 效果了。（事实上，它更象 Motif 里的滚动条）。
 
 							*gui-x11-misc*
-In general, do not try to mix files from different GTK+, Motif, Athena and X11
-versions.  This will cause problems.  For example, using header files for
-X11R5 with a library for X11R6 probably doesn't work (although the linking
-won't give an error message, Vim will crash later).
+总的来说，不要混合 不同版本的 GTK+，Motif，Athena，和X11的文件。这将引起问题
+。如，使用 X11R5 的头文件给 X11R6 的库，大半不能工作（尽管连接不报错，Vim之后
+的运行将崩溃）。
 
 ==============================================================================
 8. X11 选择机制				*x11-selection*
 
-If using X11, in either the GUI or an xterm with an X11-aware Vim, then Vim
-provides varied access to the X11 selection and clipboard.  These are accessed
-by using the two selection registers "* and "+.
+如果使用 X11，无论是 GUI 的还是 xterm 中用类 X11 的 Vim，Vim都提供了多种方式
+访问 X11 的选中板和粘贴板。它们是通过两个选择寄存器 "* 和 "+来实现的。
 
-X11 provides two basic types of global store, selections and cut-buffers,
-which differ in one important aspect: selections are "owned" by an
-application, and disappear when that application (e.g., Vim) exits, thus
-losing the data, whereas cut-buffers, are stored within the X-server itself
-and remain until written over or the X-server exits (e.g., upon logging out).
+X11 提供了两种基本类型的全局存储方式，选中和剪切缓冲。在一个重要方面他们是有
+区别的：选中是程序拥有的，并在程序退出时（如，Vim）消失，这样数据就消失了。而
+剪切缓冲无论在哪里，是存储在 X 自己的服务器里的，并且保持到被重写或 X 服务器
+退出（如，登出）。
 
-The contents of selections are held by the originating application (e.g., upon
-a copy), and only passed on to another application when that other application
-asks for them (e.g., upon a paste).
+原始程序保存这选中的内容（如，拷贝），仅当其他程序要求时再传递过去（如，粘贴
+）。
 
-The contents of cut-buffers are immediately written to, and are then
-accessible directly from the X-server, without contacting the originating
-application.
+剪切缓冲立即被写入，是直接通过 X 服务器的，没有同原始程序交流。
 
 							*quoteplus* *quote+*
-There are three documented X selections: PRIMARY (which is expected to
-represent the current visual selection - as in Vim's Visual mode), SECONDARY
-(which is ill-defined) and CLIPBOARD (which is expected to be used for
-cut, copy and paste operations).
+有3种可记录的 X 选中：PRIMARY（要用来重现所选择的内容的，就象 Vim 的 Visual 
+模式），SECONDARY（缺少定义）和 CLIPBOARD（要用于剪切、复制和粘贴的操作）。
 
-Of these three, Vim uses PRIMARY when reading and writing the "* register
-(hence when the X11 selections are available, Vim sets a default value for
-|'clipboard'| of "autoselect"), and CLIPBOARD when reading and writing the "+
-register.  Vim does not access the SECONDARY selection.
+对于以上3种，Vim 使用 PRIMARY 用于读写 "* 寄存器（这就是之所以当 X11 选中后，
+Vim 为 |'clipboard'| 的 "autoselect" 设了个缺省值。）。CLIPBOARD 用于读写 "+
+寄存器。Vim 不使用 SECONDARY 方式。
 
-Examples: (assuming the default option values)
-- Select an URL in Visual mode in Vim.  Go to a text field in Netscape and
-  click the middle mouse button.  The selected text will be inserted
-  (hopefully!).
-- Select some text in Netscape by dragging with the mouse.  Go to Vim and
-  press the middle mouse button: The selected text is inserted.
-- Select some text in Vim and do "+y.  Go to Netscape, select some text in a
-  textfield by dragging with the mouse.  Now use the right mouse button and
-  select "Paste" from the popup menu.  The selected text is overwritten by the
-  text from Vim.
-Note that the text in the "+ register remains available when making a Visual
-selection, which makes other text available in the "* register.  That allows
-overwriting selected text.
+如：（设定了默认值）
+- 选中了一个 URL 在 Vim 的 Visual 模式里。转到 Netscape
+  的文本框里并单击鼠标中键。所选择的文字将被粘贴上（很有希望！）。
+- 通过在 Netscape 中拖动鼠标选中文字。再到 Vim 中并按鼠标中键：选中的文字被插
+  入。
+- 在 Vim 里选中文字并做 "+y。到 Netscape，拖动鼠标选中文字。现在使用鼠标右键
+  并在弹出菜单里选择 "Paste" 。所选择的文字被 Vim 中的文字替换。
+注意：在使用 Visual 选择时， "+ 寄存器中的文字仍然存在。Visual 选择的文字存在
+于 "* 寄存器中。这样就可以覆盖所选的文字了。
 							*x11-cut-buffer*
-There are, by default, 8 cut-buffers: CUT_BUFFER0 to CUT_BUFFER7.  Vim only
-uses CUT_BUFFER0, which is the one that xterm uses by default.
+默认的有8个剪切缓冲：CUT_BUFFER0 到 CUT_BUFFER7。Vim 仅使用 CUT_BUFFER0，就是
+xterm 默认使用的那一个。
 
-Whenever Vim is about to become unavailable (either via exiting or becoming
-suspended), and thus unable to respond to another application's selection
-request, it writes the contents of any owned selection to CUT_BUFFER0.  If the
-"+ CLIPBOARD selection is owned by Vim, then this is written in preference,
-otherwise if the "* PRIMARY selection is owned by Vim, then that is written.
+无论何时 Vim 要不活动（或是通过退出或挂起），并且因此不能响应另一个程序的选中
+请求时，Vim 将选中内容写入它自己的 CUT_BUFFER0 中。如果是 "+ CLIPBOARD 选中，
+就按预先设定写入，否则如果是 "* PRIMARY 选中，就写入其中。
 
-Similarly, when Vim tries to paste from "* or "+ (either explicitly, or, in
-the case of the "* register, when the middle mouse button is clicked), if the
-requested X selection is empty or unavailable, Vim reverts to reading the
-current value of the CUT_BUFFER0.
+类似的，当 Vim 试图从 "* 或 "+ 来粘贴时（或明确的，或通过点击鼠标中键对 "* 寄
+存器操作），如果被请求的 X 选中是空的或不可用，Vim 反过来读取 CUT_BUFFER0 的
+值。
 
-Note that when text is copied to CUT_BUFFER0 in this way, the type of
-selection (character, line or block) is always lost, even if it is a Vim which
-later pastes it.
+注意：当用这种方式拷贝文字到 CUT_BUFFER0 时，选中的类型（字符，行或块）总是被
+丢失，甚至是 Vim 以后要粘贴它。
 
-Xterm, by default, always writes visible selections to both PRIMARY and
-CUT_BUFFER0.  When it pastes, it uses PRIMARY if this is available, or else
-falls back upon CUT_BUFFER0.  For this reason, when cutting and pasting
-between Vim and an xterm, you should use the "* register.  Xterm doesn't use
-CLIPBOARD, thus the "+ doesn't work with xterm.
+默认的 Xterm 总是将 可视的选中内容同时写入 PRIMARY 和 CUT_BUFFER0 中。当粘贴
+时，如果 PRIMARY 可用就使用它，如果失败就回过来要求 CUT_BUFFER0 的。因此，在
+ Vim 和 Xterm 中剪切、粘贴时，你应该使用 "* 寄存器。Xterm 不用 CLIPBOARD，所
+以 "+ 在 xterm 中无用。
 
-Most newer applications will provide their current selection via PRIMARY ("*)
-and use CLIPBOARD ("+) for cut/copy/paste operations.  You thus have access to
-both by choosing to use either of the "* or "+ registers.
+多数较新的应用程序提供它们当前的选中内容通过 PRIMARY ("*) 并使用 CLIPBOARD 
+("+) 为了剪切、拷贝、粘贴操作。你可以通过选择 "* 或 "+ 缓冲器来访问。
 
 
  vim:tw=78:sw=4:ts=8:ft=help:norl:
