@@ -1,4 +1,4 @@
-*usr_02.txt*    Vim version 6.0.     最后修改：2001年9月3日（翻译于2002年5月10日）
+*usr_02.txt*    Vim version 6.1.     最后修改：2001年9月3日（翻译于2002年5月10日）
 
                     VIM用户手册 － Bram Moolenaar(由nek_in翻译)
 

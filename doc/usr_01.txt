@@ -1,4 +1,4 @@
-*usr_01.txt*       Vim版本6.0.  最后修改: 2001年9月3日(翻译于2002年5月8日)
+*usr_01.txt*	For Vim version 6.1.  最后修改: 2002年1月15日(翻译于2002年5月8日)
 
                         VIM 用户手册 - 作者: Bram Moolenaar
                          (由Nek_in翻译, nek_in@21cn.com)
@@ -126,12 +126,12 @@ Vim的手册分成两个部分：
 ===============================================================================
 *01.4*  版权声明                                       *manual-copyright*
 
-Vim用户手册和参考手册的版权(1988-2001)归Bram Moolenaar所有。这份材料只可以在符合
-开放发布版权协议（Open Publication License)1.0和以后版本的条件下发布。这份协议
+Vim用户手册和参考手册的版权(1988-2002)归Bram Moolenaar所有。这份材料只可以在符合
+开放发布版权协议（Open Publication License)1.0或以后版本的条件下发布。这份协议
 的最后版本可以在如下地址上找到：
             http://www.opencontent.org/openput/
 
-相关人员必须同意这份声明。
+对此文档作出贡献的人员必须同意这份声明。
                                                         *frombook*
 这份文档的一部分来自Steve Oualline《Vi IMproved - Vim》(New Riders出版社出版，
 ISBN: 0735710015)。开放发布版本协议同样适用于这本书。被选入的部分经过剪裁（例

@@ -2,18 +2,19 @@
 
 
 		  VIM 参考手册    by Bram Moolenaar
+		 (译者: lang2 http://vimcdoc.sf.net)
 
 			    快速参考指南
 
 							 *quickref* *Contents*
  tag	  subject			 tag	  subject	~
 |Q_ct|  帮助文件清单		        |Q_re|	重复命令
-|Q_lr|	移动: 左右        		|Q_km|	Key mapping
+|Q_lr|	移动: 左右        		|Q_km|	键盘映射
 |Q_ud|	移动: 上下			|Q_ab|	缩写
 |Q_tm|	移动: 文本目标  		|Q_op|	选项
 |Q_pa|	移动: 查找方式          	|Q_ur|	取消/重复 命令
 |Q_ma|	移动: 标记			|Q_et|	外部命令
-|Q_vm|	移动: 其他			|Q_qf|	快速纠正命令
+|Q_vm|	移动: 其他			|Q_qf|	Quickfix 命令
 |Q_ta|	移动: 使用标签  		|Q_vc|	其他命令
 |Q_sc|	卷屏    			|Q_ce|	Ex: 命令行编辑
 |Q_in|	插入: 插入文本  		|Q_ra|	Ex: 范围
@@ -25,8 +26,8 @@
 |Q_cm|	改动: 拷贝与移动        	|Q_ac|	自动命令
 |Q_ch|	改动: 修改文本  		|Q_wi|	多窗口命令
 |Q_co|	改动: 复杂                      |Q_bu|	缓冲列表命令
-|Q_vi|  可视模式  			|Q_sy|	与法加亮
-|Q_to|	文本对象    			|Q_gu|	GUI 命令
+|Q_vi|	可视模式			|Q_sy|	语法加亮
+|Q_to|	文本对象			|Q_gu|	GUI 命令
 					|Q_fo|  折叠
 
 ------------------------------------------------------------------------------
@@ -86,18 +87,18 @@ N 用来（可选）至于命令之前表示该命令执行的次数。
 |[[|	N  [[		向后 N 节, 置于节的开始
 |][|	N  ][		向前 N 节, 置于节的末尾
 |[]|	N  []		向后 N 节, 置于节的末尾
-|[(|	N  [(		N times back to unclosed '('
-|[{|	N  [{		N times back to unclosed '{'
-|[m|	N  [m		N times back to start of method (for Java)
-|[M|	N  [M		N times back to end of method (for Java)
-|])|	N  ])		N times forward to unclosed ')'
-|]}|	N  ]}		N times forward to unclosed '}'
-|]m|	N  ]m		N times forward to start of method (for Java)
-|]M|	N  ]M		N times forward to end of method (for Java)
-|[#|	N  [#		N times back to unclosed "#if" or "#else"
-|]#|	N  ]#		N times forward to unclosed "#else" or "#endif"
-|[star|	N  [*		N times back to start of comment "/*"
-|]star|	N  ]*		N times forward to end of comment "*/"
+|[(|	N  [(		向后至第 N 个未结束的 '('
+|[{|	N  [{		向后至第 N 个未结束的 '{'
+|[m|	N  [m		向后至第 N 个方法的开始 (用于 Java)
+|[M|	N  [M		向后至第 N 个方法的结束 (用于 Java)
+|])|	N  ])		向前至第 N 个未结束的 '}'
+|]}|	N  ]}		向前至第 N 个未结束的 '}'
+|]m|	N  ]m		向前至第 N 个方法的开始 (用于 Java)
+|]M|	N  ]M		向前至第 N 个方法的结束 (用于 Java)
+|[#|	N  [#		向后至第 N 个未结束的 "#if" 或 "#else"
+|]#|	N  ]#		向前至第 N 个未结束的 "#else" or "#endif"
+|[star|	N  [*		向后至第 N 各注释的开始 "/*"
+|]star|	N  ]*		向前至第 N 各注释的结束 "*/"
 ------------------------------------------------------------------------------
 *Q_pa*		按模式查找
 
@@ -142,25 +143,25 @@ N 用来（可选）至于命令之前表示该命令执行的次数。
 			       	   匹配 <CR>	\r	\r
 			           匹配 <BS>	\b	\b
 
-     matches 0 or more of the preceding atom	*	\*
-     matches 1 or more of the preceding atom	\+	\+
-	matches 0 or 1 of the preceding atom	\=	\=
-	matches 2 to 5 of the preceding atom	\{2,5}  \{2,5}
-		  separates two alternatives	\|	\|
-		group a pattern into an atom	\(\)	\(\)
+                 匹配 0 或多个前面的匹配原子	*	\*
+                 匹配 0 或多个前面的匹配原子	\+	\+
+	         匹配 0 或多个前面的匹配原子 	\=	\=
+	        匹配 2 至 5 个前面的匹配原子	\{2,5}  \{2,5}
+		          隔开两种可能的匹配	\|	\|
+		  将一个模式组成一个匹配原子	\(\)	\(\)
 
 |search-offset|		查找命令后可用的偏移量
 
     [num]	[num] 行向下, 位于第一栏
     +[num]	[num] 行向下, 位于第一栏
     -[num]	[num] 行向上, 位于第一栏
-    e[+num]	[num] characters to the right of the end of the match
-    e[-num]	[num] characters to the left of the end of the match
-    s[+num]	[num] characters to the right of the start of the match
-    s[-num]	[num] characters to the left of the start of the match
-    b[+num]	[num] characters to the right of the start (begin) of the match
-    b[-num]	[num] characters to the left of the start (begin) of the match
-    ;{search-command}	execute {search-command} next
+    e[+num]	匹配结尾右方 [num] 个字符处
+    e[-num]	匹配结尾左方 [num] 个字符处
+    s[+num]	匹配启始右方 [num] 个字符处
+    s[-num]	匹配启始左方 [num] 个字符处
+    b[+num]	匹配启始右方 [num] 个字符处
+    b[-num]	匹配启始左方 [num] 个字符处
+    ;{search-command}	接着执行 {search-command} 查找
 ------------------------------------------------------------------------------
 *Q_ma*		标记与移动
 
@@ -178,11 +179,11 @@ N 用来（可选）至于命令之前表示该命令执行的次数。
 |'|	   '{a-zA-Z0-9[]'"<>.}
 			同 `, 但同时移动至该行的第一个非空白字符
 |:marks|  :marks	列出活动的标记
-|CTRL-O|  N  CTRL-O	go to Nth older position in jump list
-|CTRL-I|  N  CTRL-I	go to Nth newer position in jump list
+|CTRL-O|  N  CTRL-O	跳转至跳转列表中第 N 个较早的位置
+|CTRL-I|  N  CTRL-I	跳转至跳转列表中第 N 个较晚的位置
 |:ju|	  :ju[mps]	列出跳转列表
 ------------------------------------------------------------------------------
-*Q_vm*		Various motions
+*Q_vm*		其他移动
 
 |%|	   %		找到本行中下一个括号,方括号,注释,或 "#if"/
 			   "#else"/"#endif" 并移动至与其对称的位置
@@ -203,11 +204,11 @@ N 用来（可选）至于命令之前表示该命令执行的次数。
 				   中选择跳转
 
 |:tags|	   :tags		列表标签
-|CTRL-T|   N  CTRL-T		Jump back from Nth older tag in tag list
-|:po|	   :[count]po[p][!]	Jump back from [count]'th older tag in tag list
-|:tnext|   :[count]tn[ext][!]	Jump to [count]'th next matching tag
-|:tp|      :[count]tp[revious][!] Jump to [count]'th previous matching tag
-|:tr|	   :[count]tr[ewind][!] Jump to [count]'th matching tag
+|CTRL-T|   N  CTRL-T		跳转至标签列表中第 n 个较早的标签
+|:po|	   :[count]po[p][!]	跳转至标签列表中第 [count] 个较早的标签
+|:tnext|   :[count]tn[ext][!]	跳转至接下来的第 [count] 个匹配的标签
+|:tp|      :[count]tp[revious][!] 跳转至前面第 [count] 个匹配的标签
+|:tr|	   :[count]tr[ewind][!] 跳转至第 [count] 各匹配的标签
 |:tl|	   :tl[ast][!]		跳转至上次匹配的标签
 
 |:ptag|	   :pt[ag] {tag}	打开一个显示 {tag} 标签的预览窗口
@@ -371,9 +372,8 @@ N 用来（可选）至于命令之前表示该命令执行的次数。
 |g~|	     g~{motion} 将动作 {motion} 覆盖的文本翻转大小写
 |gu|	     gu{motion} 将动作 {motion} 覆盖的文本置为小写
 |gU|	     gU{motion} 将动作 {motion} 覆盖的文本置为大写
-|v_g?|	     {visual}g? perform rot13 encoding on highlighted text
-|g?|	     g?{motion} perform rot13 encoding on the text that is moved over
-			   with {motion}
+|v_g?|	     {visual}g? 对高亮的文本做 rot13 编码
+|g?|	     g?{motion} 对动作 {motion} 覆盖的文本做 rot13 编码
 
 |CTRL-A|  N  CTRL-A	将光标所在处或其后的数值增加 N 
 |CTRL-X|  N  CTRL-X	将光标所在处或其后的数值减少 N 
@@ -392,33 +392,31 @@ N 用来（可选）至于命令之前表示该命令执行的次数。
 			左对齐范围 [range] 中的行 (使用 [indent])
 |:ri|	  :[range]ri[ght] [width]
 			右对齐范围 [range] 中的行
-			????
 ------------------------------------------------------------------------------
 *Q_co*		复杂改动
 
 |!|	   N  !{motion}{command}<CR>
-			filter the lines that are moved over through {command}
+			将动作覆盖的行用命令 {command} 过滤
 |!!|	   N  !!{command}<CR>
-			filter N lines through {command}
+			用命令 {command} 过滤 N 行
 |v_!|	      {visual}!{command}<CR>
-			filter the highlighted lines through {command}
+			将加亮的行用命令 {command} 过滤
 |:range!|  :[range]! {command}<CR>
-			filter [range] lines through {command}
+			将范围 [range] 包括的行用命令 {command} 过滤
 |=|	   N  ={motion}
-			filter the lines that are moved over through 'equalprg'
-|==|	   N  ==	filter N lines through 'equalprg'
+			将动作覆盖的行用 'equalprg' 过滤
+|==|	   N  ==	用 'equalprg' 过滤 N 行
 |v_=|	      {visual}=
-			filter the highlighted lines through 'equalprg'
+			将加亮的行用 'equalprg' 过滤
 |:s|	   :[range]s[ubstitute]/{pattern}/{string}/[g][c]
-			substitute {pattern} by {string} in [range] lines;
-			   with [g], replace all occurrences of {pattern};
-			   with [c], confirm each replacement
+			以 {string} 替换范围 [range] 包括的行中的 {pattern} ;
+			   与 [g] 共用, 替换所有的出现的 {pattern};
+			   与 [c] 公用, 确认每一次替换
 |:s|	   :[range]s[ubstitute] [g][c]
-			repeat previous ":s" with new range and options
-|&|	      &		Repeat previous ":s" on current line without options
+			以新的范围和选项重复上一次的 ":s" 命令
+|&|	      &		不带选项在当前行上重复上一次的 ":s" 命令
 |:ret|	   :[range]ret[ab][!] [tabstop]
-			set 'tabstop' to new value and adjust white space
-			   accordingly
+			置 'tabstop' 为新值并依据此值调整空白字符
 ------------------------------------------------------------------------------
 *Q_vi*		可视模式
 
@@ -451,20 +449,20 @@ N 用来（可选）至于命令之前表示该命令执行的次数。
 *Q_re*		重复命令
 
 |.|	   N  .		重复最近一次改动 (将次数改为 N)
-|q|	      q{a-z}	record typed characters into register {a-z}
-|q|	      q{A-Z}	record typed characters, appended to register {a-z}
-|q|	      q		stop recording
-|@|	   N  @{a-z}	execute the contents of register {a-z} (N times)
-|@@|	   N  @@	   repeat previous @{a-z} (N times)
-|:@|	   :@{a-z}	execute the contents of register {a-z} as an Ex
-			   command
-|:@@|	   :@@		repeat previous :@{a-z}
+|q|	      q{a-z}	将键入的字符录入寄存器 {a-z}
+|q|	      q{A-Z}	将键入的字符添加进寄存器 {a-z}
+|q|	      q		终止纪录
+|@|	   N  @{a-z}	执行寄存器 {a-z} 的内容(N 次)
+|@@|	   N  @@	重复上次的 @{a-z} 操作 (N 次)
+|:@|	   :@{a-z}	将寄存器 {a-z} 的内容当作一个 Ex
+			   命令来执行
+|:@@|	   :@@		重复上次的 :@{a-z} 操作
 |:g|	   :[range]g[lobal]/{pattern}/[cmd]
-			Execute Ex command [cmd] (default: ":p") on the lines
-			   within [range] where {pattern} matches.
+			对 [range] 内所有匹配 {pattern} 的行执行 Ex 命令 [cmd] 
+			   (缺省: ":p")
 |:g|	   :[range]g[lobal]!/{pattern}/[cmd]
-			Execute Ex command [cmd] (default: ":p") on the lines
-			   within [range] where {pattern} does NOT match.
+			对 [range] 内所有不匹配 {pattern} 的行执行 Ex 命令 [cmd] 
+			   (缺省: ":p")
 |:so|	   :so[urce] {file}
 			从文件 {file} 读入 Ex 命令
 |:so|	   :so[urce]! {file}
@@ -473,53 +471,46 @@ N 用来（可选）至于命令之前表示该命令执行的次数。
 			在 [sec] 秒钟内任何事也不做
 |gs|	   N  gs	睡 N 秒
 ------------------------------------------------------------------------------
-*Q_km*		Key mapping
+*Q_km*		键盘映射
 
-|:map|	     :ma[p] {lhs} {rhs}	  Map {lhs} to {rhs} in Normal and Visual
-				     mode.
-|:map!|	     :ma[p]! {lhs} {rhs}  Map {lhs} to {rhs} in Insert and Command-line
-				     mode.
+|:map|	     :ma[p] {lhs} {rhs}	  在普通及可视模式下将 {rhs} 映射为 {lhs} 
+|:map!|	     :ma[p]! {lhs} {rhs}  在插入及命令行模式下将 {rhs} 映射为 {lhs}
 |:noremap|   :no[remap][!] {lhs} {rhs}
-				  Same as ":map", no remapping for this {rhs}
-|:unmap|     :unm[ap] {lhs}	  Remove the mapping of {lhs} for Normal and
-				     Visual mode.
-|:unmap!|    :unm[ap]! {lhs}	  Remove the mapping of {lhs} for Insert and
-				     Command-line mode.
-|:map_l|     :ma[p] [lhs]	  List mappings (starting with [lhs]) for
-				     Normal and Visual mode.
-|:map_l!|    :ma[p]! [lhs]	  List mappings (starting with [lhs]) for
-				     Insert and Command-line mode.
+				  如 ":map", 但不能为 {rhs} 做重映射
+|:unmap|     :unm[ap] {lhs}	  清除普通及可视模式下 {lhs} 的映射
+|:unmap!|    :unm[ap]! {lhs}	  清除插入及命令行模式下 {lhs} 的映射
+|:map_l|     :ma[p] [lhs]	  列出普通及可视模式下以 [lhs] 开始的映射.
+|:map_l!|    :ma[p]! [lhs]	  列出插入及命令行模式下以 [lhs] 开始的映射.
 |:cmap|	     :cmap/:cunmap/:cnoremap
-				  like ":map!"/":unmap!"/":noremap!" but for
-				     Command-line mode only
+				  如 ":map!"/":unmap!"/":noremap!" 但仅作用于
+				     命令行模式
 |:imap|	     :imap/:iunmap/:inoremap
-				  like ":map!"/":unmap!"/":noremap!" but for
-				     Insert mode only
+				  如 ":map!"/":unmap!"/":noremap!" 但仅作用于
+				     插入行模式
 |:nmap|	     :nmap/:nunmap/:nnoremap
-				  like ":map"/":unmap"/":noremap" but for
-				     Normal mode only
+				  如 ":map!"/":unmap!"/":noremap!" 但仅作用于
+				     普通行模式
 |:vmap|	     :vmap/:vunmap/:vnoremap
-				  like ":map"/":unmap"/":noremap" but for
-				     Visual mode only
+				  如 ":map!"/":unmap!"/":noremap!" 但仅作用于
+				    可视模式
 |:omap|	     :omap/:ounmap/:onoremap
-				  like ":map"/":unmap"/":noremap" but only for
-				     when an operator is pending
-|:mapc|      :mapc[lear]	  remove mappings for Normal and Visual mode
-|:mapc|      :mapc[lear]!	  remove mappings for Insert and Cmdline mode
-|:imapc|     :imapc[lear]	  remove mappings for Insert mode
-|:vmapc|     :vmapc[lear]	  remove mappings for Visual mode
-|:omapc|     :omapc[lear]	  remove mappings for Operator-pending mode
-|:nmapc|     :nmapc[lear]	  remove mappings for Normal mode
-|:cmapc|     :cmapc[lear]	  remove mappings for Cmdline mode
-|:mkexrc|    :mk[exrc][!] [file]  write current mappings, abbreviations, and
-				     settings to [file] (default: ".exrc";
-				     use ! to overwrite)
+				  如 ":map!"/":unmap!"/":noremap!" 但仅作用于
+				     Operator-pending 模式
+|:mapc|      :mapc[lear]	  清除通及可视模式下的映射
+|:mapc|      :mapc[lear]!	  清除插入及命令行模式下的映射
+|:imapc|     :imapc[lear]	  清除插入模式下的映射
+|:vmapc|     :vmapc[lear]	  清除可视模式下的映射
+|:omapc|     :omapc[lear]	  清除 Operator-pending 模式下的映射
+|:nmapc|     :nmapc[lear]	  清除普通模式下的映射
+|:cmapc|     :cmapc[lear]	  清除命令行模式下的映射
+|:mkexrc|    :mk[exrc][!] [file]  将当前的键盘映射, 缩写, 及设置
+				     写入文件 [file] (缺省: ".exrc";
+				     使用 ! 覆盖文件)
 |:mkvimrc|   :mkv[imrc][!] [file]
-				  same as ":mkexrc", but with default ".vimrc"
+				  如 ":mkexrc", 但缺省为 ".vimrc"
 |:mksession| :mks[ession][!] [file]
-				  like ":mkvimrc", but store current files,
-				     windows, etc. too, to be able to continue
-				     this session later.
+				  如 ":mkvimrc", 但同时存储当前文件, 窗口
+				     等等信息, 使得用户将来可以继续当前对话.
 ------------------------------------------------------------------------------
 *Q_ab*		缩写
 
@@ -863,10 +854,9 @@ N 用来（可选）至于命令之前表示该命令执行的次数。
 ------------------------------------------------------------------------------
 *Q_et*		外部命令
 
-|:shell|	:sh[ell]	start a shell
-|:!|		:!{command}	execute {command} with a shell
-|K|		   K		lookup keyword under the cursor with
-				   'keywordprg' program (default: "man")
+|:shell|	:sh[ell]	开启一个 shell
+|:!|		:!{command}	通过一个 shell 执行命令 {command} 
+|K|		   K		以 'keywordprg' 程序 (缺省: "man")查光标下的关键字
 ------------------------------------------------------------------------------
 *Q_qf*		Quickfix commands
 
@@ -875,8 +865,7 @@ N 用来（可选）至于命令之前表示该命令执行的次数。
 |:cprevious|	:cp		显示上一个错误
 |:clist|	:cl		列出所有错误
 |:cfile|	:cf		从文件 'errorfile' 读入错误
-|:cquit|	:cq		退出不保存并返回错误代码  (至
-				   编译器)
+|:cquit|	:cq		退出不保存并返回错误代码 (至编译器)
 |:make|		:make [args]	启动 make, 读入错误, 并跳转至第一个错误
 |:grep|		:gr[ep] [args]	执行 'grepprg' 程序以找出匹配并跳转至
 				   第一个匹配
@@ -913,7 +902,7 @@ N 用来（可选）至于命令之前表示该命令执行的次数。
 |c_CTRL-V|	CTRL-V {char}	   按字面插入 {char} 
 |c_CTRL-V|	CTRL-V {number}    输入10进制数表示的字符 (可达3个数位)
 |c_CTRL-K|	CTRL-K {char1} {char2}
-				   enter digraph (See |Q_di|)
+				   键入二合字母 (参见 |Q_di|)
 |c_CTRL-R|	CTRL-R {0-9a-z"%#:-=}
 				   插入指定寄存器的内容
 
@@ -938,8 +927,7 @@ N 用来（可选）至于命令之前表示该命令执行的次数。
                                    匹配。
 |c_CTRL-D|	CTRL-D		列出当前命令行所有可能的匹配
 |c_CTRL-A|	CTRL-A		插入当前命令行所有可能的匹配
-|c_CTRL-L|	CTRL-L		insert longest common part of names that
-				   match pattern
+|c_CTRL-L|	CTRL-L		插入所有匹配当前模式的名字的最长的共同部分
 |c_CTRL-N|	CTRL-N		在 'wildchar' 之后存在多个匹配： 至下一匹配
 |c_CTRL-P|	CTRL-P		在 'wildchar' 之后存在多个匹配： 至上一匹配
 ------------------------------------------------------------------------------
@@ -953,15 +941,13 @@ N 用来（可选）至于命令之前表示该命令执行的次数。
 |:range|	.		当前行
 |:range|	$		本文件的最后一行
 |:range|	%		等同于 1,$ (整个文件)
-|:range|	*		等同于 '<,'> (visual area)
+|:range|	*		等同于 '<,'> (可视区域)
 |:range|	't		标记 t 的位置
 |:range|	/{pattern}[/]	下一个匹配 {pattern} 的行
 |:range|	?{pattern}[?]	前一个匹配 {pattern} 的行
 
-|:range|	+[num]		add [num] to the preceding line number
-				   (default: 1)
-|:range|	-[num]		subtract [num] from the preceding line
-				   number (default: 1)
+|:range|	+[num]		在前面的行号上加 [num] (缺省: 1)
+|:range|	-[num]		从前面的行号里减 [num] (缺省: 1)
 ------------------------------------------------------------------------------
 *Q_ex*		特殊 Ex 字符
 
@@ -969,27 +955,22 @@ N 用来（可选）至于命令之前表示该命令执行的次数。
 |:quote|    "		开始注释
 
 |:_%|	    %		当前文件名 (仅当期望文件名时)
-|:_#|	    #[num]	alternate file name [num] (only where a file name is
-			   expected)
-	Note: The next four are typed literally; these are not special keys!
-|:<cword>|  <cword>	word under the cursor (only where a file name is
-			   expected)
-|:<cWORD>|  <cWORD>	WORD under the cursor (only where a file name is
-			   expected) (see |WORD|)
-|:<cfile>|  <cfile>	file name under the cursor (only where a file name is
-			   expected)
-|:<afile>|  <afile>	file name for autocommand (only where a file name is
-			   expected)
-|:<sfile>|  <sfile>	file name of a ":source"d file, within that file (only
-			   where a file name is expected)
+|:_#|	    #[num]	alternate file 文件名 [num] (仅当期望文件名时)
+	注: 一下四项以字面意思键入; 并非特殊键!
+|:<cword>|  <cword>	光标下的 word (仅当期望文件名时)
+|:<cWORD>|  <cWORD>	光标下的 WORD (仅当期望文件名时)
+|:<cfile>|  <cfile>	光标下的文件名 (仅当期望文件名时)
+|:<afile>|  <afile>	供自动命令使用的文件名 (仅当期望文件名时)
+|:<sfile>|  <sfile>	一个被 ":source" 的文件的文件名, within that file (only
+			   (仅当期望文件名时)
 
-		After "%", "#", "<cfile>", "<sfile>" or "<afile>"
+		于 "%", "#", "<cfile>", "<sfile>" 或 "<afile>" 之后
 		|::p|	    :p		完整路径
-		|::h|	    :h		head (file name removed)
-		|::t|	    :t		tail (file name only)
-		|::r|	    :r		root (extension removed)
+		|::h|	    :h		头 (除去文件名)
+		|::t|	    :t		尾 (仅使用文件名)
+		|::r|	    :r		根 (除去扩展名)
 		|::e|	    :e		扩展名
-		|::s|	    :s/{pat}/{repl}/	substitute {pat} with {repl}
+		|::s|	    :s/{pat}/{repl}/	以 {repl} 替换 {pat} 
 ------------------------------------------------------------------------------
 *Q_ed*		编辑一个文件
 
@@ -1000,14 +981,14 @@ N 用来（可选）至于命令之前表示该命令执行的次数。
 |:enew|	   :ene[w][!]		编辑一个无名的新缓冲
 |:find|    :fin[d][!] {file}	在 'path' 当中查找文件 {file} 并编辑之
 
-|CTRL-^|   N   CTRL-^		Edit alternate file N (equivalent to ":e #N").
+|CTRL-^|   N   CTRL-^		编辑 alternate file N (同 ":e #N").
 |gf|	       gf  or ]f	编辑光标下的文件名对应的文件
 |:pwd|	   :pwd			显示当前目录名
 |:cd|	   :cd [path]		将当前目录名变至 [path].
 |:cd-|	   :cd -		回到上一次当前目录
 |:file|	   :f[ile]		先是当前文件名及光标位置
 |:file|	   :f[ile] {name}	至当前文件名为 {name}.
-|:files|   :files		Show alternate file names.
+|:files|   :files		显示 alternate file 的文件名.
 ------------------------------------------------------------------------------
 *Q_fl*		使用参数列表            			|argument-list|
 
@@ -1020,13 +1001,13 @@ N 用来（可选）至于命令之前表示该命令执行的次数。
 |:wN|	   :wN[ext][!] [file]	写入文件并编辑前一个文件
 
 	     在当前窗口           新建窗口	~
-|:argument|  :argu[ment] N	  :sar[gument] N	Edit file N
-|:next|	     :n[ext]		  :sn[ext]		Edit next file
-|:next_f|    :n[ext] {arglist}	  :sn[ext] {arglist}	define new arg list
-							   and edit first file
-|:Next|	     :N[ext]		  :sN[ext]		Edit previous file
-|:first|     :fir[st]		  :sfir[st]		Edit first file
-|:last|	     :la[st]		  :sla[st]		Edit last file
+|:argument|  :argu[ment] N	  :sar[gument] N	编辑文件 N
+|:next|	     :n[ext]		  :sn[ext]		编辑下一个文件
+|:next_f|    :n[ext] {arglist}	  :sn[ext] {arglist}	定义新的文件列表并编辑
+							   其中的第一个
+|:Next|	     :N[ext]		  :sN[ext]		编辑前一个文件
+|:first|     :fir[st]		  :sfir[st]		编辑第一个文件
+|:last|	     :la[st]		  :sla[st]		编辑最后一个文件
 ------------------------------------------------------------------------------
 *Q_wq*		写入和退出
 
@@ -1042,9 +1023,8 @@ N 用来（可选）至于命令之前表示该命令执行的次数。
 
 |:q|	  :q[uit]		退出当前缓冲, 除非已经做了改动. 如果没有其它
 				   非帮助的缓冲, 退出 Vim
-|:q|	  :q[uit]!		Quit current buffer always, discard any
-				   changes.  Exit Vim when there are no other
-				   non-help buffers
+|:q|	  :q[uit]!		强制退出当前缓冲, 放弃所有的改动.  如果没有其它
+				   非帮助的缓冲, 退出 Vim
 |:qa|	  :qall			退出 Vim, 除非作了改动
 |:qa|	  :qall!		退出 Vim, 废除所有改动
 |:cq|	  :cq			推出,不写入文件并返回错误代码
@@ -1057,8 +1037,8 @@ N 用来（可选）至于命令之前表示该命令执行的次数。
 |:xall|	  :xall[!]  or :wqall[!]
 				写入所有改动的缓冲并退出
 
-|:stop|	  :st[op][!]		挂起 VIM 或开始一个新 shell. If 'aw' option
-				   is set and [!] not given write the buffer.
+|:stop|	  :st[op][!]		挂起 VIM 或开始一个新 shell. 如果设置了 'aw' 选项
+				   并没有给出 [!] 则写入缓冲.
 |CTRL-Z|     CTRL-Z		同 ":stop"
 ------------------------------------------------------------------------------
 *Q_st*		启动 VIM
@@ -1087,25 +1067,25 @@ N 用来（可选）至于命令之前表示该命令执行的次数。
 |-H|	-H		    Hebrew 模式 ('hkmap' and 'rightleft' are set)
 |-V|	-V		    Verbose, 给出更多信息
 |-C|	-C		    兼容, 设置 'compatible' 选项
-|-N|	-N		    Nocompatible, reset the 'compatible' option
-|-r|	-r		    give list of swap files
-|-r|	-r {file} ..	    recover aborted edit session
+|-N|	-N		    不兼容, 复位 'compatible' 选项
+|-r|	-r		    给出交换文件列表
+|-r|	-r {file} ..	    恢复中断的编辑
 |-n|	-n		    不创建交换文件
-|-o|	-o [num]	    open [num] windows (default: one for each file)
+|-o|	-o [num]	    打开 [num] 个窗口 (缺省: 每个文件一个窗口)
 |-f|	-f		    GUI: 前台进程, 不调用 fork
 			    Amiga: do not restart VIM to open a window (for
 				e.g., mail)
 |-s|	-s {scriptin}	    先从文件 {scriptin} 读入命令
-|-w|	-w {scriptout}	    write typed chars to file {scriptout} (append)
-|-W|	-W {scriptout}	    write typed chars to file {scriptout} (overwrite)
+|-w|	-w {scriptout}	    把键入的字符写进文件 {scriptout} (添加)
+|-W|	-W {scriptout}	    把键入的字符写进文件 {scriptout} (覆盖)
 |-T|	-T {terminal}	    设置终端名
 |-d|	-d {device}	    Amiga: open {device} to be used as a console
 |-u|	-u {vimrc}	    从文件 {vimrc} 而非其它文件读入初始化命令
 |-U|	-U {gvimrc}	    同上, 但用于启动 GUI 时
-|-i|	-i {viminfo}	    read info from {viminfo} instead of other files
-|---|	--		    end of options, other arguments are file names
-|--help|    --help	    先是参数列表并推出
-|--version| --version	    显示版本信息并推出
+|-i|	-i {viminfo}	    从文件 {viminfo} 而不是其它文件读入 info 
+|---|	--		    结束选项, 其余的参数都将是文件名
+|--help|    --help	    显示参数列表并退出
+|--version| --version	    显示版本信息并退出
 |--|	-		    从标准输入读入文件
 ------------------------------------------------------------------------------
 *Q_ac*		自动命令
@@ -1117,28 +1097,27 @@ N 用来（可选）至于命令之前表示该命令执行的次数。
 |:wviminfo|	:wv[iminfo] [file]	向文件 [file] 中加入 viminfo 信息
 |:wviminfo|	:wv[iminfo]! [file]	向文件 [file] 中加入 viminfo 信息
 
-|modeline|	Automatic option setting when editing a file
+|modeline|	当编辑一个文件时自动设定的选项
 
-|modeline|	vim:{set-arg}: ..	In the first and last lines of the
-					file (see 'ml' option), {set-arg} is
-					given as an argument to ":set"
+|modeline|	vim:{set-arg}: ..	至于文件的第一行或最后一行
+					(参见 'ml' 选项), {set-arg} 被用于
+					":set" 命令的参数
 
 |autocommand|	特定时间发生时自动执行命令
 
 |:autocmd|	:au			列出所由自动命令
 |:autocmd|	:au {event}		列出事件 {event} 的所由自动命令
 |:autocmd|	:au {event} {pat}	列出事件 {event} 的所由自动命令
-					并使用匹配 {pat}
-|:autocmd|	:au {event} {pat} {cmd}	Enter new autocommands for {event}
-					with {pat}
+					并使用文件匹配 {pat}
+|:autocmd|	:au {event} {pat} {cmd}	为事件 {event} 及文件匹配 {pat} 加入
+					新的自动命令
 |:autocmd|	:au!			清除所有自动命令
 |:autocmd|	:au! {event}		清除所有事件 {event} 的自动命令
 Remove all autocommands for {event}
-|:autocmd|	:au! * {pat}		Remove all autocommands for {pat}
-|:autocmd|	:au! {event} {pat}	Remove all autocommands for {event}
-					with {pat}
-|:autocmd|	:au! {event} {pat} {cmd}  Remove all autocommands for {event}
-					with {pat} and enter new one
+|:autocmd|	:au! * {pat}		清除所有文件匹配 {pat} 的自动命令
+|:autocmd|	:au! {event} {pat}	清除所有文件匹配 {pat} 及事件 {event} 的自动命令
+|:autocmd|	:au! {event} {pat} {cmd}  清除所有文件匹配 {pat} 及事件 {event} 的
+					自动命令并加入新的
 ------------------------------------------------------------------------------
 *Q_wi*		多窗口命令
 
@@ -1148,7 +1127,7 @@ Remove all autocommands for {event}
 					   并编辑之
 |CTRL-W_]|	CTRL-W ]		分割窗口并跳转至光标下的标签
 |CTRL-W_f|	CTRL-W f		分隔窗口并编辑光标下的文件
-|CTRL-W_CTRL-^| CTRL-W CTRL-^		Split window and edit alternate file
+|CTRL-W_CTRL-^| CTRL-W CTRL-^		分隔窗口并编辑 alternate file
 |CTRL-W_n|	CTRL-W n  或  :new	创建新空白窗口
 |CTRL-W_q|	CTRL-W q  或  :q[uit]	退出编辑并关闭窗口
 |CTRL-W_c|	CTRL-W c  或  :cl[ose]	隐藏当前缓冲区并关闭窗口
@@ -1173,24 +1152,24 @@ Remove all autocommands for {event}
 ------------------------------------------------------------------------------
 *Q_bu*		缓冲区列表命令
 
-|:buffers|	:buffers  或  :files	列出所有已知的缓冲区和文件名
+|:buffers|	:buffers  或  :files	列出所有已知的缓冲和文件名
 
-|:ball|		:ball	  或  :sball	edit all args/buffers
-|:unhide|	:unhide   或  :sunhide	遍及所有载入的缓冲区
+|:ball|		:ball	  或  :sball	编辑所有的缓冲
+|:unhide|	:unhide   或  :sunhide	编辑所有载入的缓冲
 
 |:badd|		:badd {fname}		加入文件名 {fname} 到列表中 
-|:bunload|	:bunload[!] [N]		从内存中卸载缓冲区 [N] 
-|:bdelete|	:bdelete[!] [N]		从内存中卸载缓冲区 [N]  并从列表中
+|:bunload|	:bunload[!] [N]		从内存中卸载缓冲 [N] 
+|:bdelete|	:bdelete[!] [N]		从内存中卸载缓冲 [N]  并从列表中
 					   删除
 
-	      in current window   in new window	~
-|:buffer|     :[N]buffer [N]	  :[N]sbuffer [N]     to arg/buf N
-|:bnext|      :[N]bnext [N]	  :[N]sbnext [N]      to Nth next arg/buf
-|:bNext|      :[N]bNext [N]	  :[N]sbNext [N]      to Nth previous arg/buf
-|:bprevious|  :[N]bprevious [N]   :[N]sbprevious [N]  to Nth previous arg/buf
-|:bfirst|     :bfirst		  :sbfirst	      to first arg/buf
-|:blast|      :blast		  :sblast	      to last arg/buf
-|:bmodified|  :[N]bmod [N]	  :[N]sbmod [N]	      to Nth modified buf
+	      当前窗口内          新窗口内	~
+|:buffer|     :[N]buffer [N]	  :[N]sbuffer [N]     转到参数/缓冲 N
+|:bnext|      :[N]bnext [N]	  :[N]sbnext [N]      转到后面的第 N 个参数/缓冲
+|:bNext|      :[N]bNext [N]	  :[N]sbNext [N]      转到前面的第 N 个参数/缓冲
+|:bprevious|  :[N]bprevious [N]   :[N]sbprevious [N]  转到前面的第 N 个参数/缓冲
+|:bfirst|     :bfirst		  :sbfirst	      转到第一个参数/缓冲
+|:blast|      :blast		  :sblast	      转到最后一个参数/缓冲 
+|:bmodified|  :[N]bmod [N]	  :[N]sbmod [N]	      转到第 N 个被改动了的缓冲
 ------------------------------------------------------------------------------
 *Q_sy*		语法高亮
 
@@ -1200,17 +1179,17 @@ Remove all autocommands for {event}
 |:syn-keyword|	:syntax keyword {group-name} {keyword} ..
 					添加语法关键字项
 |:syn-match|	:syntax match {group-name} {pattern} ...
-					add syntax match item
+					加入语法匹配项
 |:syn-region|	:syntax region {group-name} {pattern} ...
 					添加语法区域项
 |:syn-sync|	:syntax sync [ccomment | lines {N} | ...]
-					tell syntax how to sync
+					设置语法加亮的同步方式
 |:syntax|	:syntax [list]		列出当前语法项
 |:syn-clear|	:syntax clear		清除所有语法信息
 
-|:highlight|	:highlight clear	clear all highlight info
+|:highlight|	:highlight clear	清除所有加亮信息
 |:highlight|	:highlight {group-name} {key}={arg} ..
-					设置 highlighting for {group-name}
+					为语法组 {group-name} 设置加亮
 
 |:filetype|	:filetype on		开启文件类型侦测, 不包括
 					语法高亮
@@ -1225,11 +1204,11 @@ Remove all autocommands for {event}
 
 |:menu|		:menu			列出所有菜单
 |:menu|		:menu {mpath}		列出 {mpath} 下的所有菜单 
-|:menu|		:menu {mpath} {rhs}	加入菜单 {mpath}, giving {lhs}
+|:menu|		:menu {mpath} {rhs}	将 {lhs} 加入菜单 {mpath}
 |:menu|		:menu {pri} {mpath} {rhs}
 					同上, 并带有优先权 {pri}
 |:menu|		:menu ToolBar.{name} {rhs}
-					加入工具条项, giving {lhs}
+					将 {lhs} 加入工具条
 |:tmenu|	:tmenu {mpath} {text}	为菜单 {mpath} 加入 tooltip 
 |:unmenu|	:unmenu {mpath}		删除菜单 {mpath}
 
@@ -1242,7 +1221,7 @@ Remove all autocommands for {event}
 		set foldmethod=syntax	按照语法区域折叠
 		set foldmethod=marker	按照标记 'foldmarkers' 折叠
 
-|zf|		{motion}zf		operator: 手动定义一个折叠
+|zf|		{motion}zf		操作符: 手动定义一个折叠
 |:fold|		:{range}fold		将范围 {range} 包括的行定义为一个折叠
 |zd|		zd			删除光标下的一个折叠
 |zD|		zD			删除光标下的所有折叠

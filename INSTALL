@@ -1,0 +1,20 @@
+Linux:
+下载的 tar.gz 或 tar.bz2 包括所有翻译过的 vim 文档 (.txt文件)。只要把
+它们拷贝到相应的目录就行了。一般来说，该目录为：
+/usr/share/vim/vim<版本号>/doc
+比如说：
+/usr/share/vim/vim6.1/doc
+如果你是自己编译的 vim, 这个目录很可能是：
+/usr/local/share/vim/vim6.1/doc
+'which vim' 可能会有帮助。
+
+Win32:
+建议使用已经做好的自动安装程序。如果你想手动安装，可以参照上面 Linux
+的做法，只是路径不同。
+
+
+安装完之后，启动 vim/gvim, 键入 :help 看看吧！
+
+
+UNINTALL:
+只要把原来的 Vim 文档考回该目录覆盖那些中文文档即可。
