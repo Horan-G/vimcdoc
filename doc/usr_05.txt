@@ -90,7 +90,7 @@ vi兼容模式（参见|not-compatible|）。这个文件可以在这里找到：
           set backup
         endif
 
-这告诉Vim但覆盖一个文件的时候保留一个备份。但VMS系统除外，因为VMS系统会自动产
+这告诉Vim当覆盖一个文件的时候保留一个备份。但VMS系统除外，因为VMS系统会自动产
 生备份文件。备份文件的名称是在原来的文件名上加上“~”字符。参见|07.4| 
 
 >
@@ -242,7 +242,7 @@ Vim中有两种外挂：
 全局外挂                                                *standard-plugin*
 
 当你启动Vim，它会自动加载一些外挂，你不需要为此做任何事。这些外挂增加一些
-很多认想用的，但仅由Vim脚本实现而不编译到Vim中的功能。你可以在帮助目录中
+很多人想用的，但仅由Vim脚本实现而不编译到Vim中的功能。你可以在帮助目录中
 找到这些外挂：|standard-plugin-list|，还可以参照|load-plugin|。
 
                                                         *add-global-plugin*
@@ -368,11 +368,11 @@ HTML标记间，Vim脚本的if/else/endif间等匹配点间跳转。这非常有用，但它不向前
         :!mkdir ~/.vim/plugin
         :!cp $VIMRUNTIME/macros/matchit.vim ~/.vim/plugin
 
-现在某个'runtimepath'中建立一个doc目录。
+先在某个'runtimepath'中建立一个doc目录。
 >
         :!mkdir ~/.vim/doc
 
-把帮助文件拷贝进去：
+再把帮助文件拷贝进去：
 >
         :!cp $VIMRUNTIME/macros/matchit.txt ~/.vim/doc
 
@@ -420,7 +420,7 @@ CTRL-O就可以跳回来。
 这行的上面是对这个选项的简要描述。把你的光标向上移动一行，然后按<Enter>，你
 可以跳转到'wrap'的完整帮助，再用CTRL-O可以跳回来。
 
-对于那些数字或者字符串为值的选项，按<Enter>可以赋一个新的值。例如，把光标移动
+对于那些值为数字或者字符串的选项，按<Enter>可以赋一个新的值。例如，把光标移动
 到下面这行：
 >
         set so=0
@@ -463,8 +463,8 @@ Vim通常会对长行自动换行，以便你可以看见所有的文字。但有时最好还是能让文字在一
 >
         :set whichwrap=b,s
 <
-这允许<BS>键在移动大行首的时候继续向前一行退格。而<Space>键在移动到行尾的时候
-能继续移动到下一行。
+这样，当光标处于行首时用 <BS> 键可以回到前一行的结尾；当处于行尾时用 <Space> 
+键可以移动到下一行的行首。
 
 要允许<Left>和<Right>键也能这样，可以用这个命令：
 >
