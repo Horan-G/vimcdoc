@@ -281,4 +281,4 @@ Win32s 版本的 gvim 与 Win32 版本的 gvim 在 95/NT 系统里是一样的。在 Win32s 系
 答：编辑 SYSTEM.INI 文件，在 [NonWindowsApp] 加入 “ScreenLines=50” 。这样，
     DOS 窗口就会变成 50 行的。
  
- vim:tw=78:fo=tcq2:ts=8:ft=help:norl:
+ vim:tw=78:fo=tcq2:ts=8:ft=help:norl:enc=euc-cn:

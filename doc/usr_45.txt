@@ -349,4 +349,4 @@ Vim »áÎªÄãÕÒµ½Ò»¸ö¼üÍ¼ÎÄ¼ş¡£ÕâÈ¡¾öÓÚ 'encodings' Ñ¡ÏîµÄÖµ¡£Èç¹ûÕÒ²»µ½ÏàÓ¦µÄÎÄ¼ş£
 
 ÏÂÒ»ÕÂ: |usr_90.txt|  °²×° Vim
 
-°æÈ¨: ²Î¼û |manual-copyright|  vim:tw=78:ts=8:ft=help:norl:
+°æÈ¨: ²Î¼û |manual-copyright|  vim:tw=78:ts=8:ft=help:norl:enc=euc-cn:

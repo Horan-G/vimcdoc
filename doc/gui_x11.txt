@@ -435,4 +435,4 @@ xterm 默认使用的那一个。
 ("+) 为了剪切、拷贝、粘贴操作。你可以通过选择 "* 或 "+ 缓冲器来访问。
 
 
- vim:tw=78:sw=4:ts=8:ft=help:norl:
+ vim:tw=78:sw=4:ts=8:ft=help:norl:enc=euc-cn:

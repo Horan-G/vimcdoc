@@ -259,4 +259,4 @@ xterm ÖÐ¹¤×÷¡£
 	:map <M-Esc>[65~ <S-MouseUp>
 	:map! <M-Esc>[65~ <S-MouseUp>
 <
- vim:tw=78:ts=8:ft=help:norl:
+ vim:tw=78:ts=8:ft=help:norl:enc=euc-cn:

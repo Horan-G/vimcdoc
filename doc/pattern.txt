@@ -1036,4 +1036,4 @@ doesn't work there, it only works to match text in the buffer.
 :mat[ch] none
 		Clear a previously defined match pattern.
 
- vim:tw=78:ts=8:ft=help:norl:
+ vim:tw=78:ts=8:ft=help:norl:enc=euc-cn:

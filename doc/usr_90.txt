@@ -1,4 +1,4 @@
-*usr_90.txt*	Vim 版本 6.2.  最近更新: 2002年七月14日
+*usr_90.txt*	For Vim version 6.2.  最近更新: 2002年七月14日
 
 		     VIM USER MANUAL - by Bram Moolenaar
 		   (译者：lang2  http://vimcdoc.sf.net)
@@ -12,7 +12,7 @@
 |90.1|	Unix
 |90.2|	MS-Windows
 |90.3|	升级
-|90.4|	Common installation issues
+|90.4|	常见安装问题
 |90.5|	卸载 Vim
 
      前一章：|usr_45.txt|  选择你的语言
@@ -432,4 +432,4 @@ MS-WINDOWS
 
 目 录: |usr_toc.txt|
 
-版权： 参见 |manual-copyright|  vim:tw=78:ts=8:ft=help:norl:
+版权： 参见 |manual-copyright|  vim:tw=78:ts=8:ft=help:norl:enc=euc-cn:

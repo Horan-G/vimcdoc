@@ -1240,4 +1240,4 @@ Remove all autocommands for {event}
 |zN|		zN			正常折叠: 置 'foldenable'
 |zi|		zi			反转 'foldenable'
 
- vim:tw=78:ts=8:ft=help:norl:
+ vim:tw=78:ts=8:ft=help:norl:enc=euc-cn:

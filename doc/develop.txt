@@ -147,7 +147,8 @@ VIM 不 是 ... 						*design-not*
 free()		vim_free()	检查释放 NULL 的情况
 malloc()	alloc()		检查内存不足的情况
 malloc()	lalloc()	类似于 alloc()，但是支持长参数
-strcpy()	STRCPY()	Includes cast to (char *), for char_u * args
+strcpy()	STRCPY()	对于 char_u* 类型的参数，会自动将其转换为
+				(char*) 类型
 strchr()	vim_strchr()	接受特殊字符
 strrchr()	vim_strrchr()	接受特殊字符
 isspace()	vim_isspace()	可以处理 ASCII 码 > 128 的字符
@@ -268,7 +269,7 @@ NOTE: 不要使用 ANSI 风格的函数声明。一些人仍然在使用不支持它的编译器。
 错误：  func (arg);
 正确：	func(arg);
 
-不要在 if, while, switch 等之后留空格：
+请在 if, while, switch 等之后留一个空格：
 
 错误：	if(arg)		for(;;)
 正确：	if (arg)	for (;;)
@@ -338,4 +339,4 @@ int	    16/32/64位有符号数
 unsigned    16/32/64位无符号数
 long	    32或64位有符号数，可具有指针
 
- vim:tw=78:ts=8:ft=help:norl:
+ vim:tw=78:ts=8:ft=help:norl:enc=euc-cn:

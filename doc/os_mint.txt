@@ -28,4 +28,4 @@ Vim一起发布的termcap文件中了.
 
 如果您发现了错误，请发送报告至 Jens M. Felderhoff <jmf@infko.uni-koblenz.de>
 
-vim:tw=78:ts=8:ft=help:norl:
+vim:tw=78:ts=8:ft=help:norl:enc=euc-cn:

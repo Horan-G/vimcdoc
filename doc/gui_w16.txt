@@ -165,4 +165,4 @@ Vim 支持许多 MS-Windows 的标准特性。一些相关的介绍可以在别的地方找到：参见
 TrueType 字体时有 bug 。特别是你把鼠标移动到管道字符‘|’上时，鼠标指针的大小
 会被画错，并且向后偏。这个 bug 出现在 Win3.1x GDI 里， 在 95/NT 下面没有这种情
 况。
- vim:tw=78:sw=4:ts=8:ft=help:norl:
+ vim:tw=78:sw=4:ts=8:ft=help:norl:enc=euc-cn:

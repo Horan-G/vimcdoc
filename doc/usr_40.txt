@@ -547,7 +547,7 @@ expand() 函数的参数是 "<afile>"，用来代表自动命令执行所关联的文件。":r" 指定仅
 (不能用在命令行)。
 
 如果你想让你的自动命令作一些复杂的操作，例如在文件间跳转，然后回到原来位置等，
-你可以恢复该文件的视口。 |restore-position| 有些例子。
+你可以恢复该文件的视图。 |restore-position| 有些例子。
 
 
 忽 略 事 件
@@ -569,4 +569,4 @@ expand() 函数的参数是 "<afile>"，用来代表自动命令执行所关联的文件。":r" 指定仅
 
 下一章: |usr_41.txt|  编写 Vim 脚本
 
-Copyright: see |manual-copyright|  vim:tw=78:ts=8:ft=help:norl:
+Copyright: see |manual-copyright|  vim:tw=78:ts=8:ft=help:norl:enc=euc-cn:

@@ -112,4 +112,4 @@ XmNballoonEvalFontList, XmNballoonEvalBackground, 和 XmNballoonEvalForeground
 
 目前唯一一个完全整合的 调试器/IPE/IDE 是 Sun 的 Visual WorkShop 集成编程环境。
 
- vim:tw=78:sw=4:ts=8:ft=help:norl:
+ vim:tw=78:sw=4:ts=8:ft=help:norl:enc=euc-cn:

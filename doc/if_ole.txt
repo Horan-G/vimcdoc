@@ -147,5 +147,5 @@ Vim 的 OLE 版本可以用做 Visual Studio 的文本编辑器。这被称作“VisVim”。OLE 版
 本的软件包里有一个 VisVim 目录，详细的说明请参阅该目录下的 README.txt 文件。
 
 ==============================================================================
- vim:tw=78:ts=8:ft=help:norl:
+ vim:tw=78:ts=8:ft=help:norl:enc=euc-cn:
 

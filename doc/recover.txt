@@ -138,4 +138,4 @@ Vim 会通过文件开始的6个字符 "b0VIM " 来识别它的交换文件。Vim的版本号（如：3.0
 
 {Vi: 在有可以恢复的内容时，用另一种方式恢复并且发送邮件}
 
- vim:tw=78:ts=8:ft=help:norl:
+ vim:tw=78:ts=8:ft=help:norl:enc=euc-cn:

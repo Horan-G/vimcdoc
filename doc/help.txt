@@ -36,7 +36,7 @@ VIM 代表 Vi IMproved。VIM 主要是由 Bram Moolenaar 编写的，但没有许多其他
 |tutor|		面向初学者的 30 分钟教程
 |copying|	版权信息
 |iccf|		资助乌干达贫困儿童
-|www|		互联网上的 Vim 
+|www|		互联网上的 Vim
 |bugs|		如何提交 bug 报告
 
 用户手册：这些文件解释了如何完成某项编辑任务.
@@ -55,7 +55,7 @@ VIM 代表 Vi IMproved。VIM 主要是由 Bram Moolenaar 编写的，但没有许多其他
 |usr_09.txt|  使用 GUI 版本
 |usr_10.txt|  做大修改
 |usr_11.txt|  从崩溃中恢复
-|usr_12.txt|  小技巧
+|usr_12.txt|  小窍门
 
 高效的编辑 ~
 |usr_20.txt|  快速键入命令行
@@ -190,4 +190,4 @@ GUI ~
 现在你已经通过 CTRL-] 或双击鼠标跳转到这里了, 你可以使用
 CTRL-T, CTRL-O, g<RightMouse>, 或 <C-RightMouse> 跳回到原来的地方.
 ------------------------------------------------------------------------------
- vim:tw=78:fo=tcq2:isk=!-~,^*,^\|,^\":ts=8:ft=help:norl:
+ vim:tw=78:fo=tcq2:isk=!-~,^*,^\|,^\":ts=8:ft=help:norl:enc=euc-cn:

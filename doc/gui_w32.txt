@@ -379,4 +379,4 @@ Alt-F 打开文件菜单，但是在 Vim 里 Alt-F 可能被 map 成别的功能了 ——译者）。
 把 gvim 加到列表里。当你用智能鼠标 2.2 版本的驱动程序并且打开了“Universal
 Scrooling”就会出现这个问题。
 
-vim:tw=78:sw=4:ts=8:ft=help:norl:
+vim:tw=78:sw=4:ts=8:ft=help:norl:enc=euc-cn:

@@ -1,7 +1,7 @@
-*usr_04.txt*	For Vim version 6.2.  最后修改时间：2002年7月18日，译于2003年10月3日
+*usr_04.txt*	For Vim version 6.2.  最后修改时间：2002年7月18日
 
-		    VIM用户手册 - Bram Moolenaar
-		 （由nek_in翻译，nek_in@21cn.com）
+		    VIM用户手册 - by Bram Moolenaar
+		 (译者：Nek_in http://vimcdoc.sf.net)
 
 			作小改动
 
@@ -17,10 +17,10 @@
 |04.6|	拷贝文本
 |04.7|	使用剪贴板
 |04.8|	文本对象
-|04.9|	覆盖模式
+|04.9|	替换模式
 |04.10|	结论
 
-下一章： |usr_05.txt|  设置选项
+下一章： |usr_05.txt|  选项设置
 前一章： |usr_03.txt|  移动
   目录： |usr_toc.txt|
 
@@ -451,4 +451,4 @@ dgg	删除到文首
 
 下一章：|usr_05.txt|  设置选项
 
-版权：参见|manual-copyright|  vim:tw=78:ts=8:ft=help:norl:
+版权：参见|manual-copyright|  vim:tw=78:ts=8:ft=help:norl:enc=euc-cn:

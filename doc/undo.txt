@@ -99,4 +99,4 @@ U			撤销最近对特定行所作的一系列更改。
 次放进的内容，然后在第二个寄存器重复上述命令。重复使用 'u.' 直到你得到想要的内
 容。
 
- vim:tw=78:ts=8:ft=help:norl:
+ vim:tw=78:ts=8:ft=help:norl:enc=euc-cn:

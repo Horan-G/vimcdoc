@@ -310,7 +310,7 @@ Douglas Adams, the only person who knew what this question really was about is
 now dead, unfortunately.  So now you might wonder what the meaning of death
 is...
 
-生命的意义是什么? 宇宙以及一切的一切的意义又是什么? *42*
+生命的意义是什么? 宇宙以及一切的一切的意义又是什么?
 不幸的是，唯一了解这个问题的人，Douglas Adams 已经死了。所以你现在可能正在冥想
 死亡的意义是什么...
 
@@ -318,4 +318,4 @@ is...
 
 下一章: |usr_43.txt|  使用文件类型
 
-Copyright: see |manual-copyright|  vim:tw=78:ts=8:ft=help:norl:
+Copyright: see |manual-copyright|  vim:tw=78:ts=8:ft=help:norl:enc=euc-cn:

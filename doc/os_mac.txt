@@ -85,4 +85,4 @@ Vim 是使用 CodeWarrior 工程提供的 CodeWarrior 9 编译出来的。如果您正在使
 意高优先级事件”按钮，从而使得拖曳功能可以正常使用。
 您需要把内存分区增大到至少1024k，以避免 Vim 由于内存不足而崩溃。
 
- vim:tw=78:ts=8:ft=help:norl:
+ vim:tw=78:ts=8:ft=help:norl:enc=euc-cn:

@@ -12,9 +12,9 @@
 |usr_28.txt|
 
 1. 折叠方法		|fold-methods|
-2. 折叠命令	|fold-commands|
+2. 折叠命令		|fold-commands|
 3. 折叠选项		|fold-options|
-4. 折叠表现	|fold-behavior|
+4. 折叠表现		|fold-behavior|
 
 {Vi has no Folding}
 {not available when compiled without the +folding feature}
@@ -483,4 +483,4 @@ zk		向上移动到前一折叠的结束处。关闭的折叠也被计入。
 经在这个窗口里被编辑，过去用的被恢复。否则，来自过去编辑窗口的值被使用。
 
 ==============================================================================
- vim:tw=78:ts=8:ft=help:norl:
+ vim:tw=78:ts=8:ft=help:norl:enc=euc-cn:

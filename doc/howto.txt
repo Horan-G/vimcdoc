@@ -91,4 +91,4 @@
 |2html.vim|		把一个有颜色的文件转换成 HTML
 |less|			在语法高亮的前提下像 less 或 more 那样使用 Vim
 
- vim:tw=78:ts=8:ft=help:norl:
+ vim:tw=78:ts=8:ft=help:norl:enc=euc-cn:

@@ -1,4 +1,4 @@
-*usr_41.txt*	For Vim version 6.1.  最后更新: 2001 Oct 26
+*usr_41.txt*	For Vim version 6.2.  最后更新: 2003 Jun 01
 
 		     VIM USER MANUAL - by Bram Moolenaar
 		     (译者：lang2 http://vimcdoc.sf.net)
@@ -16,23 +16,24 @@ Vim 脚本语言在很多地方用到，包括 vimrc 文件, 语法文件, 等等。本章讨论 Vim 脚本
 |41.5|	执行一个表达式
 |41.6|	使用函数
 |41.7|	定义一个函数
-|41.8|	其它讨论
-|41.9|	编写插件
-|41.10|	编写文件类型插件
-|41.11|	编写编译器插件
+|41.8|	异常
+|41.9|	其它讨论
+|41.10|	编写插件
+|41.11|	编写文件类型插件
+|41.12|	编写编译器插件
 
            下一章: |usr_42.txt|  添加新的菜单
            前一章: |usr_40.txt|  创建新的命令
              目录: |usr_toc.txt|
 
 ==============================================================================
-*41.1*	简介			*vimrc-intro* *vim-script-intro*
+*41.1*	简介					*vim-script-intro*
 
-你最初接触到 Vim 脚本是在 vimrc 文件里。  当 Vim 启动时它将读取该文件的内容
+你最初接触到 Vim 脚本是在 vimrc 文件里。当 Vim 启动时它将读取该文件的内容
 并执行其中的命令。你可以在其中设置可选项。你可以在其中使用任何冒号命令 (以
 ":" 开头的命令; 这些命令有时也被称作 Ex 命令或命令行命令)。
    语法文件其实也是 Vim 脚本。专为某种文件类型设定选项的文件也是。一个很复杂
-的宏可以被单独的定义在一个 Vim 脚本文件中。你可以想到其它的应用。
+的宏可以被单独的定义在一个 Vim 脚本文件中。你还可以想到其它的应用。
 
 让我们从一个简单的例子开始: >
 
@@ -46,7 +47,7 @@ Vim 脚本语言在很多地方用到，包括 vimrc 文件, 语法文件, 等等。本章讨论 Vim 脚本
 	那些 ":" 字符并非必须的。它们只是在当你键入命令时才需要。在编写 Vim
 	脚本是可以去掉。在这里使用一是为了清楚，二是为了区别于普通模式命令。
 
-":let" 命令给一个变量付值。通常的用法是: >
+":let" 命令给一个变量赋值。通常的用法是: >
 
 	:let {变量} = {表达式}
 
@@ -116,7 +117,7 @@ Vim 脚本语言在很多地方用到，包括 vimrc 文件, 语法文件, 等等。本章讨论 Vim 脚本
 
 	:let
 
-你可以在任何地方使用全局变量。这同时也意味着: 当一个脚本文件使用 "count"变量时, 
+你可以在任何地方使用全局变量。这同时也意味着: 当一个脚本文件使用 "count"变量时,
 可能另一个脚本文件也使用了这个变量。这至少会引起混乱，严重时会导致脚本无法正常
 工作。为避免这种情况发生，你可以在变量名前加上 "s:" 使其变成脚本文件的本地变量。
 例如，一脚本包含以下代码: >
@@ -128,8 +129,8 @@ Vim 脚本语言在很多地方用到，包括 vimrc 文件, 语法文件, 等等。本章讨论 Vim 脚本
 	:endwhile
 
 由于 "s:count" 是本地变量，你可以确信调用 (source) "other.vim" 脚本不会改变它
-的值。 如果 "other.vim" 也使用一个 "s:count"变量，该变量将会是仅在脚本内有效
-的本地变量。更多关于脚本本地变量可以在这里得到: |script-variable|.
+的值。如果 "other.vim" 也使用一个 "s:count"变量，该变量将会是仅在脚本内有效
+的本地变量。更多关于脚本本地变量可以在这里读到: |script-variable|.
 
 还有很多其他类型的变量, 参阅 |internal-variables|.  最常用的几类有:
 
@@ -147,7 +148,7 @@ Vim 脚本语言在很多地方用到，包括 vimrc 文件, 语法文件, 等等。本章讨论 Vim 脚本
 	:unlet s:count
 
 这将删除 "s:count" 这个脚本本地变量并释放其占用的内存。如果你并不确定这个变量
-是否存在，但并不希望系统在它不存在时报错，可以在命令后添加!: >
+是否存在，但并不希望系统在它不存在时报错，可以在命令后添加 !: >
 
 	:unlet! s:count
 
@@ -165,9 +166,9 @@ Vim 脚本语言在很多地方用到，包括 vimrc 文件, 语法文件, 等等。本章讨论 Vim 脚本
 
 	:if !exists(s:call_count)
 
-那么变量 s:call_count 的值将被用来做检测。那不是你想得到的。
+那么变量 s:call_count 的值将被用来做检测。那不是你想要到的。
    惊叹号 ! 将一个值取反。当该值为真时，表达式的值为假。当该值为假时，表达式的
-值为真。你可以把它读作 "not". 这样 "if !exists()" 可以被读作 "if not exists()".
+值为真。你可以把它读作 "not"。这样 "if !exists()" 可以被读作 "if not exists()".
    Vim 把任何非零的值当作真。只有零才是假。
 
 
@@ -204,20 +205,20 @@ Vim 脚本语言在很多地方用到，包括 vimrc 文件, 语法文件, 等等。本章讨论 Vim 脚本
 	\n		<NL>, 换行
 	\r		<CR>, <Enter>
 	\e		<Esc>
-	\b		<BS>, backspace
+	\b		<BS>, 退格
 	\"		"
 	\\		\, 反斜杠
 	\<Esc>		<Esc>
 	\<C-W>		CTRL-W
 
-最后两个只是用来举例子的。"\<name>" 的形式可以被用来表示特殊的键"名"。
+最后两个只是用来举例子的。"\<name>" 的形式可以被用来表示特殊的键 "name"。
    在 |expr-quote| 中列出了全部的特殊字符。
 
 ==============================================================================
 *41.3*	表达式
 
 Vim 脚本支持的表达式很丰富，也很容易使用。你可以在这里读到表达式的定义:
-|expression-syntax|.  这里我们只看看常用的几个。
+|expression-syntax|。这里我们只看看常用的几个。
    已经提到的那些数值，字符串常量和变量都属于表达式。因此任何可以使用表达式的
 地方，数值，字符串变量和常量都可以使用。其它基本的表达式有:
 
@@ -285,7 +286,7 @@ Vim 脚本支持的表达式很丰富，也很容易使用。你可以在这里读到表达式的定义:
 	(a) ? (b) : (c)
 
 ==============================================================================
-*41.4*	条件
+*41.4*	条件语句
 
 ":if" 命令在条件满足的前提下，执行其后直到 ":endif" 的所有语句。常用的形式为:
 
@@ -345,13 +346,13 @@ Vim 脚本支持的表达式很丰富，也很容易使用。你可以在这里读到表达式的定义:
 	:endif
 
 这里 "v:version" 是 Vim 定义的变量，用来存放 Vim 的版本号。600 意为 6.0 版。
-6.1 版的值为 601。这对编写可以在不同版本的 Vim 上运行的脚本很有用。
+6.1 版的值为 601。这对编写可以在不同版本的 Vim 上运行的脚本很有用。参阅
 |v:version|
 
 对数字和字符串都可以做逻辑操作。两个字符串的算术差被用来比较他们的值。差是
 通过字节值来计算的，对于某些语言可能无法得到正确的结果。
    在比较一个字符串和一个数字时，该字符串将先被转换成一个数值。这有些复杂，
-因为当一个字符串看起来不像数字时，它会被当作0对待。例如: >
+因为当一个字符串看起来不像数字时，它会被当作 0 对待。例如: >
 
 	:if 0 == "one"
 	:  echo "yes"
@@ -368,16 +369,16 @@ Vim 脚本支持的表达式很丰富，也很容易使用。你可以在这里读到表达式的定义:
 一样。例如: >
 
 	:if str =~ " "
-	:  echo "str contains a space"
+	:  echo "字符串包括空格"
 	:elseif str !~ '\.$'
-	:  echo "str ends in a full stop"
+	:  echo "字符串以句号结尾"
 	:endif
 
 注意在匹配模式中用单引号是很有用的。因为匹配模式中通常有很多反斜杠，而反斜杠
 在双引号字符串中必须双写才有效。
 
 在做字符串比较时 'ignorecase' 选项被用到。如果你不希望使用该选项，可以在比较
-是加上 "#" 或 "?"。"#" 表示不大小写敏感；"?" 表示忽略大小写。因此 "==?" 比较
+是加上 "#" 或 "?"。"#" 表示大小写敏感；"?" 表示忽略大小写。因此 "==?" 比较
 两字符串是否相等，不计大小写。"!~#" 检查一个模式是否被匹配，同时也考虑大小写。
 |expr-==| 有一个完整的字符串比较/匹配操作列表。
 
@@ -404,7 +405,7 @@ Vim 脚本支持的表达式很丰富，也很容易使用。你可以在这里读到表达式的定义:
 	:  sleep 50m
 	:endwhile
 
-":sleep" 命令使 Vim 小憩一下。"50m" 表示休息50毫秒。在举一个例子，":sleep 4"
+":sleep" 命令使 Vim 小憩一下。"50m" 表示休息 50 毫秒。在举一个例子，":sleep 4"
 休息 4 秒。
 
 ==============================================================================
@@ -469,18 +470,18 @@ getline() 函数从当前文件获取一行文本。其参数是行号。在本例中，"." 表示光标所在行
 
 	:substitute/\a/*/g
 
-如果你在调用 substitute() 之前或之后有更多的事情要做的话，用它就会更有趣。??
+如果你在调用 substitute() 之前或之后有更多的事情要做的话，用就会更有趣了。
 
 
 函 数						*function-list*
 
 Vim 提供的函数很多。这里我们以它们的用途分类列出。你可以在 |functions| 找到一个
-以字母顺序排列的列表。在函数名是使用 CTRL-] 可以跳转至该函数的详细说明。
+以字母顺序排列的列表。在函数名上使用 CTRL-] 可以跳转至该函数的详细说明。
 
 字符串操作:
 	char2nr()		取得字符的ASCII码值
 	nr2char()		通过ASCII码值取得一个字符
-	escape()		escape characters in a string with a '\'
+	escape()		将字符串通过 '\' 转义
 	strtrans()		是一个字符串变成可以打印的格式
 	tolower()		将一个字符串转换为小写
 	toupper()		将一个字符串转换为大写
@@ -573,7 +574,7 @@ Vim 提供的函数很多。这里我们以它们的用途分类列出。你可以在 |functions| 找到一个
 交互:
 	confirm()		让用户作出选择
 	getchar()		从用户那里取得一个字符输入
-	getcharmod()		get modifiers for the last typed character
+	getcharmod()		取得最近键入字符的修饰符
 	input()			从用户那里取得一个行输入
 	inputsecret()		从用户那里取得一个行输入，不回显
 	inputdialog()		从用户那里取得一个行输入，使用对话框
@@ -599,8 +600,8 @@ Vim 服务器:
 	cscope_connection()	检查有无与 cscope 的联接
 	did_filetype()		检查某文件类型自动命令是否已经被使用了
 	eventhandler()		检查是否在一个事件处理程序内
-	getwinposx()		GUI Vim 窗口 的 X 位置 
-	getwinposy()		GUI Vim 窗口 的 Y 位置 
+	getwinposx()		GUI Vim 窗口 的 X 位置
+	getwinposy()		GUI Vim 窗口 的 Y 位置
 	winheight()		取得某窗口的高度
 	winwidth()		取得某窗口的宽度
 	libcall()		调用一个外部库函数
@@ -627,7 +628,7 @@ Vim 允许你定义自己的函数。基本的函数声明如下: >
    >
 	:  if a:num1 < a:num2
 
-特殊前缀 "a:" 告诉 Vim 该变量是一个函数参数。让我们把最小的数值赋给 smaller 
+特殊前缀 "a:" 告诉 Vim 该变量是一个函数参数。让我们把最小的数值赋给 smaller
 变量: >
 
 	:  if a:num1 < a:num2
@@ -644,8 +645,8 @@ Vim 允许你定义自己的函数。基本的函数声明如下: >
 	数内 "g:count" 表示全局变量 "count"，而 "count" 是另外一个，仅用于该
 	函数内的局部变量。
 
-现在你可以使用 ":return" 语句来把最小的数值返回给用户了。最后，你需要结束
-这个函数: >
+现在你可以使用 ":return" 语句来把最小的数值返回给用户了。最后，你需要结束这个
+函数: >
 
 	:  return smaller
 	:endfunction
@@ -667,16 +668,16 @@ Min 函数可以这样来使用: >
 	:echo Min(5, 8)
 
 只有这时函数才被 Vim 解释并执行。如果函数中有类似未定义的变量之类的错误，你
-将得到一个错误信息。这些错误在定义函数时是不会被侦测到的。
+将得到一个错误信息。这些错误在定义函数时是不会被检测到的。
 
 当一个函数执行到 ":endfunction" 或 ":return" 语句没有带参数时，该函数返回零。
 
-如果要重定义一个已经存在的函数，在 "function" 命令后加上!: >
+如果要重定义一个已经存在的函数，在 "function" 命令后加上 !: >
 
 	:function!  Min(num1, num2, num3)
 
 
-范 围 的 使 用 
+范 围 的 使 用
 
 ":call" 命令可以带一个行表示的范围。这可以分成两种情况。当一个函数定义是给出了
 "range" 关键字时，表示它会自行处理该范围。
@@ -719,7 +720,7 @@ Vim 允许你定义参数个数可变的函数。下面的例子给出一个可以有1到20个参数的函数: >
 
 变量 "a:1" 表示第一个可选的参数，"a:2" 表示第二个，如此类推。变量 "a:0" 表示
 这些参数的个数。
-   For example: >
+   例如: >
 
 	:function Show(start, ...)
 	:  echohl Title
@@ -734,7 +735,7 @@ Vim 允许你定义参数个数可变的函数。下面的例子给出一个可以有1到20个参数的函数: >
 	:endfunction
 
 上例中 ":echohl" 命令被用来给出接下来的 ":echo" 命令如何加亮输出。":echohl None"
-终止加亮。The ":echon" 命令除了不输出行结束符外，和 ":echo" 一样。
+终止加亮。":echon" 命令除了不输出行结束符外，和 ":echo" 一样。
 
 
 函 数 列 表
@@ -748,22 +749,19 @@ Vim 允许你定义参数个数可变的函数。下面的例子给出一个可以有1到20个参数的函数: >
 
 如果要查看该函数具体做什么，用该函数名作为 ":function" 命令的参数即可: >
 
-	:function Show
-<	1	   :  echo "Show is " . a:start ~
-	2	   :  let index = 1 ~
-	3	   :  while index <= a:0 ~
-	4	   :	execute 'echo "Arg " . index . " is " . a:' . index ~
-	5	   :	let index = index + 1 ~
-	6	   :  endwhile ~
+	:function SetSyn
+<	1     if &syntax == '' ~
+	2       let &syntax = a:name ~
+	3     endif ~
 	   endfunction ~
 
 
 调 试
 
 当调试或者遇到错误信息的时候，行号是很有用的。有关调试模式请参阅
-|debug-scripts|.
-   你也可以通过将 'verbose' 选项设为 12 以上来察看所有函数用。将该参数设为 15 以
-上可以查看所有被执行的行。
+|debug-scripts|。
+   你也可以通过将 'verbose' 选项设为 12 以上来察看所有函数调用。将该参数设为 15
+以上可以查看所有被执行的行。
 
 
 删 除 函 数
@@ -775,7 +773,58 @@ Vim 允许你定义参数个数可变的函数。下面的例子给出一个可以有1到20个参数的函数: >
 如果该函数不存在，你会得到一个错误信息。
 
 ==============================================================================
-*41.8*	其他的讨论
+*41.8*	异常
+
+让我们从一个例子开始: >
+
+	:try
+	:   read ~/templates/pascal.tmpl
+	:catch /E484:/
+	:   echo "Sorry, the Pascal template file cannot be found."
+	:endtry
+
+如果该文件不存在的话，":read" 命令就会失败。这段代码可以捕捉到该错误并向用户
+给出一个友好的信息，而不是一个普通的出错信息。
+
+在 ":try" 和 ":endtry" 之间的命令产生的错误将被转变成为异常。异常以字符串的
+形式出现。当异常是错误时该字符串就是出错信息。而每一个出错信息都有一个对应的
+错误码。在上面的例子中，我们捕捉到的错误包括 "E484"。Vim 确保这个错误码始终
+不变 (文字可能会变，例如被翻译)。
+
+当 ":read" 命令引起其它错误时，模式 "E484:" 不会被匹配。因此该异常不会被捕获，
+结果是一个普通的出错信息。
+
+你可能想这样做: >
+
+	:try
+	:   read ~/templates/pascal.tmpl
+	:catch
+	:   echo "Sorry, the Pascal template file cannot be found."
+	:endtry
+
+这意味着所有的错误都将被捕获。然而你就无法得到那些有用的错误信息，比如说一个
+错误的模式行。
+
+另一个有用的机制是 ":finally" 命令: >
+
+	:let tmp = tempname()
+	:try
+	:   exe ".,$write " . tmp
+	:   exe "!filter " . tmp
+	:   .,$delete
+	:   exe "$read " . tmp
+	:finally
+	:   call delete(tmp)
+	:endtry
+
+这个例子将自光标处到文件尾的所有行通过过滤程序 "filter"。该程序的参数是文件
+名。无论在 ":try" 和 ":finally" 之间发生了什么，"call delete(tmp)" 命令始终
+被执行。这可以确定你不会留下一个临时文件。
+
+关于异常处理更多的讨论可以阅读参考手册: |exception-handling|.
+
+==============================================================================
+*41.9*	其他的讨论
 
 这里集中了一些和 Vim 脚本相关的讨论。别的地方其实也提到过，这里算做一个整理。
 
@@ -786,7 +835,7 @@ Vim 允许你定义参数个数可变的函数。下面的例子给出一个可以有1到20个参数的函数: >
 
 空 白 字 符
 
-空白字符将被忽略。
+空行是允许的，但将被忽略。
 
 行首的空白字符 (空格和制表符) 总是被忽略的。参数间的空白字符 (例如象下面命令中
 'set' 和 'cpoptions' 之间的空白字符) 仅用作分隔符，会被减少到一个。根据情况的
@@ -796,7 +845,7 @@ Vim 允许你定义参数个数可变的函数。下面的例子给出一个可以有1到20个参数的函数: >
 
 	:set cpoptions    =aABceFst
 
-紧接着等号之前的空白字符会被忽略。然而气候的空白字符时不允许的！
+紧接着等号之前的空白字符会被忽略。然而其后的空白字符是不允许的！
 
 为了在一个选项值内使用空格，必须像下面例子那样使用反斜杠: >
 
@@ -818,7 +867,7 @@ Vim 会给出错误信息，因为它被解释成: >
 双引号字符 " 标记注释的开始。除了那些不考虑注释的命令外(见下例)，从双引号起的
 直到行末的所有字符都将被忽略。注释可以从一行的任意位置开始。
 
-对于某些命令来说，这里有一个小小的“陷阱”。例如: >
+对于某些命令来说，这里有一个小小的 "陷阱"。例如: >
 
 	:abbrev dev development		" shorthand
 	:map <F3> o#include		" insert include
@@ -864,11 +913,11 @@ Vim 会给出错误信息，因为它被解释成: >
 	:unmap ,ab|" comment
 
 
-恢 复 一 个 视 口
+恢 复 一 个 视 图
 
 有时有你想做一些改动然后回到光标原来的位置。如果能恢复相对位置，把和改动前
 同样的行置于窗口顶端就更好了。
-   这里的例子拷贝当前行，粘贴到文件的第一行，然后恢复视口: >
+   这里的例子拷贝当前行，粘贴到文件的第一行，然后恢复视图: >
 
 	map ,p ma"aYHmbgg"aP`bzt`a
 
@@ -888,9 +937,9 @@ Vim 会给出错误信息，因为它被解释成: >
 
 为了避免你的函数名同其它的函数名发生冲突，使用这样的方法:
 - 在函数名前加上独特的字符串。我通常使用一个缩写。例如，"OW_" 被用在 option 
-window 函数上。
+  window 函数上。
 - 将你的函数定义放在一个文件内。设置一个全局变量用来表示这些函数是否已经被加
-载了。当再次 soure 这个文件的时候，先将这些函数卸载。
+  载了。当再次 source 这个文件的时候，先将这些函数卸载。
 例如: >
 
 	" This is the XXX package
@@ -911,7 +960,7 @@ window 函数上。
 	let XXX_loaded = 1
 
 ==============================================================================
-*41.9*	编写插件				*write-plugin*
+*41.10*	编写插件				*write-plugin*
 
 用约定方式编写的脚本能够被除作者外的很多人使用。这样的脚本叫做插件。Vim 用户只
 要把你写的脚本放在 plugin 目录下就可以立即使用了 |add-plugin|。
@@ -939,18 +988,18 @@ window 函数上。
 
 插 件 体
 
-让我们从真正做工作的插件体开始: >
+让我们从做实际工作的插件体开始: >
 
- 13	iabbrev teh the
- 14	iabbrev otehr other
- 15	iabbrev wnat want
- 16	iabbrev synchronisation
- 17		\ synchronization
- 18	let s:count = 4
+ 14	iabbrev teh the
+ 15	iabbrev otehr other
+ 16	iabbrev wnat want
+ 17	iabbrev synchronisation
+ 18		\ synchronization
+ 19	let s:count = 4
 
 当然，真正的清单会比这长的多。
 
-上面的行号只是为了方便解释，不要把他们也加入到你的插件文件中去!
+上面的行号只是为了方便解释，不要把它们也加入到你的插件文件中去!
 
 
 插 件 头
@@ -963,24 +1012,30 @@ window 函数上。
   2	" Last Change: 2000 Oct 15
   3	" Maintainer: Bram Moolenaar <Bram@vim.org>
 
+关于版权和许可：由于插件很有用，而且几乎不值得限制其发行，请考虑对你的插件使
+用公共域 (public domain) 或 Vim 许可 |license|。在文件顶部放置一个 note 就行
+了。例如: >
 
-续 行，避 免 副 效 应
+  4	" License:	This file is placed in the public domain.
 
-在上面的第 17 行中，用到了续行机制 |line-continuation|。那些设置了 'compatible'
-选项的用户可能会在这遇到麻烦。他们会等到一个错误信息。我们不能简单的复位
+
+续 行，避 免 副 效 应				*use-cpo-save*
+
+在上面的第 18 行中，用到了续行机制 |line-continuation|。那些设置了 'compatible'
+选项的用户可能会在这遇到麻烦。他们会得到一个错误信息。我们不能简单的复位
 'compatible' 选项，因为那样会带来很多的副效应。为了避免这些副效应，我们可以将
 'cpoptions' 选项设为 Vim 缺省值并在后面恢复之。这将允许续行功能并保证对大多数
 用户来讲脚本是可用的。就像下面这样: >
 
- 10	let s:save_cpo = &cpo
- 11	set cpo&vim
+ 11	let s:save_cpo = &cpo
+ 12	set cpo&vim
  ..
- 41	let &cpo = s:save_cpo
+ 42	let &cpo = s:save_cpo
 
-我们先将 'cpoptions' 的旧值存在 s:save_cpo 变量中。在插件的最后改制将被恢复。
+我们先将 'cpoptions' 的旧值存在 s:save_cpo 变量中。在插件的最后该值将被恢复。
 
 注意上面使用了脚本本地变量 |s:var|。因为可能有一个全局变量已经在使用了。对于
-仅在脚本内用到的变量应该总是用脚本本地变量。
+仅在脚本内用到的变量应该总使用脚本本地变量。
 
 
 停 止 加 载
@@ -989,10 +1044,10 @@ window 函数上。
 这个插件删除了，而用户希望使用它自己安装的插件。用户应该有机会选择不加载指定
 的插件。下面的一段代码就是用来实现这个目的的: >
 
-  5	if exists("loaded_typecorr")
-  6	  finish
-  7	endif
-  8	let loaded_typecorr = 1
+  6	if exists("loaded_typecorr")
+  7	  finish
+  8	endif
+  9	let loaded_typecorr = 1
 
 这同时也避免了同一个脚本被加载两次以上。因为那样用户会得到各种各样的错误信息。
 比如函数被重新定义，自动命令被多次加入等等。
@@ -1001,28 +1056,28 @@ window 函数上。
 映 射
 
 现在让我们把这个插件变得更有趣些：我们将加入一个映射用来校正当前光标下的单词。
-我们可以任意选一个间组合，但是用户可能已经将其定义为其它的什么功能了。为了使
+我们可以任意选一个键组合，但是用户可能已经将其定义为其它的什么功能了。为了使
 用户能够自己定义在插件中的键盘映射使用的键，我们可以使用 <Leader> 标示: >
 
- 21	  map <unique> <Leader>a  <Plug>TypecorrAdd
+ 22	  map <unique> <Leader>a  <Plug>TypecorrAdd
 
-"<Plug>TypecorrAdd" thing will do the work, 后面我们还会做更多解释。
+那个 "<Plug>TypecorrAdd" 会做实际的工作，后面我们还会做更多解释。
 
 用户可以将 "mapleader" 变量设为他所希望的开始映射的键组合。比如假设用户这样做: >
 
 	let mapleader = "_"
 
-映射将定义为 "_a"。如果用户没有这样做，Vim 将使用缺省值反斜杠。这样就会定义
-一个映射 - "\a"。
+映射将定义为 "_a"。如果用户没有这样做，Vim 将使用缺省值反斜杠。这样就会定义一个
+映射 - "\a"。
 
-Note 其中用到了 <unique>，这会使得 Vim 在影射已经存在是给出错误信息。
+Note 其中用到了 <unique>，这会使得 Vim 在映射已经存在时给出错误信息。
 |:map-<unique>|
 
 但是如果用户希望定义自己的键操作呢？我们可以用下面的机制来解决: >
 
- 20	if !hasmapto('<Plug>TypecorrAdd')
- 21	  map <unique> <Leader>a  <Plug>TypecorrAdd
- 22	endif
+ 21	if !hasmapto('<Plug>TypecorrAdd')
+ 22	  map <unique> <Leader>a  <Plug>TypecorrAdd
+ 23	endif
 
 我们先检查对 "<Plug>TypecorrAdd" 的映射是否存在。仅当不存在是我们才定义映射
 "<Leader>a"。这样用户就可以在他自己的 vimrc 文件中加入: >
@@ -1034,62 +1089,59 @@ Note 其中用到了 <unique>，这会使得 Vim 在影射已经存在是给出错误信息。
 
 分 割
 
-如果一个脚本变得相当长，有通常希望将其分割成几部分。你可以在其中使用函数或映射。
+如果一个脚本变得相当长，你通常希望将其分割成几部分。你可以在其中使用函数或映射。
 但同时又不希望他们在脚本之间相互干扰。例如，你定义了一个函数Add()，但另一个脚本
 也试图定一同名的函数。为了避免这样的情况发生，我们可以在本地函数的前面加上 "s:"。
 
-
-
 我们来定义一个用来添加新的错误更正的函数: >
 
-
- 29	function s:Add(from, correct)
- 30	  let to = input("type the correction for " . a:from . ": ")
- 31	  exe ":iabbrev " . a:from . " " . to
+ 30	function s:Add(from, correct)
+ 31	  let to = input("type the correction for " . a:from . ": ")
+ 32	  exe ":iabbrev " . a:from . " " . to
  ..
- 35	endfunction
+ 36	endfunction
 
 这样我们就可以在这个脚本之内调用函数 s:Add()。如果另一个脚本也定义 s:Add()，该
-函数将只能在其所定义的脚本内部被调用。还可能会存在独立于这两个函数的全局的 Add()
-函数 (不带 "s:")。
+函数将只能在其所定义的脚本内部被调用。还可能会存在独立于这两个函数的全局的 
+Add() 函数 (不带 "s:")。
 
-<SID> 可以和映射一起使用，用来产生一个脚本的标示。在我们的错误更正插件中我们可以
-做以下的定义: >
+<SID> 可以和映射一起使用，用来产生一个脚本的标示。在我们的错误更正插件中我们可
+以做以下的定义: >
 
- 23	noremap <unique> <script> <Plug>TypecorrAdd  <SID>Add
+ 24	noremap <unique> <script> <Plug>TypecorrAdd  <SID>Add
  ..
- 27	noremap <SID>Add  :call <SID>Add(expand("<cword>"), 1)<CR>
+ 28	noremap <SID>Add  :call <SID>Add(expand("<cword>"), 1)<CR>
 
 这样当用户键入 "\a" 时，将触发下面的次序: >
 
 	\a  ->  <Plug>TypecorrAdd  ->  <SID>Add  ->  :call <SID>Add()
 
-如果另一个脚本也定义了映射 <SID>Add，该脚本将差生另一个脚本标示。所以它定义的映射
-也与前面定义的不同。
+如果另一个脚本也定义了映射 <SID>Add，该脚本将产生另一个脚本标示。所以它定义的映
+射也与前面定义的不同。
 
-Note(注意) 在这里我们用了 <SID>Add() 而不是 s:Add()。这是因为该映射将被用户键入，因此是
-从脚本外部调用的。<SID> 被翻译成该脚本的标示。这样 Vim 就知道在那个脚本里寻找相应
-的 Add() 函数了。
+Note(注意) 在这里我们用了 <SID>Add() 而不是 s:Add()。这是因为该映射将被用户键入，
+因此是从脚本外部调用的。<SID> 被翻译成该脚本的标示。这样 Vim 就知道在那个脚本里
+寻找相应的 Add() 函数了。
 
 这的确是有点复杂，但又是使多个插件一起工作所必需的。基本规则是：在映射中使用
 <SID>Add()；在其它地方 (该脚本内部，自动命令，用户命令) 使用 s:Add()。
 
 我们还可以用同一个映射来添加一个菜单选项: >
 
- 25	noremenu <script> Plugin.Add\ Correction      <SID>Add
+ 26	noremenu <script> Plugin.Add\ Correction      <SID>Add
 
 建议把插件定义的菜单项都加入到 "Plugin" 菜单下。上面的情况只定义了一个菜单选项。
 当有多个选项时，可以创建一个子菜单。例如，一个提供 CVS 操作的插件 可以添加
 "Plugin.CVS" 子菜单，并在其中定义 "Plugin.CVS.checkin"， "Plugin.CVS.checkout"
 等菜单项。
 
-Note(注意) 为了避免其它映射引起麻烦，在第 27 行使用了 ":noremap"。比如有人可能重新映射
-了 ":call"。在第 23 也用到了 ":noremap"，但我们有希望重新映射 "<SID>Add"。这就是
-为什么在这儿要用 "<script>"。这只允许定义脚本本地的映射。|:map-<script>| 
-同样的道理在第 25 行也用了 ":noremenu"。|:menu-<script>|
+Note(注意) 为了避免其它映射引起麻烦，在第 28 行使用了 ":noremap"。比如有人可能
+重新映射了 ":call"。在第 24 也用到了 ":noremap"，但我们又希望重新映射
+"<SID>Add"。这就是为什么在这儿要用 "<script>"。这只允许定义脚本本地的映射。
+|:map-<script>| 同样的道理在第 25 行也用了 ":noremenu"。|:menu-<script>|
 
 
-<SID> 和 <Plug>
+<SID> 和 <Plug>					*using-<Plug>*
 
 <SID> 和 <Plug> 都是用来避免映射的键序列和那些仅仅用于其它映射的映射起冲突。
 Note(注意) <SID> 和 <Plug> 的区别:
@@ -1103,7 +1155,7 @@ Note(注意) <SID> 和 <Plug> 的区别:
 
 <SID>	是脚本的标示，用来唯一的代表一个脚本。Vim 在内部将 <SID> 翻译为 
 	"<SNR>123_"，其中 "123" 可以是任何数字。这样一个函数 "<SID>Add()" 可能
-	在一个脚本中被命名为 "<SNR>11_Add()"，而在另一个脚本中被命名为 
+	在一个脚本中被命名为 "<SNR>11_Add()"，而在另一个脚本中被命名为
 	"<SNR>22_Add()"。如果你用 ":function" 命令来获得系统中的函数列表你就可
 	以看到了。映射中对 <SID> 的翻译是完全一样的。这样你才有可能通过一个映射
 	来调用某个脚本中的本地函数。
@@ -1113,13 +1165,13 @@ Note(注意) <SID> 和 <Plug> 的区别:
 
 现在让我们来定义一个用来添加更正的用户命令: >
 
- 37	if !exists(":Correct")
- 38	  command -nargs=1  Correct  :call s:Add(<q-args>, 0)
- 39	endif
+ 38	if !exists(":Correct")
+ 39	  command -nargs=1  Correct  :call s:Add(<q-args>, 0)
+ 40	endif
 
 这个用户命令只在系统中没有同样名称的命令时才被定义。否则我们会得到一个错误。用
-":command!" 来覆盖现存的用户命令是个坏主意。这很可能使用户自己定义的命令为什么
-不起作用。|:command|
+":command!" 来覆盖现存的用户命令是个坏主意。这很可能使用户不明白自己定义的命令
+为什么不起作用。|:command|
 
 
 脚 本 变 量
@@ -1132,71 +1184,78 @@ Note(注意) <SID> 和 <Plug> 的区别:
 有趣的是这些变量也可以在脚本定义的函数、自动命令和用户命令中使用。在我们的例子
 中我们可以加入几行用来统计更正的个数: >
 
- 18	let s:count = 4
+ 19	let s:count = 4
  ..
- 29	function s:Add(from, correct)
+ 30	function s:Add(from, correct)
  ..
- 33	  let s:count = s:count + 1
- 34	  echo s:count . " corrections now"
- 35	endfunction
+ 34	  let s:count = s:count + 1
+ 35	  echo s:count . " corrections now"
+ 36	endfunction
 
-起初 s:count 被脚本初始化为 4。当后来 s:Add() 函数被调用时，其值被增加了。在哪里
-调用函数无关紧要。只要它是定义在该脚本以内的，就可以使用脚本中的本地变量。
+起初 s:count 被脚本初始化为 4。当后来 s:Add() 函数被调用时，其值被增加了。在哪
+里调用函数无关紧要。只要它是定义在该脚本以内的，就可以使用脚本中的本地变量。
 
 
 结 果
 
-见面就是完整的例子: >
+下面就是完整的例子: >
 
   1	" Vim global plugin for correcting typing mistakes
   2	" Last Change: 2000 Oct 15
   3	" Maintainer: Bram Moolenaar <Bram@vim.org>
-  4
-  5	if exists("loaded_typecorr")
-  6	  finish
-  7	endif
-  8	let loaded_typecorr = 1
-  9
- 10	let s:save_cpo = &cpo
- 11	set cpo&vim
- 12
- 13	iabbrev teh the
- 14	iabbrev otehr other
- 15	iabbrev wnat want
- 16	iabbrev synchronisation
- 17		\ synchronization
- 18	let s:count = 4
- 19
- 20	if !hasmapto('<Plug>TypecorrAdd')
- 21	  map <unique> <Leader>a  <Plug>TypecorrAdd
- 22	endif
- 23	noremap <unique> <script> <Plug>TypecorrAdd  <SID>Add
- 24
- 25	noremenu <script> Plugin.Add\ Correction      <SID>Add
- 26
- 27	noremap <SID>Add  :call <SID>Add(expand("<cword>"), 1)<CR>
- 28
- 29	function s:Add(from, correct)
- 30	  let to = input("type the correction for " . a:from . ": ")
- 31	  exe ":iabbrev " . a:from . " " . to
- 32	  if a:correct | exe "normal viws\<C-R>\" \b\e" | endif
- 33	  let s:count = s:count + 1
- 34	  echo s:count . " corrections now"
- 35	endfunction
- 36
- 37	if !exists(":Correct")
- 38	  command -nargs=1  Correct  :call s:Add(<q-args>, 0)
- 39	endif
- 40
- 41	let &cpo = s:save_cpo
+  4	" License:	This file is placed in the public domain.
+  5
+  6	if exists("loaded_typecorr")
+  7	  finish
+  8	endif
+  9	let loaded_typecorr = 1
+ 10
+ 11	let s:save_cpo = &cpo
+ 12	set cpo&vim
+ 13
+ 14	iabbrev teh the
+ 15	iabbrev otehr other
+ 16	iabbrev wnat want
+ 17	iabbrev synchronisation
+ 18		\ synchronization
+ 19	let s:count = 4
+ 20
+ 21	if !hasmapto('<Plug>TypecorrAdd')
+ 22	  map <unique> <Leader>a  <Plug>TypecorrAdd
+ 23	endif
+ 24	noremap <unique> <script> <Plug>TypecorrAdd  <SID>Add
+ 25
+ 26	noremenu <script> Plugin.Add\ Correction      <SID>Add
+ 27
+ 28	noremap <SID>Add  :call <SID>Add(expand("<cword>"), 1)<CR>
+ 29
+ 30	function s:Add(from, correct)
+ 31	  let to = input("type the correction for " . a:from . ": ")
+ 32	  exe ":iabbrev " . a:from . " " . to
+ 33	  if a:correct | exe "normal viws\<C-R>\" \b\e" | endif
+ 34	  let s:count = s:count + 1
+ 35	  echo s:count . " corrections now"
+ 36	endfunction
+ 37
+ 38	if !exists(":Correct")
+ 39	  command -nargs=1  Correct  :call s:Add(<q-args>, 0)
+ 40	endif
+ 41
+ 42	let &cpo = s:save_cpo
 
-第 32 还没有解释过。它将新定义的更正用在当前光标下的单词上。|:normal| 被用来使用
-新的缩写。 Note(注意) 虽然这个函数是被一个以 ":noremap" 定义的映射调用的，这里的
-映射和缩写还是被展开使用了。
+第 32 还没有解释过。它将新定义的更正用在当前光标下的单词上。|:normal| 被用来使
+用新的缩写。 Note(注意) 虽然这个函数是被一个以 ":noremap" 定义的映射调用的，这
+里的映射和缩写还是被展开使用了。
+
+推荐对 'fileformat' 选项使用 "unix" 值。这样的 Vim 脚本就可以在所有系统内使用。
+对 'fileformat' 选项使用 "dos" 的脚本无法正常的在 Unix 上使用。参见
+|:source_crnl| 。为确保该值被城正确设置，在写入文件前执行下面的命令: >
+
+	:set fileformat=unix
 
 
-文 档
-							*write-local-help*
+文 档						 *write-local-help*
+
 给你的插件写一些文档是个好主意。特别是当用户可以自己定义其中的某些功能时。
 关于如何安装文档，请查阅 |add-local-help|。
 
@@ -1220,13 +1279,14 @@ Note(注意) <SID> 和 <Plug> 的区别:
  16							*typecorr-settings*
  17	This plugin doesn't have any settings.
 
-其实只有第一行是文档的格式所必需的。Vim 将从该帮助文件中提取该行并加入到 help.txt
-的 "LOCAL ADDITIONS:" 一节中。第一个 "*" 一定要在第一行的第一列。
+其实只有第一行是文档的格式所必需的。Vim 将从该帮助文件中提取该行并加入到
+help.txt 的 "LOCAL ADDITIONS:" (本地附加文档) 一节中。第一个 "*" 一定要
+在第一行的第一列。
 
-你可以为你的帮助文档在 ** 只见加入更多的标签。但注意不要使用现存的帮助标签。你最好
-能在标签内使用插件名用以区别，比如上例中的 "typecorr-settings"。
+你可以为你的帮助文档在 ** 之间加入更多的标签。但注意不要使用现存的帮助标签。
+你最好能在标签内使用插件名用以区别，比如上例中的 "typecorr-settings"。
 
-建议使用 || 来引用帮助系统中的其他部分。这可以使用户很容易得找到相关联的帮助。
+建议使用 || 来引用帮助系统中的其它部分。这可以使用户很容易得找到相关联的帮助。
 
 
 小 结							*plugin-special*
@@ -1239,23 +1299,23 @@ s:name			脚本的本地变量。
 
 hasmapto()		用来检测插件定义的映射是否已经存在的函数。
 
-<Leader>		"mapleader"的值。用户可以通过该变量定义插件所定义映射的起始字符。
+<Leader>		"mapleader"的值。用户可以通过该变量定义插件所定义
+			映射的起始字符。
 
 :map <unique>		如果一个映射已经存在的话，给出警告信息。
 
 :noremap <script>	仅使用脚本的本地映射，而不使用全局的。
-			mappings.
 
 exists(":Cmd")		检查一个用户命令是否存在。
 
 ==============================================================================
-*41.10*	编写文件类型插件	*write-filetype-plugin* *ftplugin*
+*41.11*	编写文件类型插件	*write-filetype-plugin* *ftplugin*
 
 文件类型插件和全局插件其实很相似。但是它的选项设置和映射等仅对当前缓冲有效。这
 类插件的用法请参阅 |add-filetype-plugin|。
 
-请先阅读上面 |41.9| 关于全局插件的叙述。其中所讲得对文件类型插件也都适用。这里
-只讲述一些而外的东西。最更本的不同是文件类型插件只应该对当前缓冲生效。
+请先阅读上面 |41.10| 关于全局插件的叙述。其中所讲得对文件类型插件也都适用。这里
+只讲述一些额外的东西。最更本的不同是文件类型插件只应该对当前缓冲生效。
 
 
 禁 用
@@ -1277,38 +1337,43 @@ exists(":Cmd")		检查一个用户命令是否存在。
 
 	let b:did_ftplugin = 1
 
-当然这要求该文件类型插件所处的文件类型插件目录在 'runtimepath' 所处的位置在 
+当然这要求该文件类型插件所处的文件类型插件目录在 'runtimepath' 所处的位置在
 $VIMRUNTIME 之前!
 
 如果你的确希望使用缺省的插件，但是又想自行支配其中的某一选项，你可以用一个类似
 下例的插件: >
 
-	source $VIMRUNTIME/ftplugin/vim.vim
 	set textwidth=70
 
-这个例子首先加载缺省的文件类型插件从而使其中所有的设置生效。然后把 'textwidth' 
-选项的值置为 "70"。 Note 缺省的文件类型插件已经设置了 "b:did_ftplugin", 因此当
-其再次被加载的时候，什么事也不会发生。
+现在将这个文件存入那个 "after" 目录中。这样它就会在调用 Vim 本身的 "vim.vim"
+文件类型插件之后被调用 |after-directory|。对于 Unix 系统而言，该目录会是
+"~/.vim/after/ftplugin/vim.vim"。 Note 缺省的文件类型插件已经设置了
+"b:did_ftplugin", 但在这里被忽略了。
 
 
 选 项
 
 为了确保文件类型插件仅仅影响当前缓冲，应该使用 >
+
 	:setlocal
-命令来设置选项。还要注意只设定缓冲的本地选项 (查查有关选项的帮助)。当 
+
+命令来设置选项。还要注意只设定缓冲的本地选项 (查查有关选项的帮助)。当
 |:setlocal| 被用于设置全局选项或者某窗口的本地选项时，会影响到多个缓冲，这是
 文件类型插件应该避免的。
 
-当一个选项的值是多个项目的“合”时，考虑使用 "+=" 和 "-="，这样可以保留现有
+当一个选项的值是多个项目的 "合" 时，考虑使用 "+=" 和 "-="，这样可以保留现有
 的值。注意用户可能已经改变了该选项的值了。通常先将选项的值复位成缺省值再做
 改动是个好主意。例: >
+
 	:setlocal formatoptions& formatoptions+=ro
 
 
 映 射
 
 为了确保键盘映射只对当前缓冲生效，应该使用 >
+
 	:map <buffer>
+
 命令。这还应该和上面讲述的两步映射法连起来使用。下面是一个例子: >
 
 	if !hasmapto('<Plug>JavaImport')
@@ -1318,10 +1383,9 @@ $VIMRUNTIME 之前!
 
 |hasmapto()| 被用来检查用户是否已经定义了一个对 <Plug>JavaImport 的映射。如果
 没有，该文件类型插件就定义缺省的映射。因为缺省映射是以 |<LocalLeader>| 开始，
-就使得用户可以自己定义映射的起始字符。缺省的是反斜杠。
-"<unique>" 的用途是当已经存在的了这样的映射或者和已经存在的映射有重叠的时候给
-出错误信息。
-|:noremap| 被用来防止其他用户定义的映射干扰。你可能会希望使用 
+就使得用户可以自己定义映射的起始字符。缺省的是反斜杠。 "<unique>" 的用途是当
+已经存在的了这样的映射或者和已经存在的映射有重叠的时候给出错误信息。
+|:noremap| 被用来防止其他用户定义的映射干扰。你可能会希望使用
 ":noremap <script>" 来允许以 <SID> 开头的脚本重新定义映射。
 
 一定要给用户保留禁止一个文件类型插件内的映射而不影响其它功能的能力。下面通过
@@ -1369,12 +1433,38 @@ no_mail_maps		禁止某一特定的文件类型插件的映射
 	:endif
 <
 
-小 结							*ftplugin-special*
+撤 消
+
+当用户执行 ":setfiletype xyz" 时，之前的文件类型命令应该被撤消。在你的文件类
+型插件中设定 b:undo_ftplugin 变量为撤消各种设置的命令。例如: >
+
+	let b:undo_ftplugin = "setlocal fo< com< tw< commentstring<"
+		\ . "| unlet b:match_ignorecase b:match_words b:match_skip"
+
+在 ":setlocal" 命令的选项后使用 "<" 会将其值复位为全局值。这可能是最好的复位
+选项值的方法。
+
+但这也需要把 "C" 标志从 'cpoptions' 选项中去除，就像上面 |use-cpo-save| 提到
+的那样。
+
+
+文 件 名
+
+文件类型必须被包括在插件文件名中 |ftplugin-name|。可以使用一下三种形式之一:
+
+	.../ftplugin/stuff.vim
+	.../ftplugin/stuff_foo.vim
+	.../ftplugin/stuff/bar.vim
+
+"stuff" 是文件类型，"foo" 和 "bar" 是任意名字。
+
+
+小 结						*ftplugin-special*
 
 以下是有关文件类型插件一些特殊环节：
 
-<LocalLeader>		"maplocalleader" 的值，用户可以通过它来自定义文件类型插件中
-			映射的起始字符
+<LocalLeader>		"maplocalleader" 的值，用户可以通过它来自定
+			义文件类型插件中映射的起始字符
 
 :map <buffer>		定义一个仅对缓冲有效的本地映射。
 
@@ -1386,13 +1476,19 @@ no_mail_maps		禁止某一特定的文件类型插件的映射
 
 exists("*s:Func")	查看是否已经定义了某个函数。
 
-参阅插件的特殊环节 |plugin-special|。
+参阅所有插件的特殊环节 |plugin-special|。
 
 ==============================================================================
-*41.11*	编写编译器插件		*write-compiler-plugin*
+*41.12*	编写编译器插件			*write-compiler-plugin*
 
-编译器插件可以用来设定于某一特定编译器相关的选项。用户可以使用 |:compiler| 
+编译器插件可以用来设定于某一特定编译器相关的选项。用户可以使用 |:compiler|
 命令来加载之。主要是用以设定 'errorformat' 及 'makeprg' 选项。
+
+最简单的方法就是参考一下例子。下面的命令将编辑所有缺省的编译器插件: >
+
+	:next $VIMRUNTIME/compiler/*.vim
+
+用 |:next| 可以查阅下一个插件文件。
 
 这类插件唯一特别的是一个允许用户否决或者增强缺省的文件的机制。缺省的文件以
 下面的代码开始: >
@@ -1403,18 +1499,18 @@ exists("*s:Func")	查看是否已经定义了某个函数。
 	:let current_compiler = "mine"
 
 当你编写一个编译器文件并将其放置在个人运行期目录 (例如, Unix 下的
-~/.vim/runtime/compiler)，你给 "current_compiler" 赋值，使得缺省文件不执行
+~/.vim/compiler)，你可以给 "current_compiler" 赋值，使得缺省文件不执行
 其设定。
 
 当你为 Vim 发行或者整个系统编写编译器插件时，应该使用上面提到的机制。这样
 当用户插件已经定义了 "current_compiler" 的时候什么也不做。
 
-当你为了否定缺省插件的一些设定而编写编译器插件时，不要检查 "current_compiler"。
-这个插件应该在最后加载，因此其所在目录应该在 'runtimepath' 的最后。对于 Unix
-来说可能是 ~/.vim/runtime/after/compiler。
+当你为了自行定义缺省插件的一些设定而编写编译器插件时，不要检查 
+"current_compiler"。这个插件应该在最后加载，因此其所在目录应该在 'runtimepath'
+的最后。对于 Unix 来说可能是 ~/.vim/after/compiler。
 
 ==============================================================================
 
 下一章: |usr_42.txt|  添加新的菜单
 
-版权：参见 |manual-copyright|  vim:tw=78:ts=8:ft=help:norl:
+版权：参见 |manual-copyright|  vim:tw=78:ts=8:ft=help:norl:enc=euc-cn:

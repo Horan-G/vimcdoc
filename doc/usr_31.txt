@@ -232,4 +232,4 @@ gvimrc 文件可以被用来为 GUI 设定专用的选项等。例如，你可以设定 'lines' 的值来
 
 下一章: |usr_40.txt| 创建新的命令 
 
-版权: 参见 |manual-copyright|  vim:tw=78:ts=8:ft=help:norl:
+版权: 参见 |manual-copyright|  vim:tw=78:ts=8:ft=help:norl:enc=euc-cn:

@@ -1,7 +1,7 @@
-*usr_05.txt*	Vim version 6.2  ×îºóÐÞ¸ÄÊ±¼ä:2003Äê3ÔÂ15ÈÕ£¬ÒëÓÚ2003Äê10ÔÂ4ÈÕ
+*usr_05.txt*	Vim version 6.2  ×îºóÐÞ¸ÄÊ±¼ä:2003Äê3ÔÂ15ÈÕ
 
-		    VIMÓÃ»§ÊÖ²á - Bram Moolenaar
-		 £¨ÓÉnek_in·­Òë£¬nek_in@21cn.com£©
+		    VIMÓÃ»§ÊÖ²á - by Bram Moolenaar
+		(ÒëÕß£ºNek_in http://vimcdoc.sf.net)
 
 			Ñ¡ÏîÉèÖÃ
 
@@ -11,14 +11,14 @@ Vim ¿ÉÒÔ°´ÄãµÄÐèÒª½øÐÐÉèÖÃ¡£±¾ÕÂ¸æËßÄãÔõÑùÊ¹ Vim ÓÃÄãÖ¸¶¨µÄÑ¡ÏîÆô¶¯£¬ÔõÑùÔö¼Ó²å¼
 
 |05.1|	vimrc ÎÄ¼þ
 |05.2|	vimrc Ê¾Àý½âÊÍ
-|05.3|	¼òµ¥Ó³Éä
+|05.3|	¼òµ¥¼üÅÌÓ³Éä
 |05.4|	Ôö¼Ó²å¼þ
 |05.5|	Ôö¼Ó°ïÖú
 |05.6|	Ñ¡Ïî´°¿Ú
 |05.7|	³£ÓÃÑ¡Ïî
 
       ÏÂÒ»ÕÂ£º|usr_06.txt|  Ê¹ÓÃÓï·¨¼ÓÁÁ
-      Ç°Ò»ÕÂ£º|usr_04.txt|  ×÷Ð¡¸Ä¶¯
+      Ç°Ò»ÕÂ£º|usr_04.txt|  ×öÐ¡¸Ä¶¯
 	Ä¿Â¼£º|usr_toc.txt|
 
 =============================================================================
@@ -188,7 +188,7 @@ Vim ¼ÓÁÁÉÏ´Î²éÕÒÄ£Ê½Æ¥ÅäµÄµØ·½¡£"if" ÃüÁîÔÚÉèÖÃÑ¡ÏîµÄÊ±ºò·Ç³£ÓÐÓÃ£¬ËüÊ¹ÉèÖÃ
 ½Å±¾ÎÄ¼þÖÐÓÐÐ§£¬ÔÚÃüÁîÐÐÖÐÎÞÐ§¡£
 
 =============================================================================
-*05.3*	¼òµ¥Ó³Éä
+*05.3*	¼òµ¥¼üÅÌÓ³Éä
 
 Ó³Éä¿ÉÒÔÊ¹Äã°ÑÒ»ÏµÁÐ Vim ÃüÁî°ó¶¨ÎªÒ»¸öµ¥¼ü¡£¼ÙÉèÄãÒªÓÃÒ»¸ö´óÀ¨ºÅ½«Ò»¸öÌØ¶¨µÄ
 µ¥´ÊÀ¨ÆðÀ´¡£ÀýÈç£¬°Ñ "amount" ±ä³É "{amount}"¡£ÓÃ ":map" ÃüÁî£¬¾Í¿ÉÒÔÈÃ F5 À´
@@ -283,7 +283,7 @@ Vim ÖÐÓÐÁ½ÖÖ²å¼þ£º
 ¾ÍÊÇÕâÑùÁË£¡ÏÖÔÚÄã¿ÉÒÔÓÃÕâ¸ö²å¼þ¶¨ÒåµÄÃüÁîµ÷ÕûÎÄ×ÖÁË¡£
 
 
-ÎÄ¼þÀàÐÍ²å¼þ			 *add-filetype-plugin* *ftplugin*
+ÎÄ¼þÀàÐÍ²å¼þ			 *add-filetype-plugin* *ftplugins*
 
 Vim µÄ·¢²¼ÖÐ°üÀ¨Ò»Ì×Õë¶Ô²»Í¬ÎÄ¼þÀàÐÍµÄ²å¼þ¡£Äã¿ÉÒÔÓÃÈçÏÂÃüÁîÆôÓÃËüÃÇ£º
 >
@@ -354,7 +354,7 @@ Note ²å¼þ±ØÐëÒÔ ".vim" ½áÎ²¡£
 			´¦Àí¡£
 
 =============================================================================
-*05.5*	Ôö¼Ó°ïÖúÎÄ¼þ			    *add-local-help*
+*05.5*	Ôö¼Ó°ïÖú			    *add-local-help*
 
 Èç¹ûÐÒÔËµÄ»°£¬Äã°²×°µÄ²å¼þ»¹»á°üÀ¨°ïÖúÎÄ¼þ¡£ÎÒÃÇÕâÀï½âÊÍÈçºÎ°²×°Õâ¸ö°ïÖúÎÄ¼þ£¬
 ÒÔ±ãÄãÄÜ·½±ãµØ»ñµÃÐÂ²å¼þµÄ°ïÖú¡£
@@ -536,4 +536,4 @@ Vim Í¨³£»á¶Ô³¤ÐÐ×Ô¶¯»»ÐÐ£¬ÒÔ±ãÄã¿ÉÒÔ¿´¼ûËùÓÐµÄÎÄ×Ö¡£µ«ÓÐÊ±×îºÃ»¹ÊÇÄÜÈÃÎÄ×ÖÔÚÒ»
 
 ÏÂÒ»ÕÂ£º|usr_06.txt|  Ê¹ÓÃÓï·¨¼ÓÁÁ
 
-°æÈ¨£º²Î¼û|manual-copyright|  vim:tw=78:ts=8:ft=help:norl:
+°æÈ¨£º²Î¼û|manual-copyright|  vim:tw=78:ts=8:ft=help:norl:enc=euc-cn:

@@ -1,7 +1,7 @@
 *usr_22.txt*	For Vim version 6.2.		最后修改时间: 2001年9月3日
 
 		     VIM 用户手册 - Bram Moolenaar 著
-                                    Chimin Yen 译
+		  (译者： Chimin Yen http://vimcdoc.sf.net )
 				    
 			      寻找要编辑的文件
 
@@ -15,9 +15,9 @@
 |22.3|	查找文件
 |22.4|	缓冲列表
 
-下一章: |usr_23.txt|  编辑特殊文件
-前一章: |usr_21.txt|  离开和回来
-目  录: |usr_toc.txt|
+       下一章: |usr_23.txt|  编辑特殊文件
+       前一章: |usr_21.txt|  离开和回来
+         目录: |usr_toc.txt|
 
 ==============================================================================
 *22.1*	文件浏览器
@@ -321,4 +321,4 @@ Vim 将为你键入的文件名找到最佳匹配. 如果只有一个缓冲与之匹配, 该缓冲就被选用.
 
 下一章: |usr_23.txt|  编辑其它文件
 
-版权: 参见 |manual-copyright|  vim:tw=78:ts=8:ft=help:norl:
+版权: 参见 |manual-copyright|  vim:tw=78:ts=8:ft=help:norl:enc=euc-cn:

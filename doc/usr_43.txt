@@ -1,4 +1,4 @@
-*usr_43.txt*	 Vim 版本 6.1.  最近更新: 2001 Sep 03
+*usr_43.txt*	 Vim version 6.2.  最近更新: 2002 Jul 14
 
 		     VIM USER MANUAL - by Bram Moolenaar
 		     (译者：lang2 http://vimcdoc.sf.net)
@@ -18,7 +18,7 @@
              目录: |usr_toc.txt|
 
 ==============================================================================
-*43.1*	为一类文件编写的插件*filetype-plugin*
+*43.1*	为一类文件编写的插件			*filetype-plugin*
 
 如何使用文件类型插件已经在 |add-filetype-plugin| 这里讨论过了。不过你很可能对
 缺省的最基本的设定不满意。假定对于所有 C 文件你希望将 'softtabstop' 选项定为4
@@ -153,4 +153,4 @@ $VIMRUNTIME 中的 filetype.vim, 因为该目录在 'runtimepath' 的中部。最后
 
 下一章: |usr_44.txt|  自定义语法加亮
 
-版权: 参见 |manual-copyright|  vim:tw=78:ts=8:ft=help:norl:
+版权: 参见 |manual-copyright|  vim:tw=78:ts=8:ft=help:norl:enc=euc-cn:

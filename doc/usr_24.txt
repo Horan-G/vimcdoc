@@ -1,9 +1,9 @@
 *usr_24.txt*	For Vim version 6.2.		最后修改时间: 2001年9月27日
 
 		     VIM 用户手册 - Bram Moolenaar 著
-                                    Chimin Yen 译
+		  (译者： Chimin Yen http://vimcdoc.sf.net )
 
-			      快速插入 
+			      快速插入
 
 
 输入文本时，Vim 提供你各种各样的方法来减少键击次数和避免打字错误。你可以利用
@@ -21,9 +21,9 @@
 |24.9|	二元字母
 |24.10|	普通模式命令
 
-下一章: |usr_25.txt|  编辑已经编排过的文本
-前一章: |usr_23.txt|  编辑特殊文件
-目  录: |usr_toc.txt|
+       下一章: |usr_25.txt|  编辑已经编排过的文本
+       前一章: |usr_23.txt|  编辑特殊文件
+         目录: |usr_toc.txt|
 
 ==============================================================================
 *24.1*	更正
@@ -242,7 +242,7 @@ CTRL-X CTRL-F:
 	#include "main.h" ~
 	/* Main program begins */ ~
 
-CTRL-@ 命令会完成 CTRL-A 得操作后退出插入模式。这是一个快速重复插入一模一样的
+CTRL-@ 命令会完成 CTRL-A 的操作后退出插入模式。这是一个快速重复插入一模一样的
 文本的一个方法。
 
 ==============================================================================
@@ -321,7 +321,7 @@ CTRL-R {register}。
 	I saw the ad<Space>	I saw the advertisement<Space> ~
 
 当你仅仅键入 "ad" 时，扩展并没发生。它可以被你输入成一个不可扩展的词如 "add"。
-Vim 只对那些完整得词检查缩写。
+Vim 只对那些完整的词检查缩写。
 
 
 多 词 缩 写
@@ -518,4 +518,4 @@ Vim 将把二元字符表显示在屏幕上。以下就是其中的三行:
 
 下一章: |usr_25.txt|  编辑已经编排过的文本
 
-版权: 参见 |manual-copyright|  vim:tw=78:ts=8:ft=help:norl:
+版权: 参见 |manual-copyright|  vim:tw=78:ts=8:ft=help:norl:enc=euc-cn:

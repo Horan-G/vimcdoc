@@ -277,4 +277,4 @@ Win32 版本：
 Vim 启动的时候检查 'shell' 选项指定的 "sh" 是否存在。如果存在，Vim 就按照上面
 的描述设置 'shellcmdflag' 和 'shellquote' 或 'shellxquote' 选项。
 
- vim:tw=78:ts=8:ft=help:norl:
+ vim:tw=78:ts=8:ft=help:norl:enc=euc-cn:

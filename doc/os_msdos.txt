@@ -238,4 +238,4 @@ ALT-空格 。
 以选择任何的矩形区域，例如：4-25 行，7-10 列。所选择的区域可以包含 Vim 窗体内
 的任何任何东西，例如“:!dir”命令的输出内容也可包含在内。
 
- vim:tw=78:ts=8:ft=help:norl:
+ vim:tw=78:ts=8:ft=help:norl:enc=euc-cn:

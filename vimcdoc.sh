@@ -1,4 +1,5 @@
 #!/bin/sh
+#
 # vimcdoc.sh:	vimcdoc Linux install/uninstall script 
 #
 # Usage: 	(run it as root)
@@ -29,9 +30,13 @@ case $1 in
 	;;
 
   uninstall)
-	mv $VIM_PATH/doc.bk/* $VIM_PATH/doc
-	rmdir $VIM_PATH/doc.bk
-	rm -rf $VIM_PATH/doc/CVS
+	if [ -d $VIM_PATH/doc.bk ]; then
+		mv $VIM_PATH/doc.bk/* $VIM_PATH/doc
+		rmdir $VIM_PATH/doc.bk
+	fi
+	if [ -d $VIM_PATH/doc/CVS ]; then
+		rm -rf $VIM_PATH/doc/CVS
+	fi
 	echo 'Done.'
 	;;
 
