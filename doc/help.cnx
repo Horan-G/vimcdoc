@@ -1,4 +1,4 @@
-*help.txt*	For Vim version 6.3.  最近更新：2005年3月
+*help.txt*	For Vim version 6.4.  最近更新：2006年3月
 
 			VIM - 主帮助文件
 									 k
@@ -10,7 +10,7 @@
    跳转到一个主题:  将光标置于 |bars| 之间的标签上然后输入 CTRL-].
          使用鼠标:  ":set mouse=a" 启动对鼠标的支持 (用于 xterm 或 GUI).
 		    在 |bars| 之间的标签上双击.
-           跳回去:  键入 CTRL-T 或 CTRL-O (重复会更加向后).
+             跳回:  键入 CTRL-T 或 CTRL-O (重复则继续向后).
 
    获取指定的帮助:  在 ":help" 命令后给出一个参数可以直接跳转到任何的帮助
 		    主题. |:help|.
@@ -138,7 +138,7 @@ VIM 代表 Vi IMproved。VIM 主要是由 Bram Moolenaar 编写的，但没有�
 |farsi.txt|	Farsi (波斯语) 编辑
 |hebrew.txt|	希伯来语支持及编辑
 |russian.txt|	俄语支持及编辑
-|hangulin.txt|	Hangul (朝鲜语) 输入模式
+|hangulin.txt|	Hangul (韩语) 输入模式
 |rileft.txt|	从右向左的编辑
 
 GUI ~
@@ -147,24 +147,24 @@ GUI ~
 |gui_w32.txt|	Win32 GUI
 |gui_x11.txt|	X11 GUI
 
-各种界面 ~
+各种接口 ~
 |if_cscop.txt|	联用 cscope 与 Vim
-|if_perl.txt|	Perl 界面
-|if_pyth.txt|	Python 界面
-|if_sniff.txt|	SNiFF+ 界面
-|if_tcl.txt|	Tcl 界面
-|if_ole.txt|	Win32 下的 OLE 界面
-|if_ruby.txt|	Ruby 界面
-|debugger.txt|	与调试程序的界面
-|workshop.txt|	Sun Visual Workshop 界面
-|netbeans.txt|	NetBeans 外部编辑器界面
-|sign.txt|	debugging signs
+|if_perl.txt|	Perl 接口 
+|if_pyth.txt|	Python 接口 
+|if_sniff.txt|	SNiFF+ 接口
+|if_tcl.txt|	Tcl 接口
+|if_ole.txt|	Win32 下的 OLE 接口 
+|if_ruby.txt|	Ruby 接口 
+|debugger.txt|	与调试程序的接口
+|workshop.txt|	Sun Visual Workshop 接口 
+|netbeans.txt|	NetBeans 外部编辑器接口
+|sign.txt|	调试标号
 
 版本 ~
 |vi_diff.txt|	Vim 和 Vi 之间的主要区别
-|version4.txt|	Vim version 3.0 和 4.x 的区别
-|version5.txt|	Vim version 4.6 和 5.x 的区别
-|version6.txt|	Vim version 5.7 和 6.x 的区别
+|version4.txt|	Vim 3.0 和 4.x 版本的区别
+|version5.txt|	Vim 4.6 和 5.x 版本的区别
+|version6.txt|	Vim 5.7 和 6.x 版本的区别
 						*sys-file-list*
 特定系统相关 ~
 |os_390.txt|	OS/390 Unix
@@ -187,7 +187,7 @@ GUI ~
 |pi_gzip.txt|	读写压缩过的文件
 |pi_expl.txt|	文件浏览器
 
-本地附加文档				*local-additions*
+本地附加文档
 |local-additions|	请查阅英文文档
 
 

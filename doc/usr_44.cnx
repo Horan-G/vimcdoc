@@ -1,4 +1,4 @@
-*usr_44.txt*	For Vim version 6.3.  最近更新：2005年3月
+*usr_44.txt*	For Vim version 6.4.  最近更新：2005年3月
 
 		     VIM 用户手册 - by Bram Moolenaar
 		     译者: wandys http://vimcdoc.sf.net
@@ -255,7 +255,7 @@ x 语言有这种形式的语句:
 
 	if (condition) then ~
 
-你想对这三种条目使用不同的高亮。但是 "(condintion)" 和 "then" 可能在其它地方有
+你想对这三种条目使用不同的高亮。但是 "(condition)" 和 "then" 可能在其它地方有
 其它的高亮显示方式。这时你需要这样做: >
 
 	:syntax match xIf /if/ nextgroup=xIfCondition skipwhite

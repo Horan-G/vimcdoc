@@ -1,4 +1,4 @@
-*usr_31.txt*	For Vim version 6.3.  最近更新：2005年3月
+*usr_31.txt*	For Vim version 6.4.  最近更新：2005年3月
 
 		     VIM USER MANUAL - by Bram Moolenaar
 		     译者：lang2 http://vimcdoc.sf.net
@@ -40,7 +40,7 @@ split 命令使用文件浏览器，在它前面加上 "browse" 就行了: >
 文件浏览器将以 "/etc" 作为起始目录。
 
 ":browse" 命令几乎可被添加在任何打开文件的命令前。
-   如果没有指定目录，Vim 会自己决定从那里开始浏览。缺省情况 Vim 会从上次同样
+   如果没有指定目录，Vim 会自己决定从哪里开始浏览。缺省情况 Vim 会从上次同样
 的目录开始。这样当你用 ":browse split" 命令并选中了一个 "/usr/local/share" 
 里的文件，下次你在用 ":browse" 时，浏览将从 "/usr/local/share" 开始。
    用 'browsedir' 选项可以改变浏览的启动目录。可能的选项值包括:

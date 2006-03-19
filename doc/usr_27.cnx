@@ -1,4 +1,4 @@
-*usr_27.txt*	For Vim version 6.3.	最近更新：2005年3月
+*usr_27.txt*	For Vim version 6.4.	最近更新：2005年3月
 
 		     VIM 用户手册 - Bram Moolenaar 著
 		  译者： Chimin Yen http://vimcdoc.sf.net
@@ -98,7 +98,7 @@
 
 	:set ruler
 
-Vim 将把光标位置显示在窗口的右下角 (如果使用了状态条的话，会显示在那里)。看起
+Vim 将把光标位置显示在窗口的右下角 (如果使用了状态条的话，会显示在哪里)。看起
 来像这样:
 
 	101,29       84% ~

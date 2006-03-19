@@ -1,4 +1,4 @@
-*howto.txt*	For Vim version 6.3.  最近更新: 2005年3月
+*howto.txt*	For Vim version 6.4.  最近更新: 2005年3月
 
 
 		     Vim 参考手册    作者：Bram Moolenaar
@@ -40,7 +40,7 @@
 |'virtualedit'|		移动到没有文本的地方
 |usr_27.txt|		指定查找的模式
 |tags-and-searches|	做标签和特殊查找
-|29.4|			在被包含的文件中查找（用来查找变量、函数或宏）
+|29.4|			在被包含的文件中查找 (用来查找变量、函数或宏)
 |K|			查找光标处关键词的 man page
 
 |03.7|			滚屏

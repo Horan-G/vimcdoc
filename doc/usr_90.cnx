@@ -1,4 +1,4 @@
-*usr_90.txt*	For Vim version 6.3.  最近更新：2005年3月
+*usr_90.txt*	For Vim version 6.4.  最近更新：2005年3月
 
 		     VIM USER MANUAL - by Bram Moolenaar
 		   译者：lang2  http://vimcdoc.sf.net
@@ -59,7 +59,7 @@
 
 或者就用主站 ftp.vim.org，如果你觉得它够快的话。进入到 "unix" 目录你就可以找到
 一组文件。文件名中会含有版本名。最好下载最新的版本。
-   有两种办法可一下载 Vim 的 Unix 文件：一个包括所有东西的大文档；或者是四个
+   有两种办法可以下载 Vim 的 Unix 文件：一个包括所有东西的大文档；或者是四个
 较小的可以装载一张软盘上的小文件。对于 6.1 版那个大文件叫:
 
 	vim-6.1.tar.bz2 ~
@@ -141,7 +141,7 @@ make 程序会执行 configure 并编译所有的东西。后边我们会介绍�
 	:help
 	:syntax enable
 
-如果不成功的话，使用下面的命令来查看 Vim 是在哪找那些文件的: >
+如果不成功的话，使用下面的命令来查看 Vim 是在哪儿找那些文件的: >
 
 	:echo $VIMRUNTIME
 
@@ -171,7 +171,7 @@ Makefile 来设定。
 					参阅 |+feature-list| 察看每一种方式
 					的详细特性列表。
 
-	--enable-perlinterp		开启 Perl 界面。类似的还有
+	--enable-perlinterp		开启 Perl 接口。类似的还有
 					ruby, python 和 tcl 的参数。
 
 	--disable-gui			不编译 GUI 界面。
@@ -203,8 +203,8 @@ Makefile 来设定。
 	ftp://ftp.vim.org/pub/vim/MIRRORS ~
 
 或者就使用主站 ftp.vim.org，如果你觉得它够快的话。进入到 "pc" 目录就可以找到
-一组文件。文件的名字中含有版本本名。最好下载最新的版本。这里我们使用 "61"，
-表示 6.1 版。
+一组文件。文件的名字中含有版本名。最好下载最新的版本。这里我们使用 "61"，表示
+6.1 版。
 
 	gvim61.exe		自动安装程序。
 

@@ -1,21 +1,22 @@
-*if_pyth.txt*   For Vim version 6.3.  最近更新：2005年3月
+*if_pyth.txt*   For Vim version 6.4.  最近更新：2006年2月
 
 
 		  VIM REFERENCE MANUAL    by Paul Moore
-		  译者：lang2 http://vimcdoc.sf.net
+		  译者: lang2, Willis http://vimcdoc.sf.net
 
 
-Vim 的 Python 编程界面					*python* *Python*
+Vim 的 Python 编程接口					*python* *Python*
 
 1. 命令				|python-commands|
 2. vim 模块			|python-vim|
 3. 缓冲对象			|python-buffer|
 4. 范围对象			|python-range|
 5. 窗口对象			|python-window|
+6. 动态调入			|python-dynamic|
 
 {Vi does not have any of these commands}
 
-Vim 的 Python 界面仅当 |+python| 特性被编译进 Vim 时才有效。
+Vim 的 Python 接口仅当 |+python| 特性被编译进 Vim 时才有效。
 
 ==============================================================================
 1. 命令							*python-commands*
@@ -44,7 +45,8 @@ Vim 的 Python 界面仅当 |+python| 特性被编译进 Vim 时才有效。
 	EOF
 	endfunction
 <
-备注: Python 对于缩进是非常敏感的。要确保 "class" 所在行及 "EOF" 没有任何缩进。
+备注: Python 对于缩进是非常敏感的。要确保 "class" 所在行及 "EOF" 没有任何缩
+进。
 
 							*:pyfile* *:pyf*
 :[range]pyf[ile] {file}	
@@ -80,8 +82,8 @@ Python 命令不能用于 |sandbox|。
 2. vim 模块						*python-vim*
 
 Python 的代码所有对 Vim 的操作 (只有一个例外 － 看下面的 |python-output|) 都是
-通过 "vim" 模块来进行的。该模块包括两个方法，三个常量，以及一个异常对象。在使用
-它们之前你得先导入 (import) vim 模块。
+通过 "vim" 模块来进行的。该模块包括两个方法，三个常量，以及一个异常对象。在使
+用它们之前你得先导入 (import) vim 模块。
 
 总揽 >
 	print "Hello"			# 显示信息
@@ -105,7 +107,7 @@ Python 的代码所有对 Vim 的操作 (只有一个例外 － 看下面的 |py
 "vim" 模块中的方法
 
 vim.command(str)					*python-command*
-	执行 vim (ex-模式) 命令 str. 无返回值.
+	执行 vim (ex-模式) 命令 str。无返回值。
 	例如: >
 		vim.command("set tw=72")
 		vim.command("%s/aaa/bbb/g")
@@ -115,7 +117,6 @@ vim.command(str)					*python-command*
 		# Note the use of single quotes to delimit a string containing
 		# double quotes
 		normal('"a2dd"aP')
-<
 <								*E659*
 	":python" 在 Python 2.2 及之前版本上不能嵌套使用。下面命令只对
 	Python 2.3 之后版本适用: >
@@ -123,7 +124,7 @@ vim.command(str)					*python-command*
 
 
 vim.eval(str)						*python-eval*
-	使用 vim 内部的表达式处理器来对表达式 str 求值。(参阅 |expression|).
+	使用 vim 内部的表达式处理器来对表达式 str 求值。(参阅 |expression|)。
 	返回结果的字符串。
 	例: >
 		text_width = vim.eval("&tw")
@@ -141,8 +142,8 @@ vim.eval(str)						*python-eval*
 			# nothing in register a
 
 "vim" 模块中的常量
-	注意 这些其实并非真正的常量 － 你还是可以对它们符值。但这好无意义，因为
-	你会丢失该 vim 对象本来代表的值。
+	注意 这些其实并非真正的常量 － 你还是可以对它们赋值。但这好无意义，因
+	为你会丢失该 vim 对象本来代表的值。
 
 vim.buffers						*python-buffers*
 	A sequence 对象，用来提供对 vim 缓冲的操作。该对象支持以下操作: >
@@ -159,8 +160,8 @@ vim.windows						*python-windows*
 		for w in vim.windows:	# 顺序存取
 <
 vim.current						*python-current*
-	一个用来提供对各种各样当前 "current" 对象进行操作的对象。它包括一些特定
-	的属性:
+	一个用来提供对各种各样当前 "current" 对象进行操作的对象。它包括一些特
+	定的属性:
 		vim.current.line	当前行(读写)			字串
 		vim.current.buffer	当前缓冲(只读)			缓冲
 		vim.current.window	当前窗口(只读)			窗口
@@ -173,22 +174,22 @@ vim.current						*python-current*
 
 Python 的输出						*python-output*
 	Vim 将所有 Python 代码的输出都显示在信息区。普通的输出会以一般信息
-	出现,错误会以出错信息出现.
+	出现，错误会以出错信息出现。
 
-	用具体实现的属于来讲,这表示所有 sys.stdout (包括 print 语句的输出)
+	用具体实现的术语来讲，这表示所有 sys.stdout (包括 print 语句的输出)
 	以一般信息形式出现，而所有 sys.stderr (包括 error tracebacks) 都会
 	被显示成出错信息。
 
 							*python-input*
-	Vim 并不支持用 Python 来输入 (通过 sys.stdin, 包括 input() 和
+	Vim 并不支持用 Python 来输入 (通过 sys.stdin，包括 input() 和
 	raw_input())。这些调用可能会导致崩溃。可能以后会修正。
 
 ==============================================================================
 3. 缓冲对象						*python-buffer*
 
-缓冲对象代表缓冲。你又一下这几种办法来获取缓冲的列表:
+缓冲对象代表缓冲。你用以下这几种办法来获取缓冲的列表:
 	- 通过 vim.current.buffer (|python-current|)
-	- from indexing vim.buffers (|python-buffers|)
+	- 通过 vim.buffers 的索引访问 (|python-buffers|)
 	- 通过一个窗口的 "buffer" 属性 (|python-window|)
 
 缓冲对象只有一个属性 -- 缓冲的文件全名。该对象还包括三个方法 (append, mark,
@@ -212,7 +213,8 @@ Python 的输出						*python-output*
 	b.mark(name)	返回一个 tuple (行,列) 用来代表该位置上的一个有名的
 			标记 (也可以用于 []"<> 等标记)
 	b.range(s,e)	返回一个范围对象 (参见 |python-range|) 用来代表指定
-			缓冲中行 s 与 行 e 之间的部分 (包含 s 和 e |inclusive|).
+			缓冲中行 s 与 行 e 之间的部分 (包含 s 和 e
+			|inclusive|).
 
 例如 (假定 b 是当前缓冲) >
 	print b.name		# 输出缓冲的名字
@@ -223,20 +225,20 @@ Python 的输出						*python-output*
 	del b[2]		# 删除一行 (第三行)
 	b.append("bottom")	# 在缓冲结尾添加一行
 	n = len(b)		# 总行数
-	(row,col) = b.mark('a') # 有名的标记
+	(row,col) = b.mark('a') # 命名标记
 	r = b.range(1,5)	# 缓冲内的一个范围
 
 ==============================================================================
 4. 范围对象						*python-range*
 
-范围对象代表一个 vim 缓冲内的一个部分。你可以用一下的方法之一来获取一个缓冲
+范围对象代表一个 vim 缓冲内的一个部分。你可以用以下的方法之一来获取一个缓冲
 对象:
 	- 通过 vim.current.range (|python-current|)
 	- 通过一个缓冲的 range() 方法 (|python-buffer|)
 
-一个范围对象在操作上几乎合一个缓冲对象完全一样。不过，其操作的目标仅显于范围
-指定的行 (当然，这个行范围会随着切片赋值，行删除，或者 range.append() 等等操作而
-改变).
+一个范围对象在操作上几乎和一个缓冲对象完全一样。不过，其操作的目标仅显于范围
+指定的行 (当然，这个行范围会随着切片赋值，行删除，或者 range.append() 等等操作
+而改变).
 
 范围对象的属性有:
 	r.start		首行在缓冲内的索引
@@ -245,11 +247,11 @@ Python 的输出						*python-output*
 ==============================================================================
 5. 窗口对象						*python-window*
 
-窗口对象代表一个 vim 窗口。你可以用一下几种方法来获取一个窗口对象:
+窗口对象代表一个 vim 窗口。你可以用以下几种方法来获取一个窗口对象:
 	- 通过 vim.current.window (|python-current|)
 	- 通过对 vim.windows 的索引操作 (|python-windows|)
 
-你只能通过窗口对象的属性来控制它。这些对象没有方法，也没有序列等其它界面。
+你只能通过窗口对象的属性来控制它。这些对象没有方法，也没有序列等其它接口。
 
 窗口的属性包括:
 	buffer (只读)		窗口中显示的缓冲
@@ -259,6 +261,22 @@ Python 的输出						*python-output*
 	width (读写)		列数表示的窗口宽度
 height 属性只有当屏幕被水平分割时才可写。
 width  属性只有当屏幕被垂直分割时才可写。
+
+==============================================================================
+6. 动态调入						*python-dynamic*
+
+MS-Windows 上，Python 库可以动态调入。|:version| 输出这时应包括
+|+python/dyn|。
+
+这意味着 Vim 会在需要的时候寻找 Python DLL 文件。如果你不使用 Python
+接口的时候，你就不需要该文件。这样，你可以在没有该 DLL 文件的时候使用 Vim。
+
+要使用 Python 接口，Python DLL 必须在你的搜索路径上。在控制台窗口里，输入
+"path" 可以看到目前使用的目录。
+
+该 DLL 的名字必须匹配 Vim 编译时所使用的 Python 版本。目前，该名字为
+"python24.dll"。也就是 Python 2.4。要确信这一点，编辑 "gvim.exe" 文件并查找
+"python\d*.dll\c"。
 
 ==============================================================================
  vim:tw=78:ts=8:ft=help:norl:

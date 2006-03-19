@@ -1,9 +1,8 @@
-*develop.txt*	 For Vim version 6.2.   最后更改：2005年3月3日
+*develop.txt*	 For Vim version 6.4.   最后更新：2006年3月
  
 
 		    Vim 参考手册    作者：Bram Moolenaar
-	  译者: jwdu <junweidu@ustc.edu>, iCrazy <icrazy@ustc.edu>
-			    http://vimcdoc.sf.net
+		  译者: jwdu, iCrazy (http://vimcdoc.sf.net)
 
 
 Vim 的开发						*development*
@@ -16,6 +15,10 @@ Vim 的开发						*development*
 4. 假定			|design-assumptions|
 
 请先看一下 "src" 目录下的 README.txt 以便对源代码有一个总体的了解。
+
+Vim 是开源软件，鼓励所有人参与并改进 Vim。如果你想递交 patch，请使用
+"diff -c" 来产生 context diff。可以参考一下
+ http://www.vim.org/tips/tip.php?tip_id=618.
 
 ==============================================================================
 1. 设计目标						*design-goals*
@@ -114,8 +117,8 @@ VIM 不 是 ... 						*design-not*
 
 - Vim 不是一个 shell 或操作系统。你不能在 Vim 内运行一个 shell 或使用它控制一
   个调试器。应该使用其它方式工作：把 Vim 当作来自 shell 或 IDE 中的一个部分来
-  使用。这里有一个讽刺的说法：“Vim 不像 Emacs 那样会包含除厨房中的水槽以外的
-  每件事物，但有人说如果你需要的话，却可以用它来洗盘子。”
+  使用。这里有一个讽刺的说法："Vim 不像 Emacs 那样会包含除厨房中的水槽以外的
+  每件事物，但有人说如果你需要的话，却可以用它来洗盘子。"
 - Vim 不是一个为了看起来漂亮就牺牲多平台一致性的怪异的 GUI 编辑器。但我们欢迎
   具有强大功能的 GUI 特性。
 
@@ -203,7 +206,7 @@ get_env_value()	Linux 系统函数
 VARIOUS							*style-various*
 
 Typedef 的名称应该以 "_t"结尾： >
-    typdef int some_t;
+    typedef int some_t;
 Define 的名称应该全部是大写： >
     #define SOME_THING
 Feature 应该总是以 "FEAT_"开头： >
@@ -307,7 +310,7 @@ Feature 应该总是以 "FEAT_"开头： >
 对同一个缓冲可以有多种折叠形式。例如，一个窗口显示函数体折叠后的文本，另一个
 窗口显示函数体。
 
-折叠是一种显示文本的方式。它会改变文本自身。所以折叠是被当作缓冲文本（缓冲行
+折叠是一种显示文本的方式。它不应该改变文本自身。所以折叠是被当作缓冲文本（缓冲行
 ）和窗口内显示的文本（逻辑行）之间的过滤器来实现的。
 
 
@@ -338,5 +341,8 @@ char_u	    8位无符号数
 int	    16/32/64位有符号数
 unsigned    16/32/64位无符号数
 long	    32或64位有符号数，可具有指针
+
+注意：某些编译器不能处理过长的源码行或者字符串。C89 标准规定这些被限制在 509 个
+字符以内。
 
  vim:tw=78:ts=8:ft=help:norl:

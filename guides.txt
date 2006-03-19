@@ -7,8 +7,9 @@
 http://vimcdoc.sf.net
 http://vcd.gro.clinux.org
 
-Note: 后者现在已经成为本项目的 WIKI 主页。你可以通过该网站以 WIKI 的形式来翻
-译文档。请在翻译前先确认要翻译的文档没有被翻译过。以下讨论仅针对 CVS 使用者。
+Note:
+后者是本项目的中文主页。请在翻译前先确认要翻译的文档没有被翻译过。
+以下讨论仅以 sourceforge 为例。
 
 
 ==============================================================================
@@ -53,7 +54,7 @@ http://sourceforge.net/mail/?group_id=56777
    subject: subscribe
 3. vimcdoc-cvs
    用来自动通知 cvs 的状态。
-   mailto: vimcdoc-cvs-request@lists.sourceforge.net
+   mailto: vimcdoc-cvscommit-request@lists.sourceforge.net
    subject: subscribe
 
 
@@ -72,7 +73,7 @@ Compulsory Rules ~
    用来帮助语法加亮。
 >
    :hi Ignore guifg=color
-   :hi Ignore cxterfg=color
+   :hi Ignore ctermfg=color
 <
    可以使它们被显示出来(使用比较醒目的 color)
 
@@ -109,7 +110,7 @@ Compulsory Rules ~
    所以，请在翻译时注意手动调整行宽，不要超过78。
 
 8. 编码：所有翻译后的文本使用 UTF-8 编码。
-   为保持最大兼容性，请你在翻译完文档后，运行以下
+   为保持最大兼容性，请在翻译完文档后，运行以下
    命令确保帮助文档能在 enc=euc-cn 环境下查看。
 
    $ iconv -f utf-8 -t euc-cn file.txt >/dev/null
@@ -117,7 +118,7 @@ Compulsory Rules ~
 9. 翻译日期：每个文档的第一行均有一个 Last Change:
    翻译为 “最近更新” 然后使用译文的更新日期。
 
-10. 标点符号不能出现在行首。
+10. 标点符号不能出现在行首。对引号一律使用 *英文引号* 。
 
 11. 关于 note, Note 的翻译：视情况而定，可译为“注意”
     或“备注”，之后＿必须＿是英文 ':' 或空格。这样做

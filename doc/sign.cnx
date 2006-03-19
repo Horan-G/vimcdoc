@@ -1,0 +1,174 @@
+*sign.txt*      For Vim version 6.4.  最近更新: 2006年2月
+
+
+		  VIM 参考手册    by Gordon Prieur
+					  and Bram Moolenaar
+				译者: Willis
+				http://vimcdoc.sf.net
+
+
+特性: 标号支持					*sign-support*
+
+1. 简介					|sign-intro|
+2. 命令					|sign-commands|
+
+{Vi 没有这些功能}
+{only 仅当编译时加入 |+signs| 特性才可用}
+
+==============================================================================
+1. 简介					*sign-intro* *signs*
+
+当一个调试器或者其他集成开发环境的工具控制编辑器时，它需要通过给出某些特定的高
+亮以给用户一些关于文件有用信息的反馈。一个例子是调试器要在左手边的列中给出一个
+图标，表示这里有一个断点。另一个可能的例子是一个箭头代表当前程序计数器 PC 的位
+置。标号特性既允许在窗口的左手边放置一个标号或者图标，也允许定义那一行要使用的
+高亮。显示一个图像化的标号可能只适用于 gvim (尽管 Sun Microsystem 的 dtterm 也
+支持，它是我知道这样唯一的终端模拟器)。一个文字的标号和高亮则应该对任何彩色终
+端模拟都适用。
+
+标号和其高亮并不仅对调试器有用。Sun 的 Visual WorkShop 用标号和高亮来标识错误
+和源程序浏览器的点击。另外，它的调试器支持 8 到 10 个不同的标号和高亮颜色。
+|workshop| Netbeans |netbeans| 也有应用。
+
+标号的应用有两步:
+
+1. 定义标号。这里，指定图像，文字和高亮设定。例如，你可以定义 "break" 标号为一
+   个马路上的停止符号和文字 "!!"。
+
+2. 放置标号。这里，指定要显示标号的文件和行号。每个定义好的标号可以在不同的文
+   件和行号上放置多次。
+
+如果一个文件里定义了标号，Vim 自动增加一个两个字符的纵列来显示它们。最后一个标
+号被撤销之后，该列又会自动消失。该列的颜色由 SignColumn 高亮群组定义
+|hl-SignColumn|。一个设定该颜色的示例: >
+
+	:highlight SignColumn guibg=darkgrey
+
+==============================================================================
+2. 命令						*sign-commands* *:sig* *:sign*
+
+这里提供了一个例子，在当前文件的第 23 行显示 piet 标号，以文字 ">>" 标明。 >
+	:sign define piet text=>> texthl=Search
+	:exe ":sign place 2 line=23 name=piet file=" . expand("%:p")
+
+这里是删除它的命令: >
+	:sign unplace 2
+<
+注意 ":sign" 命令后面不能跟另外一个命令或者注释。如果需要，使用 |:execute| 命
+令。
+
+
+定 义 一 个 标 号			*:sign-define* *E255* *E160* *E612*
+
+:sign define {name} {argument}...
+		定义一个新的标号，或者给一个已存在的图标设置属性。{name} 可以
+		是一个全是数字位组成的数或是一个由非数字位开头的名字。
+		大约可以定义 120 个不同的标号。
+
+		允许的参数是:
+
+	icon={pixmap}
+		位图文件名。必须是完整的路径名。位图应该能够在两个字符的宽
+		度显示。但是这不会被检查，如果位图太大，刷新时就会有问题。只有
+		GTK 2 可以按比例缩放位图，使之刚好占满可用的空间。
+			工具包		支持
+			GTK 1		pixmap (.xpm)
+			GTK 2		许多
+			Motif		pixmap (.xpm)
+
+	linehl={group}
+		用以显示标号所在行的高亮群组。最有用的是定义不同的背景颜色。
+
+	text={text}						*E239*
+		如果没有图标或者没有 GUI 时，显示的文本。应该用最多 2 个可显示
+		的字符。
+
+	texthl={group}
+		显示该文本的高亮群组。
+
+
+删 除 一 个 标 号					*:sign-undefine* *E155*
+
+:sign undefine {name}
+		删除一个以前定义的标号。如果带这个 {name} 的标号已经被放置，这
+		会引起问题。
+
+
+列 出 标 号						*:sign-list* *E156*
+
+:sign list	列出所有的标号和它们的属性。
+
+:sign list {name}
+		列出一个标号和他的属性。
+
+
+放 置 标 号 						*:sign-place* *E158*
+
+:sign place {id} line={lnum} name={name} file={fname}
+		把 {name} 指定的标号放在文件 {fname} 的第 {lnum} 行。
+							*:sign-fname*
+		文件 {fname} 必须已经在某个缓冲区调入，而且必须使用准确的文件
+		名。通配符，$ENV 和 ~ 不会被扩展，空白不会被转义。结尾的空白则
+		会忽略。
+
+		这个标号被用 {id} 记住。将来可以用它作进一步的应用。{id} 必须
+		是一个数字。用户可以自行决定 {id} 是否在每个文件内是唯一的。
+		(如果它用到多次，撤销放置就必须做多次，而且所做的改变未必尽如
+		预期)。
+
+:sign place {id} line={lnum} name={name} buffer={nr}
+		同上，但指定缓冲区 {nr}。
+
+:sign place {id} name={name} file={fname}
+		把文件 {fname} 里 用 {id} 记住的标号 换成 {name} 指定的新标号。
+		参看关于 {fname} 的说明 |:sign-fname|。这可以用在不移动某个标
+		号的同时，更改它的显示图标 (例如，当调试器停在某个端点上)。
+
+:sign place {id} name={name} buffer={nr}
+		同上，但指定缓冲区 {nr}。
+
+
+撤 销 放 置 标 号					*:sign-unplace* *E159*
+
+:sign unplace {id} file={fname}
+		把一个已经放置的标号 {id} 从文件 {fname} 里撤销。
+		参看关于 {fname} 的说明 |:sign-fname|。
+
+:sign unplace {id} buffer={nr}
+		同上，但指定缓冲区 {nr}。
+
+:sign unplace {id}
+		撤销标号 {id} 在所有文件里的出现。
+
+:sign unplace *
+		撤销所有放置的标号。
+
+:sign unplace
+		撤销当前光标下的标号。
+
+
+列 出 已 放 置 的 标 号
+
+:sign place file={fname}
+		列出所有文件 {fname} 里放置的标号。
+		参看关于 {fname} 的说明 |:sign-fname|。
+
+:sign place buffer={nr}
+		列出所有在缓冲区 {nr} 放置的标号。
+
+:sign place	列出所有文件的所有放置的标号。
+
+
+跳 转 到 一 个 标 号					*:sign-jump* *E157*
+
+:sign jump {id} file={fname}
+		打开文件 {fname} 或者跳转到包含 {fname} 的窗口并把光标设在标号
+		{id} 所在的位置。
+		参看关于 {fname} 的说明 |:sign-fname|。
+		如果这个文件没有在窗口显示，而当前文件又不能被放弃 |abandon|，
+		那么此动作失败。
+
+:sign jump {id} buffer={nr}
+		同上，但指定缓冲区 {nr}。
+
+ vim:tw=78:ts=8:ft=help:norl:

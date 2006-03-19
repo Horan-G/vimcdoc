@@ -1,9 +1,9 @@
-*quickfix.txt*  For Vim version 6.2.  最近更新：2005年3月
+*quickfix.txt*  For Vim version 6.4.  最近更新：2006年2月
 
 
 		  VIM REFERENCE MANUAL    by Bram Moolenaar
 
-		  译者: wandys	http://vimcdoc.sf.net
+		  译者: wandys, Willis	http://vimcdoc.sf.net
 
 
 本主题曾在用户手册的 |30.1| 节有所介绍。
@@ -75,7 +75,7 @@ Vim 有一个特殊的模式用来加快 编辑-编译-编辑 循环。这是受
 :cfir[st][!] [nr]	和 ":crewind" 相同。
 
 							*:clast* *:cla*
-:cla[st][!] [nr]	显示错误 [nr]。如果没指定[nr]，则显示最后一个错误。参
+:cla[st][!] [nr]	显示错误 [nr]。如果没指定 [nr]，则显示最后一个错误。参
 			见 |:cc|。
 
 							*:cq* *:cquit*
@@ -252,7 +252,7 @@ Vim 可以和 "grep" 或类似 grep 的程序（比如 GNU id-utils）交互，�
 可以使用 "grep" 支持的任何选项。
 
 省缺状态下，:grep 会以 -n 参数启动 grep （显示文件和行号）。你可以通过设定
-'grepprg' 对此改变。在一下这些情况下你需要设定 'grepprg'：
+'grepprg' 对此改变。在以下这些情况下你需要设定 'grepprg'：
 
 a)	你在使用一个不叫 "grep" 的程序。
 b)	你需要以绝对路径启动 grep。
@@ -300,7 +300,7 @@ c)	你想自动传递某些参数（比如，忽略大小写）。
 来跳转到上一个函数。
 
 这就像浏览一个树一样，":grep" 每深入一层，就创建新的分支。":colder" 跳转到上
-一层。你可以混和使用 ":grep" 和 ":colder" ，以树型方式来浏览所有的位置。如果
+一层。你可以混合使用 ":grep" 和 ":colder" ，以树型方式来浏览所有的位置。如果
 经常这么做，你不需写一个 "todo list" 就能找到所有的位置。
 
 =============================================================================
@@ -317,7 +317,7 @@ c)	你想自动传递某些参数（比如，忽略大小写）。
 
 
 在 "compiler" 目录中的 Vim 插件被用来为选择的编译器设定各种选项。对 ":compiler"
-设定本地选项，对 ":compiler!" 设定全局选项。
+设定局部选项，对 ":compiler!" 设定全局选项。
 
 							*current_compiler*
 为了支持老版本的 Vim，这些插件总使用 "current_compiler" 而不是 
@@ -345,7 +345,7 @@ MANX AZTEC C				*quickfix-manx* *compiler-manx*
 - 如果正常退出 Vim，编译器会再次编译相同文件。如果用 :cq 命令退出，编译器就会
   终止。如果不能修定错误或是需要先编译其它的文件，你可以这样做。
 
-在 Amiga 系统上，QuickFix 模式会有某些限止。编译器只能在错误文件中写入前 25 个
+在 Amiga 系统上，QuickFix 模式会有某些限制。编译器只能在错误文件中写入前 25 个
 错误（Manx 的文档没有说明怎样才能写入更多）。如果想查找其它的错误，你需要首先
 修定一些错误并退出编译器。重新编译后，剩下的错误 （最多 25 个）就会找到。
 
@@ -457,7 +457,7 @@ Chuprina 测试) 都适用。要使 |errorformat-LaTeX| 对不同 shell 不同 O
 下面的大写转换指定特殊格式化字符串的类型。至多只能用其中的一个作为以逗号分隔
 的单个格式的前缀。
 一些编译器产生含有目录名的信息，这些目录名需要加在 %f 读入文件名的前面 (比如
-GNU make)。下面的的代码可用于扫描这些目录名；它们将被保存在内部的目录栈中。
+GNU make)。下面的代码可用于扫描这些目录名；它们将被保存在内部的目录栈中。
 								*E379*
 	%D		"enter directory" 格式字符串；期待后跟 %f 以找到目录名
 	%X		"leave directory" 格式字符串；期待后跟 %f
@@ -662,7 +662,7 @@ Quickfix 根据 make 输出，维护一个保存所有使用过的目录的栈�
 GNU-make 在处理前后输出当前目录。
 
 如果你使用的不是 GNU-make，那目录栈的维护就会复杂得多。比如 AIX-make 从不输出
-有关当前目录的任何信息。这样你就需要在 makefile 上多花些功夫。lesstiff 的
+有关当前目录的任何信息。这样你就需要在 makefile 上多花些功夫。Lesstif 的
 makefile 中有一个命令可以显示 "Making {target} in {dir}"。这里的问题是它并不在
 离开目录时输出信息，而且它不输出绝对路径。
 
@@ -765,7 +765,7 @@ ant (http://jakarta.apache.org/) 输出的每个行首都为 [javac]，这样我
 	   \%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
 <
 						*errorformat-jade*
-解析 jade (see http://www.jclark.com/) 错误十分简单: >
+解析 jade (见 http://www.jclark.com/) 错误十分简单: >
   :set efm=jade:%f:%l:%c:%t:%m
 <
 						*errorformat-LaTeX*

@@ -1,4 +1,4 @@
-*usr_11.txt*	For Vim version 6.3.  最后修改时间:2005年1月
+*usr_11.txt*	For Vim version 6.4.  最后修改时间:2005年1月
 
 		    Vim 用户手册 - by Bram Moolenaar
 		(译者：Nek_in http://vimcdoc.sf.net)
@@ -189,7 +189,7 @@ Vim 尽可能保护你不要做傻事。有时你打开一个文件，天真地�
 
 		process ID: 12559 (still running) ~
 
-    "still running" 表示同一台计算机上有一个进程这在编辑这个文件。在非 Unix 的
+    "still running" 表示同一台计算机上有一个进程正在编辑这个文件。在非 Unix 的
     系统上你不会得到这个信息。而如果你通过网络编辑这个文件，可能也得不到这个信
     息，因为那个进程不在你的机器上。在这两种情况下，你要自己找到原因。
        如果另一个 Vim 正在编辑这个文件，继续编辑会导致同一个文件有两个版本。最

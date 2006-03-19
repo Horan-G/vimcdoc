@@ -1,8 +1,8 @@
-*uganda.txt*    For Vim version 6.3.  最近更新：2005年3月26日
+*uganda.txt*    For Vim version 6.4.  最近更新：2006年2月
 
 
 		  VIM 参 考 手 册    作者：Bram Moolenaar
-				     译者: Dasn <dasn@users.sf.net>
+				     译者: Dasn 
 				     VCD主页：http://vimcdoc.sf.net
 
 			*uganda* *Uganda* *copying* *copyright* *license*
@@ -165,12 +165,26 @@ Kibaale 儿童中心（Kibaale Children's Centre 简称 KCC）位于 Kibaale。K
 查看 ICCF 的网站以获取最新的信息！ 参见：|iccf| 
 
 
-美国和加拿大地区: 
+美国: 
+		    可以使用下面提到的方法。另外，你可以把支票寄到 Nehemiah
+		    Group Outreach Society (NGOS)。这会减少转帐的开销，而且你
+		    会得到 IRS 纳税收据。NGOS 把款项直接汇到乌干达的 Kibaale
+		    项目。支票必须支付给 NGOS，但在支票上请注明 "donation
+		    Kibaale"。把支票寄到:
+			NGOS
+			P.O. Box 50862
+			Indianapolis, IN 45250
+		    关于 Nehemiah Group Outreach Society (NGOS) 的问题可以询
+		    问: Ross deMerchant, Executive Director -
+		    r.demerchant AT sbcglobal DOT net。要赞助儿童，请洽 KCF in
+		    Canda (见下)，并把支票寄到 Indianapolis 的 NGOS。
+
+加拿大: 
 		    联系位于加拿大萨里（Surrey）市的 Kibaale 儿童基金会
-                    (Kibaale Children's Fund 简称 KCF)他们会接待加拿大的捐
-                    赠者。在那里，您可以直接进行一次性的捐赠。捐赠之后请通
-                    知我，好让我知道什么样的捐赠与 Vim 有关。请向 KCF 询问
-                    捐赠的相关事宜。
+                    (Kibaale Children's Fund 简称 KCF) 他们会接待加拿大的捐赠
+		    者。KCF 把 100% 的钱汇到乌干达的项目中。在那里，您可以直接
+		    进行一次性的捐赠。捐赠之后请通知我，好让我知道什么样的捐赠
+		    与 Vim 有关。请向 KCF 询问捐赠的相关事宜。
 
 			Kibaale Children's Fund c/o Pacific Academy
 			10238-168 Street
@@ -179,11 +193,10 @@ Kibaale 儿童中心（Kibaale Children's Centre 简称 KCC）位于 Kibaale。K
 			Phone: 604-581-5353
 
 		    如果您向 KCF 捐赠，您会收到一份纳税收据，可以在报税的时
-                    候把它和报税单一块交上。（在自由贸易协定下，加拿大开出
-                    的税据在一定条件下可以被 IRS（美国国家税务局）完全承认。）
+                    候把它和报税单一块交上。
 
 荷兰:	
-		    如果您在荷兰，可以汇款至"Stichting ICCF Holland" 在 Venlo
+		    如果您在荷兰，可以汇款至 "Stichting ICCF Holland" 在 Venlo
                     的账户，可以减税。
 
 			Postbank, nr. 4548774
@@ -199,7 +212,7 @@ Kibaale 儿童中心（Kibaale Children's Centre 简称 KCC）位于 Kibaale。K
 		
 
 欧洲的其它国家:
-		    如果可能请通过银行汇款，您的银行应该可以这样。见“其它”
+		    如果可能请通过银行汇款，您的银行应该可以这样。见"其它"
 		    里面的Swift号码和IBAN号码。其它方式应该也可以，询问一下主办
 		    单位。
 
@@ -208,9 +221,10 @@ Kibaale 儿童中心（Kibaale Children's Centre 简称 KCC）位于 Kibaale。K
 		    您可以用 PayPal 来用信用卡捐资，这是Internet上应用最广的
 		    一个结帐系统，用起来很简单。请看下面的链接以获取更多的信
 		    息：
-			https://www.paypal.com/affil/pal=Bram%40moolenaar.net
-		    捐款的email地址： Bram@iccf-holland.org
-		    如果多于 150 美元，最好用支票。
+		    	https://www.paypal.com/affil/pal=Bram%40iccf-holland.org
+		    捐款的email地址:
+			Bram@iccf-holland.org
+		    如果多于 400 欧元 (150 美元)，最好用支票。
 
 其它:		
 		    汇款至下面几个可能的帐户:

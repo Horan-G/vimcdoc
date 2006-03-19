@@ -1,4 +1,4 @@
-*usr_29.txt*	For Vim version 6.3.  最近更新：2005年3月
+*usr_29.txt*	For Vim version 6.4.  最近更新：2005年3月
 
 		     VIM 用户手册 - by Bram Moolenaar
 		   译者：wandys  http://vimcdoc.sf.net
@@ -544,6 +544,6 @@ Vim 会列出它所找出的匹配行，不仅在当前文件内查找，还会�
 
 ==============================================================================
 
-Next chapter: |usr_30.txt|  Editing programs
+下一章: |usr_30.txt| 编辑程序
 
-Copyright: see |manual-copyright|  vim:tw=78:ts=8:ft=help:norl:
+版权: 见 |manual-copyright|  vim:tw=78:ts=8:ft=help:norl:

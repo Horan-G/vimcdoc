@@ -1,8 +1,8 @@
-*os_dos.txt*    For Vim version 6.3.  最后更新: 2005年3月21日
+*os_dos.txt*    For Vim version 6.4.  最后更新: 2005年3月21日
 
 
 		  VIM 参 考 手 册    作者：Bram Moolenaar
-		                     译者: Dasn<dasn@users.sf.net> 
+		                     译者: Dasn 
 		                     VCD主页：http://vimcdoc.sf.net
 
 							*dos* *DOS*
@@ -54,8 +54,8 @@ Vim 会在"e:\vim\vim54" 寻找 5.4 版本运行时需要的文件。
 
 在 Windows 95 下，你可以在 C:\autoexec.bat 里设置 $VIM 。例如： >
   set VIM=D:\vim
-在 Windows NT 里，你可以在“控制面板－系统”或者右键单击 “我的电脑”
-－“属性”，“环境变量” 选项卡里为每一个用户设置环境变量。
+在 Windows NT 里，你可以在"控制面板－系统"或者右键单击 "我的电脑"
+－"属性"，"环境变量" 选项卡里为每一个用户设置环境变量。
 
 ==============================================================================
 2.使用反斜杠 						*dos-backslash*
@@ -118,7 +118,7 @@ group）决定了 Vim 用什么颜色显示正常的文本。例如，要设置�
 	:hi Normal ctermbg=Blue ctermfg=grey
 要了解其它可用的颜色组，参见 |highlight-groups| 。
 
-DOS 控制台不支持 “粗体”、“下划线” 之类的属性。你可以用 ":mode" 的五种属性值
+DOS 控制台不支持 "粗体"、"下划线" 之类的属性。你可以用 ":mode" 的五种属性值
 和 'termcap' 的九种属性值来设置颜色。 备注: 当你用 ":highlight" 命令设置了
 颜色后，这些属性不必要设置，它们是为了兼容老版本的 Vim 而保留的。
 |'highlight'| 选项指定了对如下五种行为进行加亮：
@@ -219,7 +219,7 @@ Vim 会自动设置 'fileformat' 的值（默认值）。|'fileformat'| |'filefo
 6. :cd 命令						*dos-:cd*
 
 ":cd"命令能识别驱动器符号，并且可以改变当前的驱动器。命令 ":cd c:"使驱动器
-C 成为当前驱动器。命令":cd d:\foo"，切换当前目录到“D 盘的 foo 目录下”。Vim
+C 成为当前驱动器。命令":cd d:\foo"，切换当前目录到"D 盘的 foo 目录下"。Vim
 也能识别 UNC 路径。例如：":cd \\server\share\dir"。   |:cd|
 
 ==============================================================================

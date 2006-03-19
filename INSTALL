@@ -18,7 +18,7 @@ Linux:
     ./vimcdoc.sh -i
 就可以了。该安装程序会自动识别 Vim 的安装路径，将中文的文档拷贝
 到相应的地方。原有的英文文档不受影响。
-这种方法对 root 和非 root 用户都適用。但建議以 root 身份安装。
+这种方法对 root 和非 root 用户都适用。但建议以 root 身份安装。
 当以 root 身份安装时，文件会被拷贝至 /usr/share/vim/vimfiles/doc
 下。因此所有系统的用户都可以使用中文文档。如果你的 vim 是安装
 在 /usr/local 下的话，你需要这样设定 vim 的 runtimepath 选项：
@@ -51,7 +51,7 @@ tip:
 
 
 +------------+
-|  UNINTALL  |
+|  UNINSTALL  |
 +------------+
 Linux:
 如果你是使用的自动安装脚本安装的话，只要运行：
@@ -62,6 +62,17 @@ Linux:
 Win32:
 假定你的 Vim 安装在 c:\vim 下，在 c:\vim\vimfiles\doc\ 目录内会
 有一个 vimcdoc-Uninst.exe，只要执行它就可以了。
+
+
++---------+
+| EUC-CN  |
++---------+
+对于 Linux/BSD 下使用非 utf 中文环境的用户，在浏览某些文件的时候可能
+会遇到麻烦。这是因为那些文件包含无法在 gbk, gb2312 等编码方式下显示
+的字符。遇到这种情况，有一下两种解决方案：
+
+1. 使用 utf-8 中文环境。例如，将 LC_ALL 设定为 zh_CN.UTF-8
+2. 强制 vim 使用 utf 编码。作法是 :set enc=utf-8
 
 
 +---------+

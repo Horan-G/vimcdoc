@@ -1,10 +1,10 @@
-*os_mint.txt*	For Vim version 6.2.  最近更新: 2005年3月
+*os_mint.txt*	For Vim version 6.4.  最近更新: 2005年3月
 
 
 		   Vim 参考手册    作者：Jens M.Felderhoff
 	    译者: iCrazy<icrazy@ustc.edu>  http://vimcdoc.sf.net
 
-						        *MiNt* *Atari*
+						        *MiNT* *Atari*
 这一个文件中包含了Atari MiNT version of Vim 的特性.
 
 如果您要在运行MiNT的Atari机器上编译Vim,您需要首先看一下src目录下的"INSTALL"和

@@ -1,11 +1,11 @@
-*if_cscop.txt*  For Vim version 6.3.  最近更新：2005年3月
+*if_cscop.txt*  For Vim version 6.4.  最近更新：2006年2月
 
 
 		  VIM REFERENCE MANUAL    by Andy Kahn
 		译者：lang2 http://vimcdoc.sf.net
 
 							*cscope* *Cscope*
-本文档阐述如何使用 Vim 的 cscope 界面。
+本文档阐述如何使用 Vim 的 cscope 接口。
 
 Cscope 是一个类似 ctags 的工具。 你可以把它想作是超过频的 ctags，因为它功能比
 ctags 强大很多。 在 Vim 里，通过 cscope 查询结果来跳转就象跳转到其他的标签完
@@ -20,7 +20,7 @@ ctags 强大很多。 在 Vim 里，通过 cscope 查询结果来跳转就象跳
 6. 建议的使用方法		|cscope-suggestions|
 7. 如何获取 cscope 等等		|cscope-info|
 
-到目前为止 cscope 界面仅在 Unix 及 Win32 平台下有效。
+到目前为止 cscope 接口仅在 Unix 及 Win32 平台下有效。
 {Vi does not have any of these commands}
 
 ==============================================================================
@@ -45,11 +45,11 @@ ctags 强大很多。 在 Vim 里，通过 cscope 查询结果来跳转就象跳
 
        在所有相关的位置将一个常数改为一个预处理符号。
 
-  它被设计用来回答一下的问题:
+  它被设计用来回答以下的问题:
        什么地方用到了这个符号?
        这是在什么地方定义的?
        这个变量在哪里被赋值?
-       这个全局符号的定义在那里?
+       这个全局符号的定义在哪里?
        这个函数在源文件中的那个地方?
        那些函数调用了这个函数?
        这个函数调用了那些函数?
@@ -67,12 +67,12 @@ ctags 强大很多。 在 Vim 里，通过 cscope 查询结果来跳转就象跳
 问题中的一个。然而，一旦找到一个匹配你必须进入一个文本编辑器来查看和编辑
 匹配的文本。你无法象在 vi 中使用 Ctrl-] 或 :tag 命令那样方便的跳转。
 
-Vim 的 cscope 界面的工作原理是：先调用 cscope 的命令行界面，然后分析其
+Vim 的 cscope 接口的工作原理是：先调用 cscope 的命令行接口，然后分析其
 输出结果从而找到匹配处。最终结果是：cscope 查询结果就象一般的标签一样。
 你可以使用一般的标签命令 (Ctrl-］ 或 :tag) 然后再用 Ctrl-T 回跳。
 (注意 不过，其实你不能简单的就使用 Ctrl-] 或 :tag 来跳转到标签。在那之前
 你必须重新定义映射或设定一些选项值。下面的几节会告诉你如何正确的使用
-cscope 界面)
+cscope 接口)
 
 
 ==============================================================================
@@ -126,7 +126,7 @@ cscope 界面)
 
 	    :cscope find 0 DEFAULT_TERM
 <
-	    在 Vim 5.1 的源代码内执行以上的命令得到一下的结果:
+	    在 Vim 5.1 的源代码内执行以上的命令得到以下的结果:
 
 	    Cscope tag: DEFAULT_TERM
 	       #   line  filename / context / line
@@ -178,7 +178,7 @@ cscope 界面)
 
 	    用法   :cs kill {num|partial_name}
 
-	    要终止一个连接，需要给处连接号或者部分的连接名称。部分名称可以
+	    要终止一个连接，需要给出连接号或者部分的连接名称。部分名称可以
 	    是数据库文件路径的任何一部分。所以要当心使用这个功能！
 
 	    如果给定的连接号是 -1，那么 所 有 的 cscope 连接都会被终止。
@@ -253,7 +253,7 @@ cscope 数据库之前被搜索。缺省值为 0。
 ==============================================================================
 4. 如何在 Vim 中使用 cscope				*cscope-howtouse*
 
-首先你要作的是为你的源文件建立一个 cscope 数据库。最简单的做法是使用
+首先你要做的是为你的源文件建立一个 cscope 数据库。最简单的做法是使用
 "cscope -b" 命令。更详细的说明请查阅 cscope 的手册页。
 
 假定你已经建立了一个 cscope 数据库，你需要将其添加 "add" 到 Vim 中来。这会
@@ -288,13 +288,15 @@ cscope 数据库之前被搜索。缺省值为 0。
 ==============================================================================
 5. 缺陷							*cscope-limitations*
 
-Vim 对 cscope 的支持紧当所在系统支持一下四个系统调用时才可用：fork(),
+Vim 对 cscope 的支持仅当所在系统支持以下四个系统调用时才可用：fork(),
 pipe(), execl(), waitpid()。这意味着它基本上仅限于 Unix 系统。
 
 另外 cscope 支持在 Win32 也可以使用。更多的信息以及一个 Win32 版本的
 cscope 可以在这里找到:
 
 	http://iamphet.nm.ru/cscope/index.html
+
+http://cscope.sourceforge.net 的 DJGPP 编译版本已知不能和 Vim 一起工作。
 
 同时还有几个硬性的限制:
 
@@ -333,7 +335,7 @@ cscope 可以在这里找到:
 	map <C-_> :cstag <C-R>=expand("<cword>")<CR><CR>
 
 常用的 cscope 查询 (用 ":cs find") 包括寻找所有调用指定函数的函数以及寻找
-所有出现某个指定的 C 符号的地方。你可以参照一下的映射: >
+所有出现某个指定的 C 符号的地方。你可以参照以下的映射: >
 
 	map g<C-]> :cs find 3 <C-R>=expand("<cword>")<CR><CR>
 	map g<C-\> :cs find 0 <C-R>=expand("<cword>")<CR><CR>
@@ -413,8 +415,8 @@ SGI 开发者也可以得到 cscope。在以下的地址搜索 cscope:
 网上还有一个旧版本的 cscope 的克隆 (叫 "cs") 。出于各种原因，Vim 不支持该
 程序。
 
-Vim cscope 界面/支持的原作者是 Andy Kahn <ackahn@netapp.com>。期间使用了
-nvi cscope 界面的构架和很少的一部分代码。如果你在使用 Vim cscope 界面时
+Vim cscope 接口/支持的原作者是 Andy Kahn <ackahn@netapp.com>。期间使用了
+nvi cscope 接口的构架和很少的一部分代码。如果你在使用 Vim cscope 接口时
 有任何问题，建议，patches, 等等，请与他联系。
 							*cscope-win32*
 这里可以找到一个 Win32 版本的 cscope://iamphet.nm.ru/cscope/index.html

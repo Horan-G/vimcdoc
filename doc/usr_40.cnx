@@ -1,4 +1,4 @@
-*usr_40.txt*	For Vim version 6.3.  最近更新：2005年3月
+*usr_40.txt*	For Vim version 6.4.  最近更新：2005年3月
 
 		     VIM USER MANUAL - by Bram Moolenaar
 		     译者：lang2 http://vimcdoc.sf.net
@@ -93,7 +93,7 @@ Vim 是一个可扩展的编辑器。你可以把一系列你常用的命令组�
 第一列显示该映射有效的运行模式。 "n" 表示普通模式，"i" 表示插入模式等。空白
 表示用 ":map" 命令定义的映射，也就是对普通和可视模式有效。
    列出映射的一个比较实用的目的是检查 <> 表示的特殊键是否被识别了（仅当支持多
-色彩是有效）。例如，当 <Esc> 被用彩色显示时，它表示逃逸???字符。否则，只是5个
+色彩是有效）。例如，当 <Esc> 被用彩色显示时，它表示转义字符。否则，只是5个
 不同的字符。
 
 
@@ -338,7 +338,7 @@ Vim 会显示 "Hello World"。 然而如果你加上一个双引号，就不行�
 				匿名寄存器。)
 				指定的寄存器可通过 <reg> (即 <register> ) 
 				来操作。.
-	-complete={type}	给处命令行补全的方式。
+	-complete={type}	给出命令行补全的方式。
 				|:command-completion| 列出了所有可用值。
 	-bar			命令后可用 | 加另外一个命令，
 				或 " 加一个注释。
@@ -572,4 +572,4 @@ expand() 函数的参数是 "<afile>"，用来代表自动命令执行所关联�
 
 下一章: |usr_41.txt|  编写 Vim 脚本
 
-Copyright: see |manual-copyright|  vim:tw=78:ts=8:ft=help:norl:
+版权: 见 |manual-copyright|  vim:tw=78:ts=8:ft=help:norl:

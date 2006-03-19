@@ -1,8 +1,8 @@
-*if_ole.txt*    For Vim version 6.3.  最后更新: 2005年3月16日
+*if_ole.txt*    For Vim version 6.4.  最后更新: 2005年3月16日
 
 
 		  VIM 参 考 手 册    作者: Paul Moore
-		                     译者: Dasn<dasn@users.sf.net> 
+		                     译者: Dasn 
 		                     VCD主页: http://vimcdoc.sf.net
 
 
@@ -41,7 +41,7 @@ Visual Basic，Python，或者 Perl 与 Vim 通信。Vim 的程序名（在 OLE 
 	use Win32::OLE;
 	$vim = new Win32::OLE 'Vim.Application';
 
-Vim 不能作为“隐藏”的 OLE 服务器来运行，这一点 Vim 不像其它一些 OLE 服务器。
+Vim 不能作为"隐藏"的 OLE 服务器来运行，这一点 Vim 不像其它一些 OLE 服务器。
 Vim 的 OLE 客户端启动时，一个 Vim 程序的实例会立刻显现出来。简单地断开 OLE 连
 接不能关掉 Vim 实例需要显式地执行退出命令才可以（例如，:qa! ， :wqa）。
 
@@ -73,7 +73,7 @@ CTRL-\ CTRL-N ，就像这样： >
 <
 	备注: 在 Perl 语法里，特殊字符前需要加 "\"。）
 
-CTRL-\ CTRL-N 使得 Vim 从“插入”模式或“命令行”模式返回 Normal 模式。 备注:
+CTRL-\ CTRL-N 使得 Vim 从"插入"模式或"命令行"模式返回 Normal 模式。 备注:
 这两个字符不能用于 Vim 命令中。
 							*ole-eval*
 Eval(expr)		计算表达式的值。
