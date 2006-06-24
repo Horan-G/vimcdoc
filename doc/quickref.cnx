@@ -744,7 +744,7 @@ N 用来 (可选) 置于命令之前表示该命令执行的次数。
 |'printencoding'| |'penc'|   用于打印的编码方式
 |'printexpr'|     |'pexpr'|  用于 :hardcopy 打印 PostScript 的表达式
 |'printfont'|	  |'pfn'|    用于 :hardcopy 的字体名
-|'printheader'|   |'pheader'| 用于 :hardcopy 的 页眉格式
+|'printheader'|   |'pheader'| 用于 :hardcopy 的页眉格式
 |'printoptions'|  |'popt'|   控制 :hardcopy 输出格式
 |'readonly'|	  |'ro'|     禁止写入缓冲区
 |'remap'|		     允许映射可以递归调用
@@ -970,7 +970,7 @@ N 用来 (可选) 置于命令之前表示该命令执行的次数。
 
 |:_%|	    %		当前文件名 (仅当期望文件名时)
 |:_#|	    #[num]	alternate file 文件名 [num] (仅当期望文件名时)
-	注: 以下四项以字面意思键入; 并非特殊键!
+	注: 以下四项 (译者注: 原文如此) 以字面意思键入; 并非特殊键!
 |:<cword>|  <cword>	光标下的 word (仅当期望文件名时)
 |:<cWORD>|  <cWORD>	光标下的 WORD (仅当期望文件名时)
 |:<cfile>|  <cfile>	光标下的文件名 (仅当期望文件名时)

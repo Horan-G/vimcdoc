@@ -983,8 +983,7 @@ SECTION	 可能以 '}' 而不是 '{' 开始的小节
 |:dlist|	:dl[ist]	列出所有的 #define
 |:doautocmd|	:do[autocmd]	在当前缓冲区应用自动命令
 |:doautoall|	:doautoa[ll]	在所有载入的缓冲区上应用自动命令
-|:drop|		:dr[op]		跳转到编辑某文件的窗口，如果不行，在当前窗口编
-				辑文件
+|:drop|		:dr[op]		跳到编辑某文件的窗口，不成功则在当前窗口编辑之
 |:dsearch|	:ds[earch]	列出一个 #define
 |:dsplit|	:dsp[lit]	分割窗口并跳转到 #define 
 |:edit|		:e[dit]		编辑文件
@@ -1217,8 +1216,7 @@ SECTION	 可能以 '}' 而不是 '{' 开始的小节
 |:tearoff|	:te[aroff]	撕下一个菜单
 |:tfirst|	:tf[irst]	转到第一个匹配的标签
 |:throw|	:th[row]	抛出例外
-|:tjump|	:tj[ump]	和 ":tselect" 类似，但如果只有一个匹配，直接跳
-				转之
+|:tjump|	:tj[ump]	类似于 ":tselect"，只有一个匹配时直接跳转之
 |:tlast|	:tl[ast]	跳转到最后一个匹配的标签
 |:tmenu|	:tm[enu]	定义菜单的工具提示
 |:tnext|	:tn[ext]	跳转到下一个匹配的标签

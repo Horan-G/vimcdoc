@@ -517,7 +517,7 @@ DISPLAY)，那么复制和粘贴和 GUI 上的行为相似。如果不是，那�
 3. 在要插入的位置上按鼠标左键。
 4. 按鼠标中键。
 
-快捷方式: 如果插入位置和可视文本同时出现在屏幕上，你可以一次做2、3 和 4: 在要
+快捷方式: 如果插入位置和可视文本同时出现在屏幕上，你可以一次做 2、3 和 4: 在要
 插入的位置直接按鼠标中键。
 
 注意: 如果使用 |-X| 命令行参数，Vim 不会连接到 X 服务器，所以复制/粘贴到 X 剪
@@ -559,7 +559,7 @@ Vim 之前在外壳上执行 "stty cs8 -istrip -parenb"。
 <LeftDrag>      是	开始或者扩展 (1)  否		      *<LeftDrag>*
 <LeftRelease>   是	开始或者扩展 (1)  否
 <MiddleMouse>   是	如果没有激活      否	   放置
-<MiddleMouse>   是	 若果激活	  否	   抽出和放置
+<MiddleMouse>   是	 如果激活	  否	   抽出和放置
 <RightMouse>    是	开始或者扩展      是
 <S-RightMouse>  是	  不改变	  是	   "#" (2)    *<S-RightMouse>*
 <C-RightMouse>  否	  不改变	  否	   "CTRL-T"

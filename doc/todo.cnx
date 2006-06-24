@@ -2074,7 +2074,7 @@ VMS:
 -   Make it possible to undo <BS>, <C-W> and <C-U>.  Bash uses CTRL-Y.
 
 
-'cindent', 'smartindent':
+'cindent'、'smartindent':
 8   Wrong indent for ":" after a method with line break in arguments:
 	Foo::Foo (int one,
 		    int two)
@@ -2309,7 +2309,7 @@ Java:
 -   History stack for . command?  Use "g." command.
 
 
-映射和缩略词:
+映射和缩写:
 8   Let ":verbose map xx" report where the mapping was set, just like with
     ":verbose set".
 8   When "0" is mapped (it is a movement command) this mapping should not be

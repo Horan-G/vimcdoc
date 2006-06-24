@@ -69,7 +69,7 @@ $HOME/.gvimrc: >
 
 要 注意 其中用的是 , (逗号) 还是 ; (分号)。
 
-还有，不要设 ':set guifont'。如果这项存在，那么 Gvim 忽略 ':set guifontset'.
+还有，不要设 ':set guifont'。如果这项存在，那么 Gvim 忽略 ':set guifontset'。
 这就意味着 VIM 不会提供 fontset 的支持，从而只有英语会正确显示，Hangul 就不会
 了。
 

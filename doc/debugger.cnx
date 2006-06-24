@@ -102,8 +102,8 @@ XmNballoonEvalFontList, XmNballoonEvalBackground, 和 XmNballoonEvalForeground
     信息页脚					FEAT_FOOTER
     气泡表达式求值				FEAT_BEVAL
 
-最初的和完整的 IPE/IDE 的整合是与 Sun Visual WorkShop 一起的。如果需要编译一
-个带有 VWS 接口的 gvim，请设置下面这个标志，它会设置以上所有的标志：
+最先提供且带有完整 IPE/IDE 的整合来自 Sun Visual WorkShop。如果需要编译一个带
+有 VWS 接口的 gvim，请设置下面这个标志，它会设置以上所有的标志：
 
     Sun Visual WorkShop				FEAT_SUN_WORKSHOP
 

@@ -89,7 +89,7 @@
 	:Nwrite "sftp://[user@]machine/file"		使用 sftp
 	不支持 http: 协议！
 
-    改 变 用 户 和 密 码
+    改 变 用 户 名 和 密 码
 	使用 ftp 的尝试会提示你输入用户名字和密码。它们被存在 g:netrw_uid 和
 	g:netrw_passwd 里。下一次使用 ftp 就会再次使用这些信息。如果你要使用别
 	的用户名和/或密码，先调用 NetUserPass()。
@@ -111,15 +111,15 @@
 			  =1 使用替代的 ftp 方法	  (user uid password)
 	g:netrw_ftpmode   ="binary"				       (缺省)
 			  ="ascii"			       (或者你的选择)
-	g:netrw_uid	  (ftp) user-id,      		     可用于同一会话中
-	g:netrw_passwd	  (ftp) password,     		     可用于同一会话中
+	g:netrw_uid	  (ftp) 用户名，     		     可用于同一会话中
+	g:netrw_passwd	  (ftp) 密码，     		     可用于同一会话中
 	g:netrw_win95ftp  =0 使用 unix 风格连接 ftp，即使是 win95/win98/winME
 			  =1 使用缺省的方法连接 ftp
 	g:netrw_cygwin	  =1 假设在 windows 上的 scp 是 cygwin 的版本
 							 (windows 的缺省值)
 			  =0 假设在 windows 上的 scp 接受 windows 风格的路径
 			    				 (其他情况的缺省值)
-	g:netrw_use_nt_rcp=0 不要使用 WinNT, Win2000 and WinXP 的 rcp (缺省)
+	g:netrw_use_nt_rcp=0 不要使用 WinNT、Win2000 and WinXP 的 rcp (缺省)
 			  =1 使用 WinNT 的 rcp,... 使用二进制模式
 
 
@@ -214,7 +214,7 @@ ftp://... (和 http://...) 的读取。见 |netrw-var| 来了解详情。
   |  :Nread sftp://host/path	    | :Nwrite sftp://host/path	 | sftp  (*1) |
   +=================================+============================+============+
 
-	(*1) 要指出绝对路径，用 scp://machine//path.
+	(*1) 要指出绝对路径，用 scp://machine//path。
 
 	(*2) 如果 <.netrc> 存在，假设你的 ftp 客户端会使用之。不然，该脚本提示
 	输入用户名和密码。
@@ -386,8 +386,9 @@ Netrw 然后通过过滤命令执行上述命令行:
 	-i 告诉 ftp 不要交互
 	-n 意味着不要用 netrc，它用于方法 #3 (ftp 不用 <.netrc>)
 
-如果 <.netrc> 存在，就不需要想用户查询用户名和密码。这时，从临时文件里读取的内
-容被读到被请求的主编辑会话窗口中，并删除临时文件。
+如果 <.netrc> 存在，就不需要想用户查询用户名和密码。传输完毕后，保存文件到临时
+文件里。这时，从临时文件里读取的内容被读到被请求的主编辑会话窗口中，并删除临时
+文件。
 
 如果你的 ftp 不支持 "user" 命令，而是立即需要输入用户名，那么试试把
 "let netrw_ftp=1" 放到你的 <.vimrc> 里。
@@ -414,7 +415,7 @@ NetReadFixup(tmpfile) 函数:
 >
 如果 NetReadFixup() 函数存在，它就会被调用，这样你就可以订制自己的读取进程。一
 个进一步的例子可以看看 <netrw.vim> 如何处理 Windows 95 ftp 的函数。不知何种原
-因，Windows 95 的 ftp 再传输结束以后加了四个空行，所以应该自动把它们删除。这里
+因，Windows 95 的 ftp 在传输结束以后加了四个空行，所以应该自动把它们删除。这里
 是 <netrw.vim> 自己的一些代码: >
 >
     if has("win95") && g:netrw_win95ftp

@@ -654,7 +654,7 @@ ghostscript 的程序用在别的打印机上。
 			同上，但把 Postscript 打印到文件 {filename}。
 			其中，"%" 等结构通过 |cmdline-special| 得到扩展。
 			需要小心的是，现存的同名文件将被不加提示的覆盖。
-			{only 必须编译时加入 |+postscript| 特征才能有此功能}
+			{only 必须编译时加入 |+postscript| 特性才能有此功能}
 			在 MS-Windows 上应使用打印机驱动程序的 "输出到文件"
 			功能。
 

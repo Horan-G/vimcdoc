@@ -58,7 +58,7 @@ Indianapolis IN 46220 USA
 2. .vimrc 和 .vim 文件					*mac-vimfile*
 
 在 Mac 机上，一般应避免使用以 "." 开头的文件，所以那些 rc 文件被命名为
-"vimrc" 或 "_vimrc"，以及 "gvimrc" 或 "_gvimrc"。这些文件可以是任何形式（mac,
+"vimrc" 或 "_vimrc"，以及 "gvimrc" 或 "_gvimrc"。这些文件可以是任何格式（mac,
 dos 或 unix）。如果 |'nocompatible'| 选项打开，Vim 可以处理任何文件格式，否则
 它只能处理 mac 格式的文件。
 

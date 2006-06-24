@@ -1527,6 +1527,9 @@ exists("*s:Func")	查看是否已经定义了某个函数。
 	:endif
 	:let current_compiler = "mine"
 
+当你写了编译器文件并把它放到你个人的运行时目录 (例如，Unix 上 ~/.vim/compiler)
+时，你需要设置 "current_compiler" 变量，使得缺省文件不进行设置。
+
 第二个特别之处是：用 ":set" 命令来配合 ":compiler!" 而用 ":setlocal" 来配合
 ":compiler"。Vim 为此定义了 ":CompilerSet" 用户命令。然而旧版本的 Vim 没有，
 因此你的插件应该提供该命令。下面是一个例子: >

@@ -284,11 +284,11 @@ expr8							*expr8*
 -----
 expr9[expr1]		字符串索引		*expr-[]* *E111*
 
-结果是字符串，包含 expr9 里第 expr 个字节。expr9 视作字符串，expr1 视作数值。
+结果是字符串，包含 expr9 里第 expr1 个字节。expr9 视作字符串，expr1 视作数值。
 注意 这不适用于多字节编码。
 
 注意 索引 0 给出第一个字符。这和 C 类同。
-要小心: 文本列号是从 1 可开始的！例如，要得到光标所在的字符: >
+要小心: 文本列号可是从 1 开始的！例如，要得到光标所在的字符: >
 	:let c = getline(line("."))[col(".") - 1]
 
 如果字符串的长度小于索引值，结果为空字符串。
@@ -575,7 +575,7 @@ v:exception	最近捕获且没有完成的例外的值。见 |v:throwpoint| 和
 	:catch /.*/
 	:  echo "caught" v:exception
 	:endtry
-<		输出: "caught oops".
+<		输出: "caught oops"。
 
 					*v:fname_in* *fname_in-variable*
 v:fname_in	输入文件名。只有在计算以下选项时才合法:
@@ -632,7 +632,7 @@ v:lc_time	运行环境当前的时间消息 locale 设置。它使得 Vim
 
 						*v:lnum* *lnum-variable*
 v:lnum		'foldexpr' 和 'indentexpr' 表达式里的行号。只有在计算这些表达
-		的时候才合法。
+		式的时候才合法。
 		只读。|fold-expr| 'indentexpr'
 
 					*v:prevcount* *prevcount-variable*
@@ -767,8 +767,7 @@ getwinposx()			数值	GUI Vim 窗口以像素计的 X 坐标
 getwinposy()			数值	GUI Vim 窗口以像素计的 Y 坐标
 getwinvar( {nr}, {varname})		窗口 {expr} 的变量 {varname}
 glob( {expr})			字符串	扩展 {expr} 里的文件通配符
-globpath( {path}, {expr})	字符串	在 {path} 的所有目录下执行
-					glob({expr})
+globpath( {path}, {expr})	字符串	在 {path} 所有目录下执行 glob({expr})
 has( {feature})			数值	如果支持特性 {feature} 则为真
 hasmapto( {what} [, {mode}])	数值	如果 {what} 的映射存在则为真
 histadd( {history},{item})	字符串	在历史里增加项目
@@ -867,7 +866,7 @@ argc()		返回当前窗口参数列表的文件数目。见 |arglist|。
 
 							*argidx()*
 argidx()	返回参数列表的当前索引。0 是第一个文件。argc() - 1 是最后一
-		个。见 |arglist|.
+		个。见 |arglist|。
 
 							*argv()*
 argv({nr})	返回当前窗口参数列表第 {nr} 个参数。见 |arglist|。"argv(0)" 是
@@ -882,8 +881,8 @@ argv({nr})	返回当前窗口参数列表第 {nr} 个参数。见 |arglist|。"a
 <
 							*browse()*
 browse({save}, {title}, {initdir}, {default})
-		启动文件请求窗口。只有在 "has("browse")" 返回非零 (只有在一些
-		GUI 版本里) 才可以。
+		启动文件请求窗口。只有在 "has("browse")" 返回非零时 (只有在一
+		些 GUI 版本里) 才可以。
 		输入的字段包括:
 		    {save}	非零时，选择要写入的文件
 		    {title}	请求窗口的标题
@@ -1140,7 +1139,7 @@ exists({expr})	返回数值，如果 {expr} 被定义，返回非零，不然返
 			#event		符合此事件的自动命令
 			#event#pattern	符合此事件和此模式的自动命令 (模式按本
 					义出现，和自动命令的模式逐字符比较)
-		要检查某特性是否支持，用 |has()|.
+		要检查某特性是否支持，用 |has()|。
 
 		例如: >
 			exists("&shortname")
@@ -1280,7 +1279,7 @@ getchar([expr])						*getchar()*
 		制: 128) 开始。
 		如果忽略 [expr]，等待直到有字符输入为止。
 		如果 [expr] 为 0，只有在有字符可用时才取得字符。
-		如果 [expr] 为 1，只检查是否有字符可用。但不消耗该字符。如果可
+		如果 [expr] 为 1，只检查是否有字符可用，并不消耗该字符。如果可
 				用的是普通字符，返回之。不然返回非零值。
 		如果有可用的普通字符，以数值形式返回。用 nr2char() 把它转化成
 		字符串。
@@ -1359,7 +1358,7 @@ getftime({fname})					*getftime()*
 							*getline()*
 getline({lnum}) 返回字符串，即当前缓冲区第 {lnum} 行文本。例如: >
 			getline(1)
-<		如果 {lnum} 是不以数字开始的字符串，调用 line() 来吧该字符串转
+<		如果 {lnum} 是不以数字开始的字符串，调用 line() 来把该字符串转
 		化成数值。要得到光标所在的行: >
 			getline(".")
 <		如果 {lnum} 小于 1 或者大于缓冲区的总行数，返回空字符串。
@@ -1400,7 +1399,8 @@ getwinvar({nr}, {varname})				*getwinvar()*
 							*glob()*
 glob({expr})	扩展 {expr} 里的文件通配符。结果是字符串。如果返回多个匹配，以
 		<NL> 字符分隔。
-		如果扩展失败，返回空字符串。这不包括不存在文件的名字。
+		如果扩展失败，返回空字符串。
+		扩展结果不包含不存在文件的名字。
 
 		多数系统上，可以用反引号从外部命令得到文件名。例如: >
 			:let tagfiles = glob("`find . -name tags -print`")
@@ -1714,7 +1714,6 @@ maparg({name}[, {mode}])				*maparg()*
 			l	Language-Argument ("r"、 "f"、"t" 等等) 模式
 			""	普通、可视和操作符等待模式。
 		如果没有提供 {mode}，使用 "" 指定的模式。
-
 		{name} 可以使用特殊键名，如同 ":map" 命令那样。返回的字符串会
 		把特殊的字符翻译成和 ":map" 命令所列出输出结果一样的格式。
 		先检查局部于当前缓冲区的映射，然后再检查全局映射。
@@ -1935,11 +1934,10 @@ search({pattern} [, {flags}])				*search()*
 		    :endwhile
 <
 							*searchpair()*
-
 searchpair({start}, {middle}, {end} [, {flags} [, {skip}]])
 		搜索嵌套的 start-end 组对的匹配。这可以用来查找匹配 "if" 的
 		"endif"。在这里面的其它的 if/endif 组对被忽略。搜索从光标开
-		始。如果找到一个匹配，光标移动到哪里并返回行号。如果没有匹配，
+		始。如果找到一个匹配，光标移动到那里并返回行号。如果没有匹配，
 		返回 0 或者 -1，光标不移动。不会给出错误信息。
 
 		{start}、{middle} 和 {end} 都是模式，见 |pattern|。它们不能包
@@ -2016,7 +2014,7 @@ serverlist()					*serverlist()*
 			:echo serverlist()
 <
 setbufvar({expr}, {varname}, {val})			*setbufvar()*
-		设置缓冲区 {expr} 的选项或局部变量 {varname} 的值为 {val}.
+		设置缓冲区 {expr} 的选项或局部变量 {varname} 的值为 {val}。
 		也可用于全局或者局部于窗口的选项，但不能用于全局或者局部于窗口
 		的变量。
 		如果设置局部于窗口的选项，全局值不会改变。
@@ -2052,7 +2050,7 @@ setreg({regname}, {value} [,{options}])
 		    "b" 或 "<CTRL-V>" |blockwise-visual| (面向列块) 模式
 		如果 "b" 或 "<CTRL-V>" 之后紧跟数值，那么该数值用作选择的宽度
 		- 如果没有指定，那么列块的宽度设为最长的行字符数 (把 <TAB>
-		看作一个字符).
+		看作一个字符)。
 
 		如果 {options} 没有寄存器的设置，那么缺省使用面向字符模式，除
 		非 {value} 以 <NL> 结尾。
@@ -2074,7 +2072,7 @@ setreg({regname}, {value} [,{options}])
 			:call setreg('a', '', 'al')
 
 setwinvar({nr}, {varname}, {val})			*setwinvar()*
-		设置窗口 {nr} 的选项或局部变量 {varname} 的值为 {val}.
+		设置窗口 {nr} 的选项或局部变量 {varname} 的值为 {val}。
 		也可用于全局或者局部于缓冲区的选项，但不能用于全局或者局部于缓
 		冲区的变量。
 		如果设置局部于缓冲区的选项，全局值不会改变。
@@ -2129,7 +2127,7 @@ strlen({expr})	返回数值，即字符串 {expr} 的字节长度。如果你要
 <		组合用字符不予计算。
 
 strpart({src}, {start}[, {len}])			*strpart()*
-		返回字符串，{src} 从第 {start} 个字节长度为 {len} 的子串。
+		返回字符串，{src} 从第 {start} 个字节开始长度为 {len} 的子串。
 		如果包含不存在的字节，不会产生错误。只是那些字节被忽略而已。
 		如果没有提供 {len}，子串从 {start} 开始直到 {src} 的结尾。 >
 			strpart("abcdefg", 3, 2)    == "de"
@@ -2168,7 +2166,7 @@ substitute({expr}, {pat}, {sub}, {flags})		*substitute()*
 		假定置位了 'magic' 选项而且 'cpoptions' 为空 (为了脚本的可移植
 		性)。
 		|string-match| 说明如何使用 {pat}。
-		{sub} 里的 '~' 不会被换成前一个 {sub}.
+		{sub} 里的 '~' 不会被换成前一个 {sub}。
 		注意 {sub} 里的一些代码有特殊含义 |sub-replace-special|。比
 		如，要替换一些文本为 "\n" (两个字符)，使用 "\\\\n" 或 '\\n'。
 		如果 {pat} 在 {expr} 里不能匹配，返回没有修改的 {expr}。
@@ -2226,7 +2224,8 @@ synIDtrans({synID})					*synIDtrans()*
 							*system()*
 system({expr})	得到外壳命令 {expr} 的输出结果。注意: {expr} 里的换行可能会使
 		命令失败。'shellquote' 和 'shellxquote' 里的字符也可能会引起麻
-		烦。它不是用来执行交互命令的。
+		烦。
+		这不是用来执行交互命令的。
 		返回字符串。示例: >
 
 			:let files = system("ls")
@@ -2257,11 +2256,11 @@ tempname()					*tempname()* *temp-file-name*
 
 tolower({expr})						*tolower()*
 		返回给出字符串的备份，但所有的大写字符变为小写 (就如同在字符串
-		上应用了 |gu| 一样).
+		上应用了 |gu| 一样)。
 
 toupper({expr})						*toupper()*
 		返回给出字符串的备份，但所有的小写字符变为大写 (就如同在字符串
-		上应用了 |gU| 一样).
+		上应用了 |gU| 一样)。
 
 type({expr})						*type()*
 		返回数值:
@@ -2751,9 +2750,9 @@ FuncUndefined 自动命令事件完成，它需要一个能匹配等待定义的
 			|:setglocal| 类似。
 
 							*E106*
-:let {var-name}	..	列出变量 {var-name} 的字。可以给出多个变量的名字。
+:let {var-name}	..	列出变量 {var-name} 的值。可以给出多个变量的名字。
 
-:let			列出所有变量的名字。
+:let			列出所有变量的值。
 
 							*:unlet* *:unl* *E108*
 :unl[et][!] {var-name} ...

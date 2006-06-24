@@ -270,7 +270,7 @@ Vim 中有两种插件：
 
 	系统		插件目录 ~
 	Unix		~/.vim/plugin/
-	PC and OS/2	$HOME/vimfiles/plugin 或 $VIM/vimfiles/plugin
+	PC 和 OS/2	$HOME/vimfiles/plugin 或 $VIM/vimfiles/plugin
 	Amiga		s:vimfiles/plugin
 	Macintosh	$VIM:vimfiles:plugin
 	RISC-OS		Choices:vimfiles.plugin
